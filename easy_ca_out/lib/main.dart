@@ -1,4 +1,3 @@
-import 'package:easy_ca/firebase/firebase_src.dart';
 import 'package:easy_ca/generated/locales.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +7,6 @@ import 'core/core.src.dart';
 import 'shares/shares.src.dart';
 
 Future<void> main() async {
-  await FirebaseInit().initializeFlutterFire();
   runApp(const Application());
 }
 

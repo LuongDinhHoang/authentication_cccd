@@ -88,15 +88,6 @@ dependencies:
   flutter_nfc_kit: 3.4.2
   url_launcher: ^6.2.1
   youtube_player_flutter: 8.1.2
-  upgrader: ^10.3.0
-
-  # firebase
-#  cloud_firestore: 4.15.8
-#  firebase_database: 10.4.6
-  firebase_remote_config: 4.3.14
-  firebase_auth: 4.17.5
-#  firebase_core: 2.27.0
-
 
 #  gallery_saver: ^2.1.1
 dev_dependencies:

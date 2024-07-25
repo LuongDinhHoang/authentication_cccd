@@ -1,9 +1,7 @@
 /// class chứa các api để giao tiếp với BE
 // Todo: AppUrl
 class AppApi {
-  // static const String url = 'http://14.225.3.214:8080/api';
-    static const String url = 'http://14.225.17.182:8888/api';
-
+  static const String url = 'http://14.225.3.214:8080/api';
   static const String version = "?v=1.0";
   static const String loginCa = "/authenticate";
   static const String sendLiveNessData = "/live-ness-data/sendLiveNessData";

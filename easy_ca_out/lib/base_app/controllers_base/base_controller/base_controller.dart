@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:easy_ca/base_app/base_app.src.dart';
 import 'package:easy_ca/core/core.src.dart';
-import 'package:easy_ca/firebase/firebase_src.dart';
 import 'package:easy_ca/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +8,7 @@ import 'package:get/get.dart';
 import '../../../shares/widgets/widgets.src.dart';
 
 class BaseGetxController extends GetxController {
+
   /// Show loading button
   RxBool isShowLoading = false.obs;
   String errorContent = '';
@@ -101,8 +101,9 @@ class BaseGetxController extends GetxController {
               break;
             case DioExceptionType.badResponse:
               switch (error.response!.statusCode) {
+
                 case AppConst.error400:
-                  errorContent = LocaleKeys.dialog_error400.tr;
+                  errorContent =LocaleKeys.dialog_error400.tr;
                   break;
                 case AppConst.error401:
                   errorContent = LocaleKeys.dialog_error401.tr;
