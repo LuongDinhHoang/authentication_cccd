@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "179883609380",
+    "project_id": "easy-kyc",
+    "storage_bucket": "easy-kyc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179883609380:android:f95483ed5e008869e937b1",
+        "android_client_info": {
+          "package_name": "vn.softdreams.easy.ca"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEErAgsSaRwEVZeKM1CiKEhOW_dx8rmsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
