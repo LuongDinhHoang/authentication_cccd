@@ -47,6 +47,8 @@
 	<string>Truy cập micro để giúp tạo video sinh động hơn</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Truy cập bộ sưu tập giúp quý khách chọn ảnh chữ ký</string>
+	<key>NSFaceIDUsageDescription</key>
+    <string>Quý khách vui lòng cho phép xác thực bằng vân tay hoặc khuôn mặt để sử dụng tính năng này</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

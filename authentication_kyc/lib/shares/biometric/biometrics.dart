@@ -1,7 +1,6 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:authentication_kyc/shares/widgets/dialog/dialog_utils.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth_android/local_auth_android.dart';
@@ -12,7 +11,7 @@ class Biometrics {
 
   Biometrics._internal();
 
-  static Biometrics _singleton = Biometrics._internal();
+  static final Biometrics _singleton = Biometrics._internal();
 
   LocalAuthentication auth = LocalAuthentication();
 
@@ -39,7 +38,8 @@ class Biometrics {
   }
 
   Future<bool?> authenticate(
-      {String localizedReasonStr = "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
+      {String localizedReasonStr =
+          "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
       Function? onDeviceUnlockUnavailable,
       Function? onAfterLimit}) async {
     bool authenticated = false;
@@ -65,12 +65,13 @@ class Biometrics {
           ),
         ],
         localizedReason: localizedReasonStr,
-        options: AuthenticationOptions(
+        options: const AuthenticationOptions(
             useErrorDialogs: false,
             sensitiveTransaction: false,
             stickyAuth: true),
       );
     } catch (e) {
+      print("88888--$e");
       if (e is PlatformException) {
         if (e.code == auth_error.lockedOut) {
           if (onAfterLimit!() != null) {

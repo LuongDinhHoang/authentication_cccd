@@ -56,6 +56,10 @@ Widget _body(LoginController controller) {
                   functionLogin: () async {
                     await controller.confirmLogin();
                   },
+                  functionLoginBiometric: () async {
+                    await controller.loginFingerprint();
+                  },
+                  isFaceID:controller.biometricTypes.contains(BiometricType.face),
                 ),
               ),
               TextButton(

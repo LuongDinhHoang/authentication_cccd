@@ -2,6 +2,8 @@ import 'package:authentication_kyc/core/base/base.src.dart';
 import 'package:authentication_kyc/modules/login/login.src.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/verify_profile_ca/repository/login_ca_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:local_auth/local_auth.dart';
 
 import '../../../base_app/base_app.src.dart';
 import '../../../core/core.src.dart';
@@ -21,6 +23,8 @@ class LoginController extends BaseGetxController {
 
   RxBool isShowTime = false.obs;
   RxString checkStatusNfc = "".obs;
+  RxList<BiometricType> biometricTypes = RxList<BiometricType>();
+
 
   late LoginCaRepository loginCaRepository;
 
@@ -28,6 +32,7 @@ class LoginController extends BaseGetxController {
   Future<void> onInit() async {
     initText();
     initTextHive();
+    biometricTypes.value = await Biometrics().getAvailableBiometrics() ?? [];
     loginCaRepository = LoginCaRepository(this);
     super.onInit();
   }
@@ -51,6 +56,44 @@ class LoginController extends BaseGetxController {
     // userNameController.text = hiveApp.get(AppConst.userName) ?? "";
     // passwordController.text = hiveApp.get(AppConst.password) ?? "";
   }
+  Future<void> loginFingerprint({bool? autoBiometric}) async {
+    // if (appController.isFingerprintOrFaceID.isTrue) {
+      await Biometrics()
+          .authenticate(
+          localizedReasonStr: "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
+          onDeviceUnlockUnavailable: () {
+            Fluttertoast.showToast(
+                msg: "Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!",
+                toastLength: Toast.LENGTH_LONG);
+          },
+          onAfterLimit: () {
+            Fluttertoast.showToast(
+                msg: "Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!",
+                toastLength: Toast.LENGTH_LONG);
+          })
+          .then((isAuthenticated) async {
+        // if (isAuthenticated != null && isAuthenticated) {
+        //   await appController.savePassword
+        //       .read(AppKey.keyPass + HIVE_APP.get(AppKey.keyPhone))
+        //       .then((result) {
+        //     if (result.isNotEmpty) {
+        //       passwordController.text = result;
+        //       funcLogin();
+        //     } else {
+        //       showSnackBar(AppStr.notSavedAccount.tr);
+        //     }
+        //   });
+        // } else {
+        //   showSnackBar(AppStr.authenticationFailed.tr);
+        // }
+      });
+    // } else if (!(autoBiometric ?? true)) {
+    //   ShowPopup.showErrorMessage(biometricTypes.contains(BiometricType.face)
+    //       ? AppStr.notSaveFaceID.tr
+    //       : AppStr.notSaveFingerprint.tr);
+    // }
+  }
+
 
   Future<void> confirmLogin() async {
     // Get.toNamed(

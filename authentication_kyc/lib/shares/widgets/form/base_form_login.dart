@@ -1,3 +1,4 @@
+import 'package:authentication_kyc/assets.dart';
 import 'package:authentication_kyc/core/theme/colors.dart';
 import 'package:authentication_kyc/core/values/dimens.dart';
 import 'package:authentication_kyc/generated/locales.g.dart';
@@ -21,7 +22,7 @@ class BaseFormLogin {
     bool isForgotPassword = true,
     required Function() functionLogin,
     bool isFaceID = true,
-    // Function() functionLoginBiometric = (){},
+    Function()? functionLoginBiometric,
   }) {
     return Form(
       key: formKey,
@@ -52,24 +53,27 @@ class BaseFormLogin {
           _buildOptional(isRemember, isForgotPassword),
           Row(
             children: [
-              Expanded(child: _buildButtonLogin(isShowLoading, function: functionLogin)),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(
-              //       horizontal: AppDimens.paddingDefault),
-              //   child: IconButton(
-              //     onPressed: () async {
-              //       functionLoginBiometric();
-              //       // controller.loginFingerprint(autoBiometric: false);
-              //     },
-              //     icon: Image.asset(
-              //       isFaceID
-              //           ? AppStr.icFaceId
-              //           : AppStr.imgFingerprint,
-              //       fit: BoxFit.fill,
-              //       color: AppColors.primaryCam1,
-              //     ),
-              //   ),
-              // )
+              Expanded(
+                  child: _buildButtonLogin(isShowLoading,
+                      function: functionLogin)),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimens.paddingDefault),
+                child: SizedBox(
+                  width: AppDimens.btnMedium,
+                  height: AppDimens.btnMedium,
+                  child: IconButton(
+                    onPressed: functionLoginBiometric ?? () {},
+                    icon: Image.asset(
+                      isFaceID
+                          ? Assets.ASSETS_JPG_ICON_FACEID_PNG
+                          : Assets.ASSETS_JPG_ICON_FINGERPRINT_PNG,
+                      fit: BoxFit.fill,
+                      // color: AppColors.primaryCam1,
+                    ),
+                  ),
+                ),
+              )
             ],
           )
         ],

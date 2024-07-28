@@ -7,6 +7,13 @@
 class Assets {
   const Assets._();
 
+  /// {@macro assets_generator.ASSETS_JPG_ICON_FACEID_PNG.preview}
+  static const String ASSETS_JPG_ICON_FACEID_PNG = 'assets/jpg/icon_faceid.png';
+
+  /// {@macro assets_generator.ASSETS_JPG_ICON_FINGERPRINT_PNG.preview}
+  static const String ASSETS_JPG_ICON_FINGERPRINT_PNG =
+      'assets/jpg/icon_fingerprint.png';
+
   /// {@macro assets_generator.ASSETS_JPG_IMAGE_DEFAULT_JPG.preview}
   static const String ASSETS_JPG_IMAGE_DEFAULT_JPG =
       'assets/jpg/image_default.jpg';

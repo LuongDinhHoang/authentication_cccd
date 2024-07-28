@@ -6,6 +6,7 @@ import 'package:authentication_kyc/modules/login/controllers/login_controller.da
 import 'package:authentication_kyc/shares/widgets/text/font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_auth/local_auth.dart';
 
 import '../../../shares/shares.src.dart';
 import '../../../shares/widgets/form/base_form_login.dart';
