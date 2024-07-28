@@ -88,6 +88,7 @@ dependencies:
   flutter_nfc_kit: 3.4.2
   url_launcher: ^6.2.1
   youtube_player_flutter: 8.1.2
+  local_auth: ^2.2.0
 
 #  gallery_saver: ^2.1.1
 dev_dependencies:

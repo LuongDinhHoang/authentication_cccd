@@ -20,6 +20,8 @@ class BaseFormLogin {
     required GlobalKey formKey,
     bool isForgotPassword = true,
     required Function() functionLogin,
+    bool isFaceID = true,
+    // Function() functionLoginBiometric = (){},
   }) {
     return Form(
       key: formKey,
@@ -48,7 +50,28 @@ class BaseFormLogin {
             onEditingComplete: functionLogin,
           ),
           _buildOptional(isRemember, isForgotPassword),
-          _buildButtonLogin(isShowLoading, function: functionLogin)
+          Row(
+            children: [
+              Expanded(child: _buildButtonLogin(isShowLoading, function: functionLogin)),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(
+              //       horizontal: AppDimens.paddingDefault),
+              //   child: IconButton(
+              //     onPressed: () async {
+              //       functionLoginBiometric();
+              //       // controller.loginFingerprint(autoBiometric: false);
+              //     },
+              //     icon: Image.asset(
+              //       isFaceID
+              //           ? AppStr.icFaceId
+              //           : AppStr.imgFingerprint,
+              //       fit: BoxFit.fill,
+              //       color: AppColors.primaryCam1,
+              //     ),
+              //   ),
+              // )
+            ],
+          )
         ],
       ),
     );
