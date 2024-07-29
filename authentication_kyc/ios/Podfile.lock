@@ -15,6 +15,9 @@ PODS:
   - flutter_inappwebview/Core (0.0.1):
     - Flutter
     - OrderedSet (~> 5.0)
+  - flutter_mrz_scanner (0.0.1):
+    - Flutter
+    - SwiftyTesseract
   - flutter_nfc_kit (2.0.0):
     - Flutter
   - flutter_pdfview (1.0.2):
@@ -72,6 +75,8 @@ PODS:
   - GTMSessionFetcher/Core (2.3.0)
   - just_audio (0.0.1):
     - Flutter
+  - local_auth_darwin (0.0.1):
+    - Flutter
   - MLImage (1.0.0-beta4)
   - MLKitBarcodeScanning (3.0.0):
     - MLKitCommon (~> 9.0)
@@ -115,6 +120,7 @@ PODS:
   - sqflite (0.0.3):
     - Flutter
     - FlutterMacOS
+  - SwiftyTesseract (3.1.3)
   - syncfusion_flutter_pdfviewer (0.0.1):
     - Flutter
   - Toast (4.1.1)
@@ -128,6 +134,7 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
+  - flutter_mrz_scanner (from `.symlinks/plugins/flutter_mrz_scanner/ios`)
   - flutter_nfc_kit (from `.symlinks/plugins/flutter_nfc_kit/ios`)
   - flutter_pdfview (from `.symlinks/plugins/flutter_pdfview/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
@@ -136,6 +143,7 @@ DEPENDENCIES:
   - google_mlkit_commons (from `.symlinks/plugins/google_mlkit_commons/ios`)
   - google_mlkit_face_detection (from `.symlinks/plugins/google_mlkit_face_detection/ios`)
   - just_audio (from `.symlinks/plugins/just_audio/ios`)
+  - local_auth_darwin (from `.symlinks/plugins/local_auth_darwin/darwin`)
   - mobile_scanner (from `.symlinks/plugins/mobile_scanner/ios`)
   - nfc_manager (from `.symlinks/plugins/nfc_manager/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
@@ -161,6 +169,7 @@ SPEC REPOS:
     - nanopb
     - OrderedSet
     - PromisesObjC
+    - SwiftyTesseract
     - Toast
 
 EXTERNAL SOURCES:
@@ -176,6 +185,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_inappwebview:
     :path: ".symlinks/plugins/flutter_inappwebview/ios"
+  flutter_mrz_scanner:
+    :path: ".symlinks/plugins/flutter_mrz_scanner/ios"
   flutter_nfc_kit:
     :path: ".symlinks/plugins/flutter_nfc_kit/ios"
   flutter_pdfview:
@@ -192,6 +203,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/google_mlkit_face_detection/ios"
   just_audio:
     :path: ".symlinks/plugins/just_audio/ios"
+  local_auth_darwin:
+    :path: ".symlinks/plugins/local_auth_darwin/darwin"
   mobile_scanner:
     :path: ".symlinks/plugins/mobile_scanner/ios"
   nfc_manager:
@@ -212,10 +225,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
   audio_session: 088d2483ebd1dc43f51d253d4a1c517d9a2e7207
-  camera_avfoundation: 759172d1a77ae7be0de08fc104cfb79738b8a59e
+  camera_avfoundation: dd002b0330f4981e1bbcb46ae9b62829237459a4
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_inappwebview: 3d32228f1304635e7c028b0d4252937730bbc6cf
+  flutter_mrz_scanner: 1c2bb701201cff2458d76a4544f3ec3c5e7de4c3
   flutter_nfc_kit: 965c98c3fa68f5609f1cc89abb968fe1b8ffdbaa
   flutter_pdfview: 25f53dd6097661e6395b17de506e6060585946bd
   flutter_secure_storage: d33dac7ae2ea08509be337e775f6b59f1ff45f12
@@ -230,6 +244,7 @@ SPEC CHECKSUMS:
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   just_audio: baa7252489dbcf47a4c7cc9ca663e9661c99aafa
+  local_auth_darwin: 4d56c90c2683319835a61274b57620df9c4520ab
   MLImage: 7bb7c4264164ade9bf64f679b40fb29c8f33ee9b
   MLKitBarcodeScanning: 04e264482c5f3810cb89ebc134ef6b61e67db505
   MLKitCommon: c1b791c3e667091918d91bda4bba69a91011e390
@@ -244,6 +259,7 @@ SPEC CHECKSUMS:
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
+  SwiftyTesseract: 1f3d96668ae92dc2208d9842c8a59bea9fad2cbb
   syncfusion_flutter_pdfviewer: bb9998884b864cfedf72628df3503bdf57e397c0
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe

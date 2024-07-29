@@ -1,9 +1,7 @@
 import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/shares/utils/time/date_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_mrz_scanner/flutter_mrz_scanner.dart';
+import 'package:get/get.dart';
 
 class ScanMRZController extends BaseGetxController {
   final AppController appController = Get.find<AppController>();
@@ -29,7 +27,7 @@ class ScanMRZController extends BaseGetxController {
       await showDialog<void>(
           context: Get.context!,
           builder: (context) => AlertDialog(
-              content: Column(
+                  content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text('Document type: ${result.documentType}'),
@@ -67,5 +65,4 @@ class ScanMRZController extends BaseGetxController {
   void onClose() {
     cameraController.stopPreview();
   }
-
 }
