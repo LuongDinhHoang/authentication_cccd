@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/nfc_kyc/nfc_kyc.src.dart';
-import 'package:authentication_kyc/shares/shares.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_kyc/nfc_kyc.src.dart';
+import 'package:two_id_c06verify/shares/shares.src.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../base_app/controllers_base/base_controller/base_controller.src.dart';

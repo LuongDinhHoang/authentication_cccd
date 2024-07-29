@@ -1,8 +1,8 @@
 import 'package:app_settings/app_settings.dart';
-import 'package:authentication_kyc/assets.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/generated/locales.g.dart';
-import 'package:authentication_kyc/shares/shares.src.dart';
+import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/shares/shares.src.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';

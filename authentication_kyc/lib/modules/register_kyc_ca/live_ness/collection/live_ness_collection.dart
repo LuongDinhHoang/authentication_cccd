@@ -1,5 +1,5 @@
-import 'package:authentication_kyc/assets.dart';
-import 'package:authentication_kyc/generated/locales.g.dart';
+import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 class LiveNessCollection {

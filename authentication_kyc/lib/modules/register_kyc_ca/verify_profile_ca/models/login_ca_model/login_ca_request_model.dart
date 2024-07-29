@@ -1,5 +1,5 @@
-import 'package:authentication_kyc/hive_helper/hive_adapters.dart';
-import 'package:authentication_kyc/hive_helper/hive_types.dart';
+import 'package:two_id_c06verify/hive_helper/hive_adapters.dart';
+import 'package:two_id_c06verify/hive_helper/hive_types.dart';
 import 'package:hive/hive.dart';
 
 import '../../../../../hive_helper/fields/login_ca_request_model_fields.dart';

@@ -1,4 +1,4 @@
-import 'package:authentication_kyc/modules/register_kyc_ca/service_package/service_package_src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/service_package/service_package_src.dart';
 
 class ConfigCertificateModel {
   ConfigCertificateModel({

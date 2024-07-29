@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/core/base/base.src.dart';
-import 'package:authentication_kyc/modules/login/login.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/verify_profile_ca/repository/login_ca_repository.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/modules/login/login.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/verify_profile_ca/repository/login_ca_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:local_auth/local_auth.dart';

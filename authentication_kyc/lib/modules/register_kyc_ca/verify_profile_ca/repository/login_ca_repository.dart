@@ -1,8 +1,8 @@
-import 'package:authentication_kyc/base_app/controllers_base/base_controller/base_controller.dart';
-import 'package:authentication_kyc/base_app/repository_base/base_repository.dart';
-import 'package:authentication_kyc/core/base/base.src.dart';
-import 'package:authentication_kyc/core/values/app_api.dart';
-import 'package:authentication_kyc/modules/login/login.src.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller/base_controller.dart';
+import 'package:two_id_c06verify/base_app/repository_base/base_repository.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/core/values/app_api.dart';
+import 'package:two_id_c06verify/modules/login/login.src.dart';
 
 import '../../../../core/enum/enum_request_method.dart';
 import '../verify_profile_ca_src.dart';

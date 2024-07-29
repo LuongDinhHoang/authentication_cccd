@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/base/base.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/pdf_registration_form_ca/repository/pdf_registration_form_repository.dart';
-import 'package:authentication_kyc/shares/package/export_package.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/pdf_registration_form_ca/repository/pdf_registration_form_repository.dart';
+import 'package:two_id_c06verify/shares/package/export_package.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfRegistrationFormController extends BaseGetxController {

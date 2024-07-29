@@ -1,5 +1,5 @@
-import 'package:authentication_kyc/generated/locales.g.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 

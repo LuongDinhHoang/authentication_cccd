@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/base/model/base_response.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/confirm_information/models/file_signature_request_model.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/confirm_information/models/person_info_request_model.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/base/model/base_response.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/confirm_information/models/file_signature_request_model.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/confirm_information/models/person_info_request_model.dart';
 
 class ConfirmInfoRepository extends BaseRepository {
   ConfirmInfoRepository(BaseGetxController controller) : super(controller);

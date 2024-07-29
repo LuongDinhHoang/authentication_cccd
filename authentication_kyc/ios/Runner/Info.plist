@@ -15,7 +15,7 @@
 		<string>en-US</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>EasyCA</string>
+	<string>2ID Verify</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

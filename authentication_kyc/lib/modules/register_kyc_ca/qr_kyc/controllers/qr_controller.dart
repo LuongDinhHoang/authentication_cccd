@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/shares/utils/time/date_utils.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 

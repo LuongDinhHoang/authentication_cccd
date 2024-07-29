@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
-import 'package:authentication_kyc/shares/shares.src.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
+import 'package:two_id_c06verify/shares/shares.src.dart';
 import 'package:screenshot/screenshot.dart';
 
 class TakePictureCardKycController extends BaseGetxController {

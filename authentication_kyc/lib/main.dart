@@ -1,4 +1,4 @@
-import 'package:authentication_kyc/generated/locales.g.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

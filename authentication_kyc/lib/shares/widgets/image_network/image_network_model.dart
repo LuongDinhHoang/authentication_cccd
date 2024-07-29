@@ -1,5 +1,5 @@
-import 'package:authentication_kyc/assets.dart';
-import 'package:authentication_kyc/core/core.src.dart';
+import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:flutter/material.dart';
 
 class SDSImageNetworkModel {

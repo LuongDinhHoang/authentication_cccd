@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/base_app/views_base/base_widget.dart';
-import 'package:authentication_kyc/shares/utils/time/date_utils.dart';
-import 'package:authentication_kyc/shares/widgets/text/font_style.dart';
+import 'package:two_id_c06verify/base_app/views_base/base_widget.dart';
+import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
+import 'package:two_id_c06verify/shares/widgets/text/font_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.src.dart';

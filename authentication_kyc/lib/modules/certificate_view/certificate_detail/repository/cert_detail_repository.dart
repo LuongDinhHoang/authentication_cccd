@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/base/base.src.dart';
-import 'package:authentication_kyc/modules/certificate_view/certificate_detail/model/send_verify_cert_model.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/modules/certificate_view/certificate_detail/model/send_verify_cert_model.dart';
 
 import '../../../../core/core.src.dart';
 

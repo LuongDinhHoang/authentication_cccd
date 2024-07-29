@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:authentication_kyc/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScanNfcController extends BaseGetxController {

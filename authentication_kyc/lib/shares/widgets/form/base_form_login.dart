@@ -1,7 +1,7 @@
-import 'package:authentication_kyc/assets.dart';
-import 'package:authentication_kyc/core/theme/colors.dart';
-import 'package:authentication_kyc/core/values/dimens.dart';
-import 'package:authentication_kyc/generated/locales.g.dart';
+import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/core/theme/colors.dart';
+import 'package:two_id_c06verify/core/values/dimens.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
 import '../../shares.src.dart';

@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/base_app/controllers_base/base_controller/base_controller.dart';
-import 'package:authentication_kyc/base_app/repository_base/base_repository.dart';
-import 'package:authentication_kyc/core/base/base.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/core/values/app_api.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller/base_controller.dart';
+import 'package:two_id_c06verify/base_app/repository_base/base_repository.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/core/values/app_api.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
 
 import '../../../../core/enum/enum_request_method.dart';
 

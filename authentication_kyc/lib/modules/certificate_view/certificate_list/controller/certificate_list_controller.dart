@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/base_app/base_app.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
-import 'package:authentication_kyc/shares/package/export_package.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/shares/package/export_package.dart';
 
 import '../certificate_list.src.dart';
 

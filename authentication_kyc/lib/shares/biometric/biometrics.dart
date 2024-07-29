@@ -1,5 +1,5 @@
 import 'package:app_settings/app_settings.dart';
-import 'package:authentication_kyc/shares/widgets/dialog/dialog_utils.dart';
+import 'package:two_id_c06verify/shares/widgets/dialog/dialog_utils.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:local_auth/local_auth.dart';

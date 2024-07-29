@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/base_app/views_base/base_widget.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/nfc_kyc/controllers/video_scan_nfc_controller.dart';
-import 'package:authentication_kyc/shares/package/export_package.dart';
+import 'package:two_id_c06verify/base_app/views_base/base_widget.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_kyc/controllers/video_scan_nfc_controller.dart';
+import 'package:two_id_c06verify/shares/package/export_package.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

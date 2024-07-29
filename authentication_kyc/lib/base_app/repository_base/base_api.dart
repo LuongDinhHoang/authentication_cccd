@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:authentication_kyc/base_app/controllers_base/base_controller.src.dart';
-import 'package:authentication_kyc/core/core.src.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
 
 class BaseApi {
   static Dio dio = getBaseDio();

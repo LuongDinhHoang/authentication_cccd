@@ -1,4 +1,4 @@
-import 'package:authentication_kyc/base_app/controllers_base/base_controller.src.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller.src.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';

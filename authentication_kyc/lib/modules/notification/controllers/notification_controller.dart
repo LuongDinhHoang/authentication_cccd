@@ -1,5 +1,5 @@
-import 'package:authentication_kyc/base_app/controllers_base/base_controller/base_controller.dart';
-import 'package:authentication_kyc/modules/notification/models/notification_model.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller/base_controller.dart';
+import 'package:two_id_c06verify/modules/notification/models/notification_model.dart';
 
 class NotificationController extends BaseGetxController {
   List<NotificationModel> listNoti = <NotificationModel>[

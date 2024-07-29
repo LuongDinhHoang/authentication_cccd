@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:authentication_kyc/base_app/controllers_base/base_controller.src.dart';
-import 'package:authentication_kyc/base_app/repository_base/repository_base.src.dart';
+import 'package:two_id_c06verify/base_app/controllers_base/base_controller.src.dart';
+import 'package:two_id_c06verify/base_app/repository_base/repository_base.src.dart';
 import 'package:get/get.dart';
 
 class BaseRepository {

@@ -1,4 +1,4 @@
-import 'package:authentication_kyc/generated/locales.g.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
 
 class ServiceTypeEnum {

@@ -1,4 +1,4 @@
-import 'package:authentication_kyc/shares/utils/time/date_utils.dart';
+import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
 class CertificateModel {
     CertificateModel({
         required this.sessionId,

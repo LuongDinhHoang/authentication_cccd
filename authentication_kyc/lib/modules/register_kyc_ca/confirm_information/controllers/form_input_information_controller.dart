@@ -1,6 +1,6 @@
-import 'package:authentication_kyc/generated/locales.g.dart';
-import 'package:authentication_kyc/modules/register_kyc_ca/confirm_information/confirm_information_src.dart';
-import 'package:authentication_kyc/shares/shares.src.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/confirm_information/confirm_information_src.dart';
+import 'package:two_id_c06verify/shares/shares.src.dart';
 import 'package:flutter/material.dart';
 
 mixin FormInputInformationController {

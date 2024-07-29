@@ -1,4 +1,4 @@
-package com.authentication.kyc;
+package vn.twoid.c06verify;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.android.FlutterFragmentActivity;
