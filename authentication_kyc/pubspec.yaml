@@ -89,6 +89,7 @@ dependencies:
   url_launcher: ^6.2.1
   youtube_player_flutter: 8.1.2
   local_auth: ^2.2.0
+  flutter_mrz_scanner: ^2.0.0
 
 #  gallery_saver: ^2.1.1
 dev_dependencies:

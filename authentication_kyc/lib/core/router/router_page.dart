@@ -8,6 +8,7 @@ import 'package:authentication_kyc/modules/register_kyc_ca/nfc_kyc/nfc_kyc.src.d
 import 'package:authentication_kyc/modules/register_kyc_ca/pdf_registration_form_ca/views/pdf_registration_form_page.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/qr_kyc/qr_kyc.src.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/register_account/register_account_src.dart';
+import 'package:authentication_kyc/modules/register_kyc_ca/scan_mrz/scan_mrz.src.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/service_package/service_package_src.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/take_picture_card_kyc/views/take_picture_card_kyc_page.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
@@ -136,6 +137,11 @@ class RouteAppPage {
     GetPage(
       name: AppRoutes.routeAuthenticationGuide,
       page: () => const AuthenticationGuidePage(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.routeScanMRZ,
+      page: () => const ScanMZRPage(),
       transition: Transition.rightToLeft,
     )
   ];
