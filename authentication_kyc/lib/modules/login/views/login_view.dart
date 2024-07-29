@@ -64,7 +64,7 @@ Widget _body(LoginController controller) {
               ),
               TextButton(
                 onPressed: () async {
-                  Get.toNamed(AppRoutes.routeRegisterCA);
+                  Get.toNamed(AppRoutes.routeChangePassword);
                   // Get.toNamed(AppRoutes.routeVerifyProfile);
                 },
                 child: TextUtils(

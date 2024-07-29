@@ -19,6 +19,13 @@ class ChangePasswordPage extends BaseGetWidget<ChangePasswordController> {
   Widget _buildBody() {
     return Scaffold(
       backgroundColor: AppColors.basicWhite,
+      appBar: BackgroundAppBar.buildAppBar(
+        "Đổi mặt khẩu",
+        isColorGradient: false,
+        centerTitle: false,
+        leading: true,
+        backgroundColor: AppColors.colorTransparent,
+      ),
       body: SizedBox(
           height: Get.height, width: Get.width, child: _itemBody(controller)),
     );

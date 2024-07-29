@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 import '../../../../shares/shares.src.dart';
 
 class ChangePasswordController extends BaseGetxController {
-  final TextEditingController textEditIdNumber = TextEditingController();
+  final TextEditingController textPasswordOld = TextEditingController();
 
-  final TextEditingController textEditNumberPhone = TextEditingController();
+  final TextEditingController textPasswordNew = TextEditingController();
 
-  final TextEditingController textEditEmail = TextEditingController();
+  final TextEditingController textPasswordConfirm = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
-  final Rx<FocusNode> idNumberFocus = FocusNode().obs;
+  final Rx<FocusNode> passwordOldFocus = FocusNode().obs;
 
-  final Rx<FocusNode> numberPhoneFocus = FocusNode().obs;
+  final Rx<FocusNode> passwordNewFocus = FocusNode().obs;
 
-  final Rx<FocusNode> emailFocus = FocusNode().obs;
+  final Rx<FocusNode> passwordConfirmFocus = FocusNode().obs;
 
   bool enableTextInput = true;
 

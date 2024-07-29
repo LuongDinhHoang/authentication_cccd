@@ -1,6 +1,7 @@
 import 'package:authentication_kyc/modules/home/home.src.dart';
 import 'package:authentication_kyc/modules/login/views/login_page.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/await_ocr_data/await_ocr_data.src.dart';
+import 'package:authentication_kyc/modules/register_kyc_ca/change_password/change_password.src.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/confirm_information/views/confirm_information_page.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/nfc_information_user/views/nfc_information_user_page.dart';
 import 'package:authentication_kyc/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
@@ -142,6 +143,11 @@ class RouteAppPage {
     GetPage(
       name: AppRoutes.routeScanMRZ,
       page: () => const ScanMZRPage(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.routeChangePassword,
+      page: () => const ChangePasswordPage(),
       transition: Transition.rightToLeft,
     )
   ];

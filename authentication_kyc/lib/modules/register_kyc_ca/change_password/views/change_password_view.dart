@@ -1,41 +1,43 @@
 part of 'change_password_page.dart';
 
-Widget _itemBody(ChangePasswordController controller){
+Widget _itemBody(ChangePasswordController controller) {
   return Column(
     children: [
       _buildInputData(
         title: LocaleKeys.register_account_number_cccd.tr,
-        textEditingController: controller.textEditIdNumber,
-        hintText: LocaleKeys.register_account_input_number_id.tr,
-        currentNode: controller.idNumberFocus,
-        nextMode: controller.numberPhoneFocus.value,
-        textInputType: TextInputType.number,
-        inputFormatters: InputFormatterEnum.identity,
+        textEditingController: controller.textPasswordOld,
+        hintText: LocaleKeys.login_password.tr,
+        currentNode: controller.passwordOldFocus,
+        nextMode: controller.passwordNewFocus.value,
+        // textInputType: TextInputType.number,
+        // inputFormatters: InputFormatterEnum.identity,
         isEnable: controller.enableTextInput,
       ),
       _buildInputData(
         title: LocaleKeys.registerCa_numberPhone.tr,
-        textEditingController: controller.textEditNumberPhone,
-        hintText: LocaleKeys.register_account_input_number_phone.tr,
-        currentNode: controller.numberPhoneFocus,
-        nextMode: controller.emailFocus.value,
-        inputFormatters: InputFormatterEnum.phoneNumber,
-        textInputType: TextInputType.phone,
+        textEditingController: controller.textPasswordNew,
+        hintText: LocaleKeys.login_password.tr,
+        currentNode: controller.passwordNewFocus,
+        nextMode: controller.passwordConfirmFocus.value,
+        // inputFormatters: InputFormatterEnum.phoneNumber,
+        // textInputType: TextInputType.phone,
         isEnable: controller.enableTextInput,
       ),
       _buildInputData(
-          title: LocaleKeys.register_account_email.tr,
-          textEditingController: controller.textEditEmail,
-          hintText: LocaleKeys.register_account_input_number_email.tr,
-          currentNode: controller.emailFocus,
-          isLoading: false,
-          inputFormatters: InputFormatterEnum.email,
-          textInputType: TextInputType.emailAddress,
-          iconNextTextInputAction: TextInputAction.done,
-          isEnable: controller.enableTextInput,
-          onEditingComplete: () {
-            KeyBoard.hide();
-          }),
+        title: LocaleKeys.register_account_email.tr,
+        textEditingController: controller.textPasswordConfirm,
+        hintText: LocaleKeys.login_password.tr,
+        currentNode: controller.passwordConfirmFocus,
+        isLoading: false,
+        // inputFormatters: InputFormatterEnum.email,
+        // textInputType: TextInputType.emailAddress,
+        iconNextTextInputAction: TextInputAction.done,
+        isEnable: controller.enableTextInput,
+        isPassword: true,
+        onEditingComplete: () {
+          KeyBoard.hide();
+        },
+      ),
     ],
   );
 }
@@ -53,9 +55,10 @@ Widget _buildInputData({
   VoidCallback? onEditingComplete,
   TextInputAction iconNextTextInputAction = TextInputAction.next,
   Widget? suffixIcon,
+  bool isPassword = false,
 }) {
   return Obx(
-        () => SDSInputWithLabel(
+    () => SDSInputWithLabel(
       inputLabelModel: SDSInputLabelModel(
           label: title,
           paddingLabel: const EdgeInsets.symmetric(
@@ -92,6 +95,7 @@ Widget _buildInputData({
         inputFormatters: inputFormatters,
         enable: isEnable,
         suffixIcon: suffixIcon,
+        obscureText: isPassword,
         paddingModel: const EdgeInsets.symmetric(
           horizontal: 0,
         ),
