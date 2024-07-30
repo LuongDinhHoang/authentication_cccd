@@ -24,7 +24,6 @@ class AppRoutes {
   static const String routeRegisterAccount = "/register_account";
   static const String routeChoosePackage = "/choose_package";
   static const String routeAuthenticationGuide = "/authentication_guide";
-  static const String routeScanMRZ = "/scan_mrz";
   static const String routeChangePassword = "/change_password";
 
 }

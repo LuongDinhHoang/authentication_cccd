@@ -39,7 +39,7 @@ class Biometrics {
 
   Future<bool?> authenticate(
       {String localizedReasonStr =
-          "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
+          "Vui lòng quét vân tay",
       Function? onDeviceUnlockUnavailable,
       Function? onAfterLimit}) async {
     bool authenticated = false;
@@ -61,7 +61,7 @@ class Biometrics {
             biometricSuccess: "Xac thực thành công",
             goToSettingsButton: "Cài đặt",
             goToSettingsDescription: "Xác thực",
-            signInTitle: "App Authentication",
+            signInTitle: "Xác thực",
           ),
         ],
         localizedReason: localizedReasonStr,
