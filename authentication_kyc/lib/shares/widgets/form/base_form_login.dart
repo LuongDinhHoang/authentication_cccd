@@ -28,7 +28,7 @@ class BaseFormLogin {
       key: formKey,
       child: Column(
         children: [
-          _buildInputData(
+          buildInputData(
             title: LocaleKeys.login_userTitle.tr,
             textEditingController: textUserName,
             isLoading: isLoading,
@@ -38,7 +38,7 @@ class BaseFormLogin {
             errorValidator: LocaleKeys.login_accountEmpty.tr,
             fillColor: fillColorUserName,
           ),
-          _buildInputData(
+          buildInputData(
             title: LocaleKeys.login_password.tr,
             textEditingController: textPassword,
             isLoading: isLoading,
@@ -81,7 +81,7 @@ class BaseFormLogin {
     );
   }
 
-  static Widget _buildInputData({
+  static Widget buildInputData({
     required String title,
     required TextEditingController textEditingController,
     required bool isLoading,
@@ -90,6 +90,7 @@ class BaseFormLogin {
     required Rx<FocusNode> currentNode,
     required Rx<Color> fillColor,
     FocusNode? nextMode,
+    String? Function(String?)? onValidator,
     bool isPassword = false,
     TextInputType textInputType = TextInputType.text,
     int? maxLength,
@@ -108,7 +109,7 @@ class BaseFormLogin {
           borderRadius: AppDimens.radius8,
           isShowCounterText: false,
           maxLengthInputForm: maxLength,
-          validator: (value) => value.isNullOrEmpty ? errorValidator : null,
+          validator: onValidator ?? (value) => value.isNullOrEmpty ? errorValidator : null,
           controller: textEditingController,
           fillColor: fillColor.value,
           isReadOnly: isLoading,

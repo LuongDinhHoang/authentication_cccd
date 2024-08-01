@@ -28,4 +28,9 @@ class ChangePasswordController extends BaseGetxController {
 
     super.onInit();
   }
+
+  Future<void> changePass()async {
+    KeyBoard.hide();
+    if (formKey.currentState?.validate() ?? false) {}
+  }
 }

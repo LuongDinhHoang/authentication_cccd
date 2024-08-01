@@ -1,4 +1,5 @@
 import 'package:two_id_c06verify/core/base/base.src.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/modules/login/login.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/verify_profile_ca/repository/login_ca_repository.dart';
 import 'package:flutter/material.dart';
@@ -60,15 +61,15 @@ class LoginController extends BaseGetxController {
     // if (appController.isFingerprintOrFaceID.isTrue) {
       await Biometrics()
           .authenticate(
-          localizedReasonStr: "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
+          // localizedReasonStr: "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
           onDeviceUnlockUnavailable: () {
             Fluttertoast.showToast(
-                msg: "Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!",
+                msg: LocaleKeys.biometric_msgUnavailable.tr,
                 toastLength: Toast.LENGTH_LONG);
           },
           onAfterLimit: () {
             Fluttertoast.showToast(
-                msg: "Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!",
+                msg: LocaleKeys.biometric_msgLimit.tr,
                 toastLength: Toast.LENGTH_LONG);
           })
           .then((isAuthenticated) async {

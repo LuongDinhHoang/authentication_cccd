@@ -369,6 +369,26 @@ class LocaleKeys {
   static const packageService_staffService = 'packageService_staffService';
   static const packageService_enterpriseService =
       'packageService_enterpriseService';
+  static const biometric_authenticationTitle = 'biometric_authenticationTitle';
+  static const biometric_cancelButton = 'biometric_cancelButton';
+  static const biometric_setting = 'biometric_setting';
+  static const biometric_authenticationContent =
+      'biometric_authenticationContent';
+  static const biometric_lockout = 'biometric_lockout';
+  static const biometric_authentication = 'biometric_authentication';
+  static const biometric_authenticationSuccess =
+      'biometric_authenticationSuccess';
+  static const biometric_authenticationError = 'biometric_authenticationError';
+  static const biometric_noAuthenticationError =
+      'biometric_noAuthenticationError';
+  static const biometric_msgUnavailable = 'biometric_msgUnavailable';
+  static const biometric_msgLimit = 'biometric_msgLimit';
+  static const ChangePassword_passwordOld = 'ChangePassword_passwordOld';
+  static const ChangePassword_passwordNew = 'ChangePassword_passwordNew';
+  static const ChangePassword_passwordNewConfirm =
+      'ChangePassword_passwordNewConfirm';
+  static const ChangePassword_passwordDifferent =
+      'ChangePassword_passwordDifferent';
 }
 
 class Locales {
@@ -685,5 +705,23 @@ class Locales {
     'packageService_personalService': 'cá nhân',
     'packageService_staffService': 'cá nhân doanh nghiệp',
     'packageService_enterpriseService': 'doanh nghiệp',
+    'biometric_authenticationTitle': 'Vui lòng quét vân tay',
+    'biometric_cancelButton': 'Huỷ',
+    'biometric_setting': 'Cài đặt',
+    'biometric_authenticationContent': 'Vui lòng cài đặt vân tay',
+    'biometric_lockout': 'Vui lòng kích hoạt bảo mật vân tay',
+    'biometric_authentication': 'Xác thực',
+    'biometric_authenticationSuccess': 'Xác thực thành công',
+    'biometric_authenticationError': 'Vân tay không hợp lệ',
+    'biometric_noAuthenticationError':
+        'Quý khách chưa cài đặt phương thức xác thực nào! Vui lòng cài đặt phương thức xác thực để tiếp tục sử dụng.Vân tay không hợp lệ',
+    'biometric_msgUnavailable':
+        'Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!',
+    'biometric_msgLimit':
+        'Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt',
+    'ChangePassword_passwordOld': 'Mật khẩu cũ',
+    'ChangePassword_passwordNew': 'Mật khẩu mới',
+    'ChangePassword_passwordNewConfirm': 'Nhập lại mật khẩu mới',
+    'ChangePassword_passwordDifferent': 'Mật khẩu không trùng khớp',
   };
 }

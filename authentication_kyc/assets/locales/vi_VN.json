@@ -319,5 +319,25 @@
     "personalService": "cá nhân",
     "staffService": "cá nhân doanh nghiệp",
     "enterpriseService": "doanh nghiệp"
+  },
+  "biometric": {
+    "authenticationTitle": "Vui lòng quét vân tay",
+    "cancelButton": "Huỷ",
+    "setting": "Cài đặt",
+    "authenticationContent": "Vui lòng cài đặt vân tay",
+    "lockout": "Vui lòng kích hoạt bảo mật vân tay",
+    "authentication": "Xác thực",
+    "authenticationSuccess": "Xác thực thành công",
+    "authenticationError": "Vân tay không hợp lệ",
+    "noAuthenticationError": "Quý khách chưa cài đặt phương thức xác thực nào! Vui lòng cài đặt phương thức xác thực để tiếp tục sử dụng.Vân tay không hợp lệ",
+    "msgUnavailable": "Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!",
+    "msgLimit": "Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt"
+
+  },
+  "ChangePassword": {
+    "passwordOld": "Mật khẩu cũ",
+    "passwordNew": "Mật khẩu mới",
+    "passwordNewConfirm": "Nhập lại mật khẩu mới",
+    "passwordDifferent": "Mật khẩu không trùng khớp"
   }
 }

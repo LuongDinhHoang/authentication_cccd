@@ -1,4 +1,6 @@
 import 'package:app_settings/app_settings.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/shares/widgets/dialog/dialog_utils.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
@@ -39,7 +41,7 @@ class Biometrics {
 
   Future<bool?> authenticate(
       {String localizedReasonStr =
-          "Vui lòng quét vân tay",
+          LocaleKeys.biometric_authenticationTitle,
       Function? onDeviceUnlockUnavailable,
       Function? onAfterLimit}) async {
     bool authenticated = false;
@@ -47,31 +49,30 @@ class Biometrics {
     try {
       authenticated = await auth.authenticate(
         authMessages: <AuthMessages>[
-          const IOSAuthMessages(
-            cancelButton: "Hủy",
-            goToSettingsButton: "Cài đặt",
-            goToSettingsDescription: "Vui lòng cài đặt vân tay",
-            lockOut: "Vui lòng kích hoạt bảo mật vân tay",
+          IOSAuthMessages(
+            cancelButton: LocaleKeys.biometric_cancelButton.tr,
+            goToSettingsButton: LocaleKeys.biometric_setting.tr,
+            goToSettingsDescription: LocaleKeys.biometric_authenticationContent.tr,
+            lockOut: LocaleKeys.biometric_lockout.tr,
           ),
-          const AndroidAuthMessages(
-            cancelButton: "Hủy",
-            biometricHint: "Xác thực",
-            biometricNotRecognized: "Vân tay không hợp lệ",
-            biometricRequiredTitle: "Xác thực",
-            biometricSuccess: "Xac thực thành công",
-            goToSettingsButton: "Cài đặt",
-            goToSettingsDescription: "Xác thực",
-            signInTitle: "Xác thực",
+          AndroidAuthMessages(
+            cancelButton: LocaleKeys.biometric_cancelButton.tr,
+            biometricHint: LocaleKeys.biometric_authentication.tr,
+            biometricNotRecognized: LocaleKeys.biometric_authenticationError.tr,
+            biometricRequiredTitle: LocaleKeys.biometric_authentication.tr,
+            biometricSuccess: LocaleKeys.biometric_authenticationSuccess.tr,
+            goToSettingsButton: LocaleKeys.biometric_setting.tr,
+            goToSettingsDescription: LocaleKeys.biometric_authentication.tr,
+            signInTitle: LocaleKeys.biometric_authentication.tr,
           ),
         ],
-        localizedReason: localizedReasonStr,
+        localizedReason: localizedReasonStr.tr,
         options: const AuthenticationOptions(
             useErrorDialogs: false,
             sensitiveTransaction: false,
             stickyAuth: true),
       );
     } catch (e) {
-      print("88888--$e");
       if (e is PlatformException) {
         if (e.code == auth_error.lockedOut) {
           if (onAfterLimit!() != null) {
@@ -80,8 +81,8 @@ class Biometrics {
         } else if (e.code == auth_error.notEnrolled ||
             e.code == auth_error.notAvailable) {
           ShowDialog.showDialogConfirm(
-            "Quý khách chưa cài đặt phương thức xác thực nào! Vui lòng cài đặt phương thức xác thực để tiếp tục sử dụng.",
-            actionTitle: "Cài đặt",
+            LocaleKeys.biometric_noAuthenticationError.tr,
+            actionTitle: LocaleKeys.biometric_setting.tr,
             confirm: () {
               AppSettings.openAppSettings(type: AppSettingsType.security);
               // Get.back();

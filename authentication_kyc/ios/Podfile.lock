@@ -15,9 +15,6 @@ PODS:
   - flutter_inappwebview/Core (0.0.1):
     - Flutter
     - OrderedSet (~> 5.0)
-  - flutter_mrz_scanner (0.0.1):
-    - Flutter
-    - SwiftyTesseract
   - flutter_nfc_kit (2.0.0):
     - Flutter
   - flutter_pdfview (1.0.2):
@@ -120,7 +117,6 @@ PODS:
   - sqflite (0.0.3):
     - Flutter
     - FlutterMacOS
-  - SwiftyTesseract (3.1.3)
   - syncfusion_flutter_pdfviewer (0.0.1):
     - Flutter
   - Toast (4.1.1)
@@ -134,7 +130,6 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
-  - flutter_mrz_scanner (from `.symlinks/plugins/flutter_mrz_scanner/ios`)
   - flutter_nfc_kit (from `.symlinks/plugins/flutter_nfc_kit/ios`)
   - flutter_pdfview (from `.symlinks/plugins/flutter_pdfview/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
@@ -169,7 +164,6 @@ SPEC REPOS:
     - nanopb
     - OrderedSet
     - PromisesObjC
-    - SwiftyTesseract
     - Toast
 
 EXTERNAL SOURCES:
@@ -185,8 +179,6 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_inappwebview:
     :path: ".symlinks/plugins/flutter_inappwebview/ios"
-  flutter_mrz_scanner:
-    :path: ".symlinks/plugins/flutter_mrz_scanner/ios"
   flutter_nfc_kit:
     :path: ".symlinks/plugins/flutter_nfc_kit/ios"
   flutter_pdfview:
@@ -229,7 +221,6 @@ SPEC CHECKSUMS:
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_inappwebview: 3d32228f1304635e7c028b0d4252937730bbc6cf
-  flutter_mrz_scanner: 1c2bb701201cff2458d76a4544f3ec3c5e7de4c3
   flutter_nfc_kit: 965c98c3fa68f5609f1cc89abb968fe1b8ffdbaa
   flutter_pdfview: 25f53dd6097661e6395b17de506e6060585946bd
   flutter_secure_storage: d33dac7ae2ea08509be337e775f6b59f1ff45f12
@@ -259,7 +250,6 @@ SPEC CHECKSUMS:
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
-  SwiftyTesseract: 1f3d96668ae92dc2208d9842c8a59bea9fad2cbb
   syncfusion_flutter_pdfviewer: bb9998884b864cfedf72628df3503bdf57e397c0
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe

@@ -1,3 +1,6 @@
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
+
 bool isPasswordValidate({
   required String password,
   required int minLength,
@@ -79,3 +82,67 @@ bool isIpAddress(String? value) {
 
   return true;
 }
+
+String? validatePass(String? text) {
+  if (text == null || text.isEmpty) {
+    return LocaleKeys.login_passwordEmpty.tr;
+  }
+  // if (text.length < 6) return AppStr.errorRegisterReInputPassword.tr;
+  return null;
+}
+
+String? validateRepass(String? text, String pass) {
+  if (text == null || text.isEmpty) {
+    return LocaleKeys.login_passwordEmpty.tr;
+  } else if (text != pass) {
+    return LocaleKeys.ChangePassword_passwordDifferent.tr;
+  }
+
+  return null;
+}
+//
+// String? isPasswordValid(String? value) {
+//   if (value == null || value.length <= 0) {
+//     return AppStr.passwordIsNull.tr;
+//   }
+//
+//   if (value.length < 8) return AppStr.notePassword.tr;
+// // Kiểm tra chữ hoa
+//   bool hasUppercase = value.contains(RegExp(r'[A-Z]'));
+//   if (!hasUppercase) {
+//     return AppStr.notePassword.tr;
+//   }
+//
+// // Kiểm tra số
+//   bool hasDigit = value.contains(RegExp(r'[0-9]'));
+//   if (!hasDigit) {
+//     return AppStr.notePassword.tr;
+//   }
+//
+//   return null;
+// }
+//
+// String? validatePhoneNumber(String? text) {
+//   if (text == null || text.isEmpty) {
+//     return AppStr.errorRegisterInputPhoneIsNull.tr;
+//   }
+//
+//   if (text.length != 10) return AppStr.errorRegisterInputPhone.tr;
+//   return null;
+// }
+//
+// String? validateName(String? text) {
+//   if (text == null || text.length <= 0) {
+//     return AppStr.errorRegisterInputName.tr;
+//   }
+//   return null;
+// }
+//
+// String? validateId(String? text) {
+//   if (text == null || text.length <= 0) {
+//     return AppStr.errorRegisterInputId.tr;
+//   } else if (text.length < 7 || text.length > 12) {
+//     return AppStr.errorIdentificationLength.tr;
+//   }
+//   return null;
+// }
