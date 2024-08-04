@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176485984910",
+    "project_id": "towidc06verifyapp",
+    "storage_bucket": "towidc06verifyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176485984910:android:e2b61084e3def0308f37df",
+        "android_client_info": {
+          "package_name": "vn.twoid.c06verify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvyJsx4-2C4GvNTNKMOyiha0s6euEWPko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

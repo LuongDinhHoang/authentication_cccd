@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBzROONa7Z5nBYYj9_7leertG7mGgIfNWM</string>
+	<string>AIzaSyBz5VU018EWF-fqMWHWI21JNFmDJvoHRMs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>179883609380</string>
+	<string>176485984910</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>vn.softdreams.easy.ca</string>
+	<string>vn.twoid.c06verify</string>
 	<key>PROJECT_ID</key>
-	<string>easy-kyc</string>
+	<string>towidc06verifyapp</string>
 	<key>STORAGE_BUCKET</key>
-	<string>easy-kyc.appspot.com</string>
+	<string>towidc06verifyapp.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:179883609380:ios:aa866e46f8d9dc90e937b1</string>
+	<string>1:176485984910:ios:4169512e02a5d2398f37df</string>
 </dict>
 </plist>
