@@ -383,6 +383,10 @@ class LocaleKeys {
       'biometric_noAuthenticationError';
   static const biometric_msgUnavailable = 'biometric_msgUnavailable';
   static const biometric_msgLimit = 'biometric_msgLimit';
+  static const biometric_noteSettingBiometricFace =
+      'biometric_noteSettingBiometricFace';
+  static const biometric_noteSettingBiometricFingerprint =
+      'biometric_noteSettingBiometricFingerprint';
   static const ChangePassword_passwordOld = 'ChangePassword_passwordOld';
   static const ChangePassword_passwordNew = 'ChangePassword_passwordNew';
   static const ChangePassword_passwordNewConfirm =
@@ -719,6 +723,10 @@ class Locales {
         'Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!',
     'biometric_msgLimit':
         'Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt',
+    'biometric_noteSettingBiometricFace':
+        'Quý khách chưa cài đặt đăng nhập bằng khuôn mặt. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực khuôn mặt trong phần cài đặt',
+    'biometric_noteSettingBiometricFingerprint':
+        'Quý khách chưa cài đặt đăng nhập bằng vân tay. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực vân tay trong phần cài đặt',
     'ChangePassword_passwordOld': 'Mật khẩu cũ',
     'ChangePassword_passwordNew': 'Mật khẩu mới',
     'ChangePassword_passwordNewConfirm': 'Nhập lại mật khẩu mới',

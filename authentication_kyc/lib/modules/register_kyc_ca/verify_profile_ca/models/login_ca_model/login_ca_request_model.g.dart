@@ -20,19 +20,22 @@ class LoginCaRequestModelAdapter extends TypeAdapter<LoginCaRequestModel> {
       userName: fields[0] as String,
       password: fields[1] as String,
       isRememberMe: fields[2] as bool,
+      isBiometric: fields[3] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, LoginCaRequestModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.userName)
       ..writeByte(1)
       ..write(obj.password)
       ..writeByte(2)
-      ..write(obj.isRememberMe);
+      ..write(obj.isRememberMe)
+      ..writeByte(3)
+      ..write(obj.isBiometric);
   }
 
   @override

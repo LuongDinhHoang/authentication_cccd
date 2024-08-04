@@ -55,7 +55,6 @@ app.*.map.json
 *.jks
 *.aab
 
-
 # iOS/XCode related
 **/ios/**/*.mode1v3
 **/ios/**/*.mode2v3
@@ -153,7 +152,6 @@ build/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 
-
 ### https://raw.github.com/github/gitignore//Android.gitignore
 
 # Built application files
@@ -222,7 +220,6 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
-
 ### https://raw.github.com/github/gitignore//Dart.gitignore
 
 # See https://www.dartlang.org/guides/libraries/private-files
@@ -232,19 +229,18 @@ fastlane/readme.md
 .packages
 build/
 
-
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-.fvm/flutter_sdk
-
 generated_plugin_registrant.cc
 generated_plugin_registrant.h
 generated_plugins.cmake
 
-
 /lib/assets.preview.dart
 \lib\assets.preview.dart
+
+# FVM Version Cache
+.fvm/

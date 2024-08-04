@@ -331,8 +331,9 @@
     "authenticationError": "Vân tay không hợp lệ",
     "noAuthenticationError": "Quý khách chưa cài đặt phương thức xác thực nào! Vui lòng cài đặt phương thức xác thực để tiếp tục sử dụng.Vân tay không hợp lệ",
     "msgUnavailable": "Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!",
-    "msgLimit": "Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt"
-
+    "msgLimit": "Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt",
+    "noteSettingBiometricFace": "Quý khách chưa cài đặt đăng nhập bằng khuôn mặt. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực khuôn mặt trong phần cài đặt",
+    "noteSettingBiometricFingerprint": "Quý khách chưa cài đặt đăng nhập bằng vân tay. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực vân tay trong phần cài đặt"
   },
   "ChangePassword": {
     "passwordOld": "Mật khẩu cũ",

@@ -19,15 +19,20 @@ class LoginCaRequestModel extends HiveObject {
   @HiveField(LoginCaRequestModelFields.isRememberMe)
   bool isRememberMe;
 
+  @HiveField(LoginCaRequestModelFields.isBiometric)
+  bool isBiometric;
+
   LoginCaRequestModel({
     required this.userName,
     required this.password,
     required this.isRememberMe,
+    required this.isBiometric,
   });
 
   Map<String, dynamic> toJson() => {
         "username": userName,
         "password": password,
         "rememberMe": isRememberMe,
+        "isBiometric": isBiometric,
       };
 }

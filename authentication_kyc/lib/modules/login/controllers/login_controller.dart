@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:two_id_c06verify/core/base/base.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/modules/login/login.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/verify_profile_ca/repository/login_ca_repository.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:local_auth/local_auth.dart';
 
 import '../../../base_app/base_app.src.dart';
 import '../../../core/core.src.dart';
@@ -23,9 +23,9 @@ class LoginController extends BaseGetxController {
   final formKey = GlobalKey<FormState>();
 
   RxBool isShowTime = false.obs;
+  bool isBiometric = false;
   RxString checkStatusNfc = "".obs;
   RxList<BiometricType> biometricTypes = RxList<BiometricType>();
-
 
   late LoginCaRepository loginCaRepository;
 
@@ -57,22 +57,20 @@ class LoginController extends BaseGetxController {
     // userNameController.text = hiveApp.get(AppConst.userName) ?? "";
     // passwordController.text = hiveApp.get(AppConst.password) ?? "";
   }
+
   Future<void> loginFingerprint({bool? autoBiometric}) async {
-    // if (appController.isFingerprintOrFaceID.isTrue) {
-      await Biometrics()
-          .authenticate(
+    if (isBiometric) {
+      await Biometrics().authenticate(
           // localizedReasonStr: "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
           onDeviceUnlockUnavailable: () {
-            Fluttertoast.showToast(
-                msg: LocaleKeys.biometric_msgUnavailable.tr,
-                toastLength: Toast.LENGTH_LONG);
-          },
-          onAfterLimit: () {
-            Fluttertoast.showToast(
-                msg: LocaleKeys.biometric_msgLimit.tr,
-                toastLength: Toast.LENGTH_LONG);
-          })
-          .then((isAuthenticated) async {
+        Fluttertoast.showToast(
+            msg: LocaleKeys.biometric_msgUnavailable.tr,
+            toastLength: Toast.LENGTH_LONG);
+      }, onAfterLimit: () {
+        Fluttertoast.showToast(
+            msg: LocaleKeys.biometric_msgLimit.tr,
+            toastLength: Toast.LENGTH_LONG);
+      }).then((isAuthenticated) async {
         // if (isAuthenticated != null && isAuthenticated) {
         //   await appController.savePassword
         //       .read(AppKey.keyPass + HIVE_APP.get(AppKey.keyPhone))
@@ -88,13 +86,20 @@ class LoginController extends BaseGetxController {
         //   showSnackBar(AppStr.authenticationFailed.tr);
         // }
       });
+    } else {
+      ShowDialog.showDialogNotificationError(
+        biometricTypes.contains(BiometricType.face)
+            ? LocaleKeys.biometric_noteSettingBiometricFace.tr
+            : LocaleKeys.biometric_noteSettingBiometricFingerprint.tr,
+        isActiveBack: false,
+      );
+    }
     // } else if (!(autoBiometric ?? true)) {
     //   ShowPopup.showErrorMessage(biometricTypes.contains(BiometricType.face)
     //       ? AppStr.notSaveFaceID.tr
     //       : AppStr.notSaveFingerprint.tr);
     // }
   }
-
 
   Future<void> confirmLogin() async {
     // Get.toNamed(
@@ -125,6 +130,7 @@ class LoginController extends BaseGetxController {
           userName: userNameController.text.trim(),
           password: passwordController.text.trim(),
           isRememberMe: false,
+          isBiometric: isBiometric,
         );
         BaseResponseBE baseResponseBE =
             await loginCaRepository.loginCaRepository(loginCaRequestModel);
@@ -171,9 +177,11 @@ class LoginController extends BaseGetxController {
               userName: "",
               password: "",
               isRememberMe: false,
+              isBiometric: false,
             );
     userNameController.text = loginCaRequestModel.userName;
     passwordController.text = loginCaRequestModel.password;
     isRemember.value = loginCaRequestModel.isRememberMe;
+    isBiometric = loginCaRequestModel.isBiometric;
   }
 }

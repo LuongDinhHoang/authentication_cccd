@@ -332,7 +332,7 @@ class ShowDialog {
                       availableStyle: StyleEnum.bodyRegular,
                       color: AppColors.primaryNavy,
                       textAlign: TextAlign.center,
-                      maxLine: 4,
+                      maxLine: 6,
                     ),
                   ),
                 ),

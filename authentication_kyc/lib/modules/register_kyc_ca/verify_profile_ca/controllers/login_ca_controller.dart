@@ -31,6 +31,7 @@ mixin LoginCaController {
               userName: "",
               password: "",
               isRememberMe: false,
+              isBiometric: false,
             );
     controller.textUserName.text = loginCaRequestModel.userName;
     controller.textPassword.text = loginCaRequestModel.password;
@@ -56,6 +57,7 @@ mixin LoginCaController {
           userName: controller.textUserName.text.trim(),
           password: controller.textPassword.text.trim(),
           isRememberMe: false,
+          isBiometric: false,
         );
         BaseResponseBE baseResponseBE = await controller.loginCaRepository
             .loginCaRepository(loginCaRequestModel);
