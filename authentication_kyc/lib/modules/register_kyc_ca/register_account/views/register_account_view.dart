@@ -83,7 +83,7 @@ Widget _buildInformPackage(RegisterAccountController controller) {
         suffixIcon: controller.appController.userInfoModel.type ==
                 AppConst.typeAgentAccount
             ? IconButton(
-                color: AppColors.primaryCam1,
+                color: AppColors.primaryBlue1,
                 icon: const Icon(Icons.edit),
                 onPressed: () {
                   Get.toNamed(AppRoutes.routeChoosePackage);
@@ -118,7 +118,7 @@ Widget _buildRegister(RegisterAccountController controller) {
             }
           },
           isLoading: controller.isShowLoading.value,
-          backgroundColor: AppColors.primaryCam1,
+          backgroundColor: AppColors.primaryBlue1,
           borderRadius: BorderRadius.circular(AppDimens.radius4),
         ).paddingSymmetric(
             vertical: AppDimens.padding12, horizontal: AppDimens.padding16),

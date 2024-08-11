@@ -64,15 +64,15 @@ Widget _body(LoginController controller) {
               ),
               TextButton(
                 onPressed: () async {
-                  Get.toNamed(AppRoutes.routeChangePassword);
+                  controller.checkPermissionApp();
                   // Get.toNamed(AppRoutes.routeVerifyProfile);
                 },
                 child: TextUtils(
                   text: LocaleKeys.login_titleAccuracy.tr,
                   availableStyle: StyleEnum.bodyRegular,
-                  color: AppColors.primaryCam1,
+                  color: AppColors.primaryBlue1,
                   textDecoration: TextDecoration.underline,
-                  colorDecoration: AppColors.primaryCam1,
+                  colorDecoration: AppColors.primaryBlue1,
                 ),
               ),
 
@@ -142,7 +142,7 @@ Widget _buildDevelopBy() {
                 text: LocaleKeys.login_softDreams.tr,
                 style: FontStyleUtils.fontStyleSans(
                   fontSize: AppDimens.sizeTextSmaller,
-                  color: AppColors.primaryCam1,
+                  color: AppColors.primaryBlue1,
                   fontWeight: FontWeight.w700,
                 )),
           ],
@@ -166,7 +166,7 @@ Widget _buildOptional(LoginController controller) {
         child: TextUtils(
           text: LocaleKeys.login_forgetPassword.tr,
           availableStyle: StyleEnum.bodyRegular,
-          color: AppColors.primaryCam1,
+          color: AppColors.primaryBlue1,
         ),
       ),
     ],
@@ -185,7 +185,7 @@ Widget _buildButtonLogin(LoginController controller,
               Get.toNamed(AppRoutes.routeRegisterCA);
             },
         isLoading: controller.isShowLoading.value,
-        backgroundColor: AppColors.primaryCam1,
+        backgroundColor: AppColors.primaryBlue1,
         borderRadius: BorderRadius.circular(AppDimens.radius4),
       ),
     ),

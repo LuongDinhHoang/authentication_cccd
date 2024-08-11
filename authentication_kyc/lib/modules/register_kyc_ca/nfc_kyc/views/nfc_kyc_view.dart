@@ -11,31 +11,63 @@ Widget _body(ScanNfcKycController controller) {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: SvgPicture.asset(Assets.ASSETS_SVG_ICON_NFC_SVG)),
-                Center(
-                  child: TextButton(
-                    onPressed: () {
-                      Get.bottomSheet(
-                        const SDSBottomSheet(
-                          title: "",
-                          body: VideoScanNfcPage(),
-                          noHeader: true,
+                Form(
+                    key: controller.formKey,
+                    child: Column(
+                      children: [
+                        BaseFormLogin.buildInputData(
+                          title: "Số CCCD:",
+                          textEditingController:
+                              controller.idDocumentController,
+                          isLoading: true,
+                          hintText: "",
+                          textInputType: TextInputType.number,
+                          currentNode: controller.idDocumentFocus,
+                          errorValidator:
+                              LocaleKeys.register_account_errorValidatorCCCD.tr,
+                          onValidator: (text) => UtilWidget.validateId(text),
+                          fillColor: AppColors.basicWhite.obs,
+                          autoFocus: true,
                         ),
-                      );
-                    },
-                    child: const TextUtils(
-                      text: "Xem video hưỡng dẫn",
-                      availableStyle: StyleEnum.bodyBold,
-                      color: AppColors.primaryNavy,
-                    ),
-                  ),
-                ),
-                TextUtils(
-                  text: LocaleKeys.nfc_instructTitle.tr,
-                  availableStyle: StyleEnum.subBold,
-                  color: AppColors.basicBlack,
-                ).paddingOnly(
-                    bottom: AppDimens.padding5, top: AppDimens.padding30),
+                        Visibility(
+                          visible: controller.userNameController.text != "" &&
+                              controller.dobController.text != "",
+                          child: Column(
+                            children: [
+                              BaseFormLogin.buildInputData(
+                                title: "Họ và tên:",
+                                textEditingController:
+                                    controller.userNameController,
+                                isLoading: true,
+                                hintText: "",
+                                textInputType: TextInputType.number,
+                                currentNode: controller.userNameFocus,
+                                errorValidator: LocaleKeys
+                                    .register_account_errorValidatorCCCD.tr,
+                                onValidator: (text) =>
+                                    UtilWidget.validateId(text),
+                                fillColor: AppColors.basicWhite.obs,
+                                autoFocus: true,
+                              ),
+                              BaseFormLogin.buildInputData(
+                                title: "Ngày sinh:",
+                                textEditingController: controller.dobController,
+                                isLoading: true,
+                                hintText: "",
+                                textInputType: TextInputType.number,
+                                currentNode: controller.dobFocus,
+                                errorValidator: LocaleKeys
+                                    .register_account_errorValidatorCCCD.tr,
+                                onValidator: (text) =>
+                                    UtilWidget.validateId(text),
+                                fillColor: AppColors.basicWhite.obs,
+                                autoFocus: true,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
                 _titleInstruct(),
               ],
             ).paddingAll(AppDimens.padding15),
@@ -136,7 +168,7 @@ Widget _buildButtonNfcContinue(ScanNfcKycController controller) {
         ShowDialog.funcOpenDialog(const NfcDialog());
       },
               isLoading: controller.isShowLoading.value,
-              backgroundColor: AppColors.primaryCam1,
+              backgroundColor: AppColors.primaryBlue1,
               borderRadius: BorderRadius.circular(AppDimens.radius4),
               colorText: AppColors.basicWhite)
           .paddingAll(AppDimens.padding15),

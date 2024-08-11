@@ -49,7 +49,7 @@ class BottomSheetCheckNfc extends StatelessWidget {
                 () {
                   AppSettings.openAppSettings(type: AppSettingsType.nfc);
                 },
-                backgroundColor: AppColors.primaryCam1,
+                backgroundColor: AppColors.primaryBlue1,
                 borderRadius: BorderRadius.circular(AppDimens.radius4),
                 height: AppDimens.iconHeightButton,
               ).paddingSymmetric(vertical: AppDimens.padding5)
@@ -95,10 +95,10 @@ class BottomSheetCheckNfc extends StatelessWidget {
         });
       },
       backgroundColor: AppColors.basicWhite,
-      colorText: AppColors.primaryCam1,
+      colorText: AppColors.primaryBlue1,
       borderRadius: BorderRadius.circular(AppDimens.radius4),
       height: AppDimens.iconHeightButton,
-      border: Border.all(color: AppColors.primaryCam1),
+      border: Border.all(color: AppColors.primaryBlue1),
     ).paddingSymmetric(vertical: AppDimens.padding16);
   }
 
@@ -112,14 +112,14 @@ class BottomSheetCheckNfc extends StatelessWidget {
           TextSpan(
             text: LocaleKeys.check_nfc_hotline.tr,
             style: FontStyleUtils.fontStyleSans(
-              color: AppColors.primaryCam1,
+              color: AppColors.primaryBlue1,
               fontWeight: FontWeight.bold,
             ),
           ),
           TextSpan(
             text: LocaleKeys.check_nfc_number_hotline.tr,
             style: FontStyleUtils.fontStyleSans(
-              color: AppColors.primaryCam1,
+              color: AppColors.primaryBlue1,
               fontWeight: FontWeight.bold,
             ),
           ),

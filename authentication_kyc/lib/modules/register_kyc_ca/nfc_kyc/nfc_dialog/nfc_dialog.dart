@@ -51,9 +51,9 @@ class NfcDialog extends BaseGetWidget<NfcDialogController> {
               },
               // isLoading: controller.isShowLoading.value,
               backgroundColor: AppColors.basicWhite,
-              border: Border.all(width: 1, color: AppColors.primaryCam1),
+              border: Border.all(width: 1, color: AppColors.primaryBlue1),
               borderRadius: BorderRadius.circular(AppDimens.radius4),
-              colorText: AppColors.primaryCam1,
+              colorText: AppColors.primaryBlue1,
             ).paddingAll(AppDimens.padding15)
           ],
         ).paddingOnly(bottom: AppDimens.padding10));
@@ -67,7 +67,7 @@ class NfcDialog extends BaseGetWidget<NfcDialogController> {
         lineHeight: 3,
         alignment: MainAxisAlignment.center,
         percent: controller.processQuantity.value / controller.maxProcess,
-        progressColor: AppColors.primaryCam1,
+        progressColor: AppColors.primaryBlue1,
         barRadius: const Radius.circular(AppDimens.radius4),
       ).paddingOnly(top: AppDimens.padding4, bottom: AppDimens.padding4),
     );

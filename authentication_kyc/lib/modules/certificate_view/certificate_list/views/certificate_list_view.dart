@@ -39,7 +39,7 @@ Widget cardCertificate({
           AppDimens.radius8,
         ),
         side: BorderSide(
-          color: isSelected ? AppColors.primaryCam1 : AppColors.basicWhite,
+          color: isSelected ? AppColors.primaryBlue1 : AppColors.basicWhite,
           width: AppDimens.sizeWeight1,
         ),
       ),
@@ -50,7 +50,7 @@ Widget cardCertificate({
             text: LocaleKeys.certification_list_subscriptionName.tr +
                 data.certSubjectCn,
             availableStyle: StyleEnum.bodyBold,
-            color: isVerified ? AppColors.primaryCam1 : AppColors.statusRed,
+            color: isVerified ? AppColors.primaryBlue1 : AppColors.statusRed,
           ),
           const SizedBox(
             height: AppDimens.padding10,

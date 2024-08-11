@@ -66,7 +66,7 @@ Widget _itemBody(ChangePasswordController controller) {
           await controller.changePass();
         },
                 isLoading: controller.isShowLoading.value,
-                backgroundColor: AppColors.primaryCam1,
+                backgroundColor: AppColors.primaryBlue1,
                 borderRadius: BorderRadius.circular(AppDimens.radius4),
                 colorText: AppColors.basicWhite)
             .paddingSymmetric(

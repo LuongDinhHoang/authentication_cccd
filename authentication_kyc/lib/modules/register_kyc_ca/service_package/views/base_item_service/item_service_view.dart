@@ -76,7 +76,7 @@ class ItemServiceView {
             convertDoubleToStringSmart(price.toDouble()),
           )} đ",
           availableStyle: StyleEnum.detailRegular,
-          color: AppColors.primaryCam1,
+          color: AppColors.primaryBlue1,
         ).paddingOnly(left: AppDimens.padding4),
       ],
     );
@@ -90,7 +90,7 @@ class ItemServiceView {
           child: SvgPicture.asset(
             Assets.ASSETS_SVG_ICON_DIRECTION_SVG,
             colorFilter:
-                const ColorFilter.mode(AppColors.primaryCam1, BlendMode.srcIn),
+                const ColorFilter.mode(AppColors.primaryBlue1, BlendMode.srcIn),
           ).paddingOnly(right: AppDimens.padding16),
         ),
         Visibility(

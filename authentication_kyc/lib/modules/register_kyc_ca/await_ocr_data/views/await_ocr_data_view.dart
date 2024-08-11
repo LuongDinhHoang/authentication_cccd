@@ -34,7 +34,7 @@ Widget _body(AwaitORCDataController controller) {
                 text: LocaleKeys.await_ocr_clickHandmade.tr,
                 style: FontStyleUtils.fontStyleSans(
                   fontSize: AppDimens.sizeTextSmaller,
-                  color: AppColors.primaryCam1,
+                  color: AppColors.primaryBlue1,
                   fontWeight: FontWeight.w700,
                 ),
                 recognizer: TapGestureRecognizer()

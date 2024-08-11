@@ -92,6 +92,7 @@ class BaseFormLogin {
     FocusNode? nextMode,
     String? Function(String?)? onValidator,
     bool isPassword = false,
+    bool autoFocus = false,
     TextInputType textInputType = TextInputType.text,
     int? maxLength,
     VoidCallback? onEditingComplete,
@@ -134,6 +135,7 @@ class BaseFormLogin {
           iconNextTextInputAction: iconNextTextInputAction,
           onEditingComplete: onEditingComplete,
           inputFormatters: 0,
+          autoFocus: autoFocus,
         ),
       ),
     ).paddingOnly(bottom: AppDimens.padding5);
@@ -155,7 +157,7 @@ class BaseFormLogin {
             child: TextUtils(
               text: LocaleKeys.login_forgetPassword.tr,
               availableStyle: StyleEnum.bodyRegular,
-              color: AppColors.primaryCam1,
+              color: AppColors.primaryBlue1,
             ),
           ),
         ),
@@ -171,7 +173,7 @@ class BaseFormLogin {
         LocaleKeys.login_login.tr,
         function,
         isLoading: isShowLoading,
-        backgroundColor: AppColors.primaryCam1,
+        backgroundColor: AppColors.primaryBlue1,
         borderRadius: BorderRadius.circular(AppDimens.radius4),
       ),
     );

@@ -8,6 +8,7 @@ import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_kyc/views/video_sca
 import 'package:two_id_c06verify/shares/shares.src.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:two_id_c06verify/shares/widgets/form/base_form_login.dart';
 
 part 'nfc_kyc_view.dart';
 
@@ -21,7 +22,7 @@ class ScanNfcKycPage extends BaseGetWidget<ScanNfcKycController> {
   Widget buildWidgets(BuildContext context) {
     return Scaffold(
       appBar: BackgroundAppBar.buildAppBar(
-        LocaleKeys.update_information_kyc_registerCa.tr,
+        "Thông tin cá nhân",
         isColorGradient: false,
         centerTitle: false,
         leading: true,

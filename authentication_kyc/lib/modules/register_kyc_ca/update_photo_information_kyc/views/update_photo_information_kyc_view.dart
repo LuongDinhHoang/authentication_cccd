@@ -72,7 +72,7 @@ Widget _itemPhotoCardLiveNess({
       onTap: onTap,
       child: DottedBorder(
         color: urlImage.value != null
-            ? AppColors.primaryCam1
+            ? AppColors.primaryBlue1
             : AppColors.basicGrey1,
         strokeWidth: /*urlImage.value != null
             ? AppDimens.sizeWeight3
@@ -112,7 +112,7 @@ Widget _itemPhotoCard({
       onTap: onTap,
       child: DottedBorder(
         color: urlImage.value != null
-            ? AppColors.primaryCam1
+            ? AppColors.primaryBlue1
             : AppColors.basicGrey1,
         strokeWidth: /*urlImage.value != null
             ? AppDimens.sizeWeight3
@@ -250,7 +250,7 @@ Widget _buildButtonContinue(UpdateInformationController controller,
                 controller.maybeContinue.value ? controller.getORC() : () {},
         isLoading: controller.isShowLoading.value,
         backgroundColor: controller.maybeContinue.value
-            ? AppColors.primaryCam1
+            ? AppColors.primaryBlue1
             : AppColors.basicGrey3,
         borderRadius: BorderRadius.circular(AppDimens.radius4),
         colorText: controller.maybeContinue.value

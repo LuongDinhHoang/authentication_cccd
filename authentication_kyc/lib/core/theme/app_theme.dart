@@ -84,7 +84,7 @@ ThemeData getThemeByAppTheme([bool isDarkMode = true]) {
 
       // colors
       primaryColor: isDarkMode ? AppColors.basicGrey4 : AppColors.basicGrey4,
-      indicatorColor: AppColors.primaryCam1,
+      indicatorColor: AppColors.primaryBlue1,
       textButtonTheme: _textButtonThemeData(base),
       scaffoldBackgroundColor: AppColors.accentColorTheme(isDarkMode),
       // cardColor: isDarkMode ? AppColors.colorCard : Colors.pink[50],
@@ -101,7 +101,7 @@ ButtonThemeData _buildButtonTheme(ThemeData base) {
       height: 50,
       minWidth: 5,
       // Them vao de context menu copy, paste tren Samsung khong bi soc vang
-      buttonColor: AppColors.primaryCam1,
+      buttonColor: AppColors.primaryBlue1,
       textTheme: ButtonTextTheme.accent,
       colorScheme: base.colorScheme
           .copyWith(primary: Colors.white, secondary: Colors.white),

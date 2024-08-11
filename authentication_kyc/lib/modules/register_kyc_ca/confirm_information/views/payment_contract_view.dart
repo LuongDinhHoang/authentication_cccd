@@ -98,7 +98,7 @@ Widget _buildOrderInformation() {
     decoration: BoxDecoration(
         color: AppColors.basicWhite,
         borderRadius: BorderRadius.circular(AppDimens.radius4),
-        border: Border.all(color: AppColors.primaryCam1)),
+        border: Border.all(color: AppColors.primaryBlue1)),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -136,7 +136,7 @@ Widget _buildDetailOder(String title, String money,
       TextUtils(
         text: money,
         availableStyle: StyleEnum.bodyRegular,
-        color: AppColors.primaryCam1,
+        color: AppColors.primaryBlue1,
       ),
     ],
   );
@@ -162,7 +162,7 @@ Widget _buildExtend(String title, VoidCallback onTap) {
           TextUtils(
             text: LocaleKeys.registerCa_view.tr,
             availableStyle: StyleEnum.subBold,
-            color: AppColors.primaryCam1,
+            color: AppColors.primaryBlue1,
           ).paddingOnly(right: AppDimens.padding16),
         ],
       ),

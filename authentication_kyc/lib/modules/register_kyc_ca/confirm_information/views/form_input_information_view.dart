@@ -38,7 +38,7 @@ Widget _buildListViewItem(ConfirmInformationController controller) {
                   await controller.updateORCData();
                 },
                 isLoading: controller.isShowLoading.value,
-                backgroundColor: AppColors.primaryCam1,
+                backgroundColor: AppColors.primaryBlue1,
                 borderRadius: BorderRadius.circular(AppDimens.radius4),
                 height: AppDimens.iconHeightButton,
               ),

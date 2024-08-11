@@ -95,7 +95,7 @@ class ChoosePackageController extends BaseGetxController {
 
   Color getColorBorderSelect(int index) {
     return index == indexServiceCa.value
-        ? AppColors.primaryCam1
+        ? AppColors.primaryBlue1
         : AppColors.basicWhite;
   }
 
@@ -107,7 +107,7 @@ class ChoosePackageController extends BaseGetxController {
 
   Color getColorButton() {
     return indexServiceCa.value != -1
-        ? AppColors.primaryCam1
+        ? AppColors.primaryBlue1
         : AppColors.basicGrey3;
   }
 }

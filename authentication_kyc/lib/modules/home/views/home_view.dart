@@ -289,7 +289,7 @@ Widget _floatingButton(HomeController controller) {
               onPressed: () async {},
               child: const Icon(
                 Icons.phone,
-                color: AppColors.primaryCam1,
+                color: AppColors.primaryBlue1,
               ),
             ),
           ),
@@ -315,7 +315,7 @@ Widget _floatingButton(HomeController controller) {
                       LocaleKeys.check_nfc_number_hotline.tr);
                 },
                 child: const Icon(Icons.phone,
-                  color: AppColors.primaryCam1,
+                  color: AppColors.primaryBlue1,
                 ),
               ),
             ),

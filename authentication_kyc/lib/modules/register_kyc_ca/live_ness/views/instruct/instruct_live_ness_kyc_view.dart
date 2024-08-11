@@ -133,7 +133,7 @@ Widget _buildButtonContinue() {
       AppRoutes.routeLiveNessKyc,
     );
   },
-          backgroundColor: AppColors.primaryCam1,
+          backgroundColor: AppColors.primaryBlue1,
           borderRadius: BorderRadius.circular(AppDimens.radius4),
           colorText: AppColors.basicWhite)
       .paddingAll(AppDimens.padding15);

@@ -37,6 +37,10 @@ class NfcDialogController extends BaseGetxController {
   @override
   Future<void> onInit() async {
     // dataOcrModel = Get.arguments;
+    await scanNFC();
+    super.onInit();
+  }
+  Future<void> scanNFC()async {
     setupData();
     // userModel = UserModel();
     await readMRTD();
@@ -54,8 +58,7 @@ class NfcDialogController extends BaseGetxController {
       }
       showSnackBar(LocaleKeys.nfc_nfcError.tr);
     }
-    super.onInit();
-  }
+}
 
   void setupData() {
     // final backCardMrz =
@@ -66,29 +69,29 @@ class NfcDialogController extends BaseGetxController {
     //   dateOfExpiry = getDate(backCardMrz.expYymmdd ?? "");
     // }
     try {
-      if (appController.authProfileRequestModel.identity != null) {
-        if (appController.authProfileRequestModel.identity!.length > 6) {
-          idDocument = appController.authProfileRequestModel.identity;
-        }
-      } else {
+      // if (appController.authProfileRequestModel.identity != null) {
+      //   if (appController.authProfileRequestModel.identity!.length > 6) {
+      //     idDocument = appController.authProfileRequestModel.identity;
+      //   }
+      // } else {
         if (appController.qrUserInformation.documentNumber != null) {
           if (appController.qrUserInformation.documentNumber!.length > 3) {
             idDocument = appController.qrUserInformation.documentNumber;
           }
         }
-        dateOfBirth = convertDateToDate(
-            convertStringToDate(
-              appController.qrUserInformation.dateOfBirth,
-              pattern1,
-            ),
-            patternDefault);
-        dateOfExpiry = convertDateToDate(
-            convertStringToDate(
-              appController.qrUserInformation.dateOfExpiry,
-              pattern1,
-            ),
-            patternDefault);
-      }
+        // dateOfBirth = convertDateToDate(
+        //     convertStringToDate(
+        //       appController.qrUserInformation.dateOfBirth,
+        //       pattern1,
+        //     ),
+        //     patternDefault);
+        // dateOfExpiry = convertDateToDate(
+        //     convertStringToDate(
+        //       appController.qrUserInformation.dateOfExpiry,
+        //       pattern1,
+        //     ),
+        //     patternDefault);
+      // }
       // idDocument = "099006031";
       // dateOfBirth = convertDateToDate(
       //     convertStringToDate(

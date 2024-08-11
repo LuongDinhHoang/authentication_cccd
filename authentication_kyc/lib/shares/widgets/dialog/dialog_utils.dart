@@ -154,7 +154,7 @@ class ShowDialog {
               ButtonUtils.buildButton(
                 titleButton,
                 confirm,
-                backgroundColor: AppColors.primaryCam1,
+                backgroundColor: AppColors.primaryBlue1,
                 height: AppDimens.iconHeightButton,
               ).paddingSymmetric(horizontal: AppDimens.padding16),
               const SizedBox(
@@ -209,7 +209,7 @@ class ShowDialog {
               ButtonUtils.buildButton(
                 titleButton ?? LocaleKeys.registerCa_continue.tr,
                 function,
-                backgroundColor: AppColors.primaryCam1,
+                backgroundColor: AppColors.primaryBlue1,
                 borderRadius: BorderRadius.circular(AppDimens.radius4),
                 height: AppDimens.iconHeightButton,
               ).paddingSymmetric(
@@ -269,7 +269,7 @@ class ShowDialog {
               SvgPicture.asset(
                 Assets.ASSETS_SVG_ICON_SUCCESS_SVG,
                 colorFilter: const ColorFilter.mode(
-                  AppColors.primaryCam1,
+                  AppColors.primaryBlue1,
                   BlendMode.srcIn,
                 ),
               ),

@@ -37,7 +37,7 @@ class NfcInformationUserPage extends BaseGetWidget {
             await controller.sendNfcData();
           },
           isLoading: controller.isShowLoading.value,
-          backgroundColor: AppColors.primaryCam1,
+          backgroundColor: AppColors.primaryBlue1,
           borderRadius: BorderRadius.circular(AppDimens.radius4),
           height: AppDimens.iconHeightButton,
         ).paddingAll(AppDimens.paddingDefaultHeight),

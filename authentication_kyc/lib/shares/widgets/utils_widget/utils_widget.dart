@@ -25,6 +25,14 @@ class UtilWidget {
   }) {
     return isShowLoading ? Center(child: buildLoading(colorIcon)) : child();
   }
+  static String? validateId(String? text) {
+    if (text == null || text.isEmpty) {
+      return LocaleKeys.register_account_errorValidatorCCCD.tr;
+    }else if(text.length < 7 || text.length > 12){
+      return "CMND/CCCD phải từ 7 tới 12 kí tự";
+    }
+    return null;
+  }
 
   //
   // /// Loading cho child
@@ -53,10 +61,10 @@ class UtilWidget {
         Obx(
           () => Theme(
             data: Theme.of(Get.context!).copyWith(
-              unselectedWidgetColor: AppColors.primaryCam1,
+              unselectedWidgetColor: AppColors.primaryBlue1,
             ),
             child: Checkbox(
-                activeColor: activeColor ?? AppColors.primaryCam1,
+                activeColor: activeColor ?? AppColors.primaryBlue1,
                 value: checkBoxValue.value,
                 onChanged: (value) {
                   checkBoxValue.toggle();
@@ -89,7 +97,7 @@ class UtilWidget {
                 TextSpan(
                   text: LocaleKeys.registerCa_termsPolicy.tr,
                   style: FontStyleUtils.fontStyleSans(
-                    color: AppColors.primaryCam1,
+                    color: AppColors.primaryBlue1,
                     fontSize: AppDimens.sizeTextSmall,
                     fontWeight: FontWeight.w400,
                   ),
@@ -109,7 +117,7 @@ class UtilWidget {
                 TextSpan(
                   text: LocaleKeys.registerCa_EasyCA.tr,
                   style: FontStyleUtils.fontStyleSans(
-                    color: AppColors.primaryCam1,
+                    color: AppColors.primaryBlue1,
                     fontSize: AppDimens.sizeTextSmall,
                     fontWeight: FontWeight.w400,
                   ),

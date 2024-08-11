@@ -61,7 +61,7 @@ Widget _buildConfirmAction(CertificateDetailController controller) {
           value: controller.isConfirmedCheck.value,
           onChanged: controller.changeCheckboxConfirm,
           checkColor: AppColors.basicWhite,
-          activeColor: AppColors.primaryCam1,
+          activeColor: AppColors.primaryBlue1,
         ),
       ),
       Expanded(
@@ -88,7 +88,7 @@ Widget _buildActionButtons(CertificateDetailController controller) {
       ButtonUtils.buildButton(
         LocaleKeys.certification_detail_confirm.tr,
         controller.sendVerifyCert,
-        backgroundColor: AppColors.primaryCam1,
+        backgroundColor: AppColors.primaryBlue1,
       ),
       const SizedBox(
         height: AppDimens.padding8,

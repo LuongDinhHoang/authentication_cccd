@@ -65,7 +65,7 @@ Widget _buildItemInfo(AuthProfileResponseModel authProfileResponseModel,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppDimens.radius4),
         border: Border.all(
-            color: isSelect ? AppColors.primaryCam1 : AppColors.basicGrey2),
+            color: isSelect ? AppColors.primaryBlue1 : AppColors.basicGrey2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

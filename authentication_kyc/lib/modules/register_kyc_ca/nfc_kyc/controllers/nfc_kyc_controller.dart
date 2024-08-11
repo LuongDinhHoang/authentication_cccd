@@ -8,6 +8,15 @@ import '../../../../base_app/controllers_base/base_controller/base_controller.sr
 class ScanNfcKycController extends BaseGetxController {
   final RxBool maybeContinue = false.obs;
   late NfcRepository nfcRepository;
+  final idDocumentController = TextEditingController();
+  final userNameController = TextEditingController();
+  final dobController = TextEditingController();
+
+  final Rx<FocusNode> idDocumentFocus = FocusNode().obs;
+  final Rx<FocusNode> userNameFocus = FocusNode().obs;
+  final Rx<FocusNode> dobFocus = FocusNode().obs;
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   void onInit() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:two_id_c06verify/core/base/base.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/modules/login/login.src.dart';
@@ -56,6 +57,23 @@ class LoginController extends BaseGetxController {
     // textTaxCode.text = hiveApp.get(AppConst.textTaxCode) ?? "";
     // userNameController.text = hiveApp.get(AppConst.userName) ?? "";
     // passwordController.text = hiveApp.get(AppConst.password) ?? "";
+  }
+
+  Future<void> checkPermissionApp() async {
+    PermissionStatus permissionStatus =
+    await checkPermission([Permission.camera]);
+    switch (permissionStatus) {
+      case PermissionStatus.granted:
+        {
+          Get.toNamed(AppRoutes.routeQrKyc);
+        }
+        break;
+      case PermissionStatus.permanentlyDenied:
+        ShowDialog.openAppSetting();
+        break;
+      default:
+        return;
+    }
   }
 
   Future<void> loginFingerprint({bool? autoBiometric}) async {

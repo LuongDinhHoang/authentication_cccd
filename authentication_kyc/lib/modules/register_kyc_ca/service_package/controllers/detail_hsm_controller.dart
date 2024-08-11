@@ -47,7 +47,7 @@ class DetailHsmController extends BaseGetxController {
 
   Color getColorBorderSelect(int index) {
     return index == indexHsm.value
-        ? AppColors.primaryCam1
+        ? AppColors.primaryBlue1
         : AppColors.basicWhite;
   }
 
@@ -58,6 +58,6 @@ class DetailHsmController extends BaseGetxController {
   }
 
   Color getColorButton() {
-    return indexHsm.value != -1 ? AppColors.primaryCam1 : AppColors.basicGrey3;
+    return indexHsm.value != -1 ? AppColors.primaryBlue1 : AppColors.basicGrey3;
   }
 }

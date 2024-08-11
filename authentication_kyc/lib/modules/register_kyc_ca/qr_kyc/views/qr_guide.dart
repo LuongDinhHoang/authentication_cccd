@@ -1,10 +1,12 @@
-import 'package:two_id_c06verify/assets.dart';
-import 'package:two_id_c06verify/base_app/base_app.src.dart';
-import 'package:two_id_c06verify/core/core.src.dart';
-import 'package:two_id_c06verify/modules/register_kyc_ca/qr_kyc/controllers/qr_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/base_app/base_app.src.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
+import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/qr_kyc/controllers/qr_controller.dart';
+import 'package:two_id_c06verify/shares/widgets/form/base_form_login.dart';
 
 import '../../../../shares/shares.src.dart';
 
@@ -53,40 +55,40 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                 _buildListGuild(),
                 _buildListImage(controller),
                 Positioned(
-                    top: Get.height / 3.8 - Get.height / 6,
-                    left: 25,
+                    top: Get.height / 4.2 - Get.height / 6,
+                    left: 40,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_LEFT_DOWN_PNG,
                       width: AppDimens.size45,
                       height: AppDimens.size45,
-                      color: AppColors.basicWhite,
+                      color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 3.8 - Get.height / 6,
-                    right: 25,
+                    top: Get.height / 4.2 - Get.height / 6,
+                    right: 40,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_RIGHT_DOWN_PNG,
                       width: AppDimens.size45,
                       height: AppDimens.size45,
-                      color: AppColors.basicWhite,
+                      color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 3.8 + Get.height / 6 - AppDimens.size45,
-                    left: 25,
+                    top: Get.height / 4.2 + Get.height / 6 - AppDimens.size45,
+                    left: 40,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_LEFT_UP_PNG,
                       width: AppDimens.size45,
                       height: AppDimens.size45,
-                      color: AppColors.basicWhite,
+                      color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 3.8 + Get.height / 6 - AppDimens.size45,
-                    right: 25,
+                    top: Get.height / 4.2 + Get.height / 6 - AppDimens.size45,
+                    right: 40,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_RIGHT_UP_PNG,
                       width: AppDimens.size45,
                       height: AppDimens.size45,
-                      color: AppColors.basicWhite,
+                      color: AppColors.primaryNavy,
                     )),
               ],
             ),
@@ -98,46 +100,34 @@ class QRGuidePage extends BaseGetWidget<QRController> {
 
   Widget _buildListGuild() {
     return Positioned(
-      left: 10,
-      right: 10,
-      top: Get.height / 3.8 + Get.height / 6 + 80,
-      child: Column(
+      left: 37,
+      right: 37,
+      top: Get.height / 3.8 + Get.height / 6 + 120,
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildItemText(
-              "Do QR ở thẻ căn cước khá nhỏ, nên vui lòng làm theo hướng dẫn dưới đây"),
-          const SizedBox(height: AppDimens.padding5),
-          _buildItemText("Đặt QR vào trong ô camera ở trên"),
-          const SizedBox(height: AppDimens.padding5),
-          _buildItemText(
-              "Di chuyển QR ra xa, lại gần camera hoặc dùng thanh zoom sao cho camera hiện rõ QR"),
-          const SizedBox(height: AppDimens.padding5),
-/*        _buildItemText(
-            AppStr.text_item_qr_4),
-        SizedBox(
-          height: AppDimens.paddingVerySmall,
-        ),*/
-          _buildItemText(
-              "Nếu chưa nhận biết được QR, vui lòng tắt flash đi rồi bật lại đến khi thành công"),
+          TextUtils(
+            text: "Hướng dẫn:",
+            color: AppColors.colorDisable,
+            availableStyle: StyleEnum.subBold,
+            maxLine: 3,
+          ),
+          TextUtils(
+            text: "Bước 1: Đặt mã QR trên thẻ CCCD vào vị trí khung",
+            color: AppColors.colorDisable,
+            availableStyle: StyleEnum.bodyRegular,
+            maxLine: 3,
+          ),
           sdsSB5,
+          TextUtils(
+            text:
+            "Bước 2: Chờ hệ thống định danh và xác thực cho tới khi có thông báo thành công.",
+            color: AppColors.colorDisable,
+            availableStyle: StyleEnum.bodyRegular,
+            maxLine: 3,
+          ),
         ],
       ).paddingSymmetric(horizontal: AppDimens.padding5),
-    );
-  }
-
-  Widget _buildItemText(String title) {
-    return Row(
-      children: [
-        const TextUtils(
-            text: "•   ",
-            color: AppColors.basicWhite,
-            availableStyle: StyleEnum.subBold),
-        Expanded(
-          child: TextUtils(
-              text: title,
-              color: AppColors.basicWhite,
-              availableStyle: StyleEnum.subBold),
-        ),
-      ],
     );
   }
 
@@ -146,33 +136,33 @@ class QRGuidePage extends BaseGetWidget<QRController> {
       left: 20,
       right: 20,
       top: Get.height / 3.8 + Get.height / 6 + 10,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(
-              color: Colors.white,
-              icon: ValueListenableBuilder(
-                valueListenable: controller.cameraController.torchState,
-                builder: (context, state, child) {
-                  switch (state as TorchState) {
-                    case TorchState.off:
-                      return const Icon(Icons.flash_off,
-                          color: AppColors.basicWhite);
-                    case TorchState.on:
-                      return const Icon(Icons.flash_on, color: Colors.yellow);
-                  }
-                },
-              ),
-              iconSize: 32.0,
-              onPressed: () async {
-                controller.cameraController.toggleTorch();
-                await Future.delayed(const Duration(milliseconds: 1500), () {
-                  controller.cameraController.toggleTorch();
-                });
-              }),
+          // IconButton(
+          //     color: Colors.white,
+          //     icon: ValueListenableBuilder(
+          //       valueListenable: controller.cameraController.torchState,
+          //       builder: (context, state, child) {
+          //         switch (state as TorchState) {
+          //           case TorchState.off:
+          //             return const Icon(Icons.flash_off,
+          //                 color: AppColors.basicWhite);
+          //           case TorchState.on:
+          //             return const Icon(Icons.flash_on, color: Colors.yellow);
+          //         }
+          //       },
+          //     ),
+          //     iconSize: 32.0,
+          //     onPressed: () async {
+          //       controller.cameraController.toggleTorch();
+          //       await Future.delayed(const Duration(milliseconds: 1500), () {
+          //         controller.cameraController.toggleTorch();
+          //       });
+          //     }),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SliderTheme(
@@ -186,7 +176,7 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                     max: 10,
                     divisions: 5,
                     label: "${controller.zoomX.value}X",
-                    activeColor: AppColors.basicWhite,
+                    activeColor: AppColors.colorBlack,
                     inactiveColor: AppColors.colorDisable,
                     onChanged: (double value) {
                       controller.zoomX.value = value;
@@ -197,32 +187,131 @@ class QRGuidePage extends BaseGetWidget<QRController> {
               ).paddingOnly(right: 10),
               TextUtils(
                 text: "Zoom ${controller.zoomX.value}X",
-                color: AppColors.basicWhite,
+                color: AppColors.colorBlack,
                 availableStyle: StyleEnum.subBold,
                 textAlign: TextAlign.left,
               )
             ],
-          )
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // _itemSelect("Tải ảnh lên", () async {
+              //   await controller.getQrToImage();
+              // }),
+              _itemSelect("Nhập số CCCD", () {
+                Get.bottomSheet(SDSBottomSheet(
+                  title: "",
+                  body: Column(
+                    children: [
+                      Form(
+                        key: controller.formKey,
+                        child: BaseFormLogin.buildInputData(
+                          title: "Số CCCD",
+                          textEditingController: controller.idDocumentController,
+                          isLoading: false,
+                          hintText: "Nhập số CCCD",
+                          textInputType: TextInputType.number,
+                          currentNode: controller.idDocumentFocus,
+                          errorValidator:
+                          LocaleKeys.register_account_errorValidatorCCCD.tr,
+                          onValidator: (text) =>UtilWidget.validateId(text),
+                          fillColor: AppColors.basicWhite.obs,
+                          autoFocus: true,
+                          onEditingComplete: (){
+                            controller.getDataToEnter(
+                                controller.idDocumentController.text);
+                          }
+                        ),
+                      ),
+                      ButtonUtils.buildButton(
+                        LocaleKeys.registerCa_continue.tr,
+                            () {
+                          controller.getDataToEnter(
+                              controller.idDocumentController.text);
+                        },
+                        // isLoading: isShowLoading,
+                        // backgroundColor: AppColors.primaryCam1,
+                        borderRadius: BorderRadius.circular(AppDimens.radius8),
+                      ).paddingAll(AppDimens.paddingDefault),
+                    ],
+                  ),
+                  noHeader: true,
+                )).then((value) => controller.idDocumentController.clear());
+              }),
+            ],
+          ),
         ],
       ).paddingOnly(bottom: AppDimens.padding5),
+    );
+  }
+
+  GestureDetector _itemSelect(String title, VoidCallback action) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: action,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            border: Border.all(color: AppColors.colorBlack, width: 1),
+            color: AppColors.basicWhite,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3), // Màu bóng và độ mờ
+                spreadRadius: 1, // Bán kính bóng
+                blurRadius: 2, // Độ mờ
+                offset: const Offset(0, 1), // Độ dịch chuyển của bóng
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                child: TextUtils(
+                  text: title,
+                  availableStyle: StyleEnum.bodyRegular,
+                  color: AppColors.colorBlack,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   @override
   Widget buildWidgets(BuildContext context) {
     return PopScope(
-      canPop: false,
+      canPop: true,
       onPopInvoked: (bool didPop) {
         if (didPop) {
           return;
         }
         controller.onClose();
       },
-      child: Obx(() => controller.isShowLoading.value
-          ? Container(
-              color: Colors.white,
-              child: const Center(child: CupertinoActivityIndicator()))
-          : _buildBody()),
+      child: Scaffold(
+        appBar: BackgroundAppBar.buildAppBar(
+          "Cung cấp thông tin Qr",
+          isColorGradient: false,
+          centerTitle: false,
+          leading: true,
+          backgroundColor: AppColors.colorTransparent,
+        ),
+        body: Obx(() =>
+        controller.isShowLoading.value
+            ? Container(
+            color: Colors.white,
+            child: const Center(child: CupertinoActivityIndicator()))
+            : _buildBody()),
+      ),
     );
   }
 }
@@ -234,14 +323,14 @@ class CustomShapePainterDaily extends CustomPainter {
     size = Get.size;
     Paint paint = Paint();
     final centerX = size.width / 2; // Tính toán tọa độ x của trung tâm
-    final centerY = size.height / 3.8; // Tính toán tọa độ y của trung tâm
-    final width = size.width - 50; // Chiều rộng của hình vuông
+    final centerY = size.height / 4.2; // Tính toán tọa độ y của trung tâm
+    final width = size.width - 80; // Chiều rộng của hình vuông
     final height = size.height / 3; // Chiều cao của hình vuông
 
     Path clipPath = Path()
-      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height))
-      ..addRect(Rect.fromCenter(
-          center: Offset(centerX, centerY), width: width, height: height));
+      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height))..addRect(
+          Rect.fromCenter(
+              center: Offset(centerX, centerY), width: width, height: height));
     clipPath.fillType = PathFillType.evenOdd;
 
     canvas.clipPath(clipPath);
@@ -249,7 +338,7 @@ class CustomShapePainterDaily extends CustomPainter {
     // Vẽ các khối màu đã được cắt bỏ
 
     // Vẽ khối màu 1
-    paint.color = AppColors.colorGreyOpacity35;
+    paint.color = AppColors.basicGrey4;
     canvas.drawRect(
         Rect.fromLTRB(0, 0, size.width * 0.5, size.height * 0.5), paint);
 
@@ -278,13 +367,13 @@ class CustomShapePainterDaily extends CustomPainter {
       Rect.fromCenter(
           center: Offset(centerX, centerY), width: width, height: height),
     );
-    final borderPaint = Paint()
-      ..color = Colors.amber // Màu của viền
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 4.0; // Độ rộng của viền
-
-    const dashWidth = 15.0; // Độ rộng của mỗi đoạn trong viền đứt
-    const dashSpace = 10.0; // Khoảng cách giữa các đoạn trong viền đứt
+    // final borderPaint = Paint()
+    //   ..color = Colors.amber // Màu của viền
+    //   ..style = PaintingStyle.stroke
+    //   ..strokeWidth = 4.0; // Độ rộng của viền
+    //
+    // const dashWidth = 15.0; // Độ rộng của mỗi đoạn trong viền đứt
+    // const dashSpace = 10.0; // Khoảng cách giữa các đoạn trong viền đứt
 
     final path = Path();
     path.addRect(

@@ -69,7 +69,7 @@ class ButtonUtils {
         border: border ?? const Border(),
         gradient:
             backgroundColor != null ? null : LinearGradient(colors: colors),
-        borderRadius: borderRadius ?? BorderRadius.circular(AppDimens.radius4),
+        borderRadius: borderRadius ?? BorderRadius.circular(AppDimens.radius8),
       ),
       child: ElevatedButton(
         onPressed: () => onTapButton(isLoading: isLoading, onTap: function),

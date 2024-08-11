@@ -106,7 +106,7 @@ class RegisterAccountController extends BaseGetxController {
             icon: SvgPicture.asset(
               Assets.ASSETS_SVG_ICON_EMAIL_SVG,
               colorFilter: const ColorFilter.mode(
-                AppColors.primaryCam1,
+                AppColors.primaryBlue1,
                 BlendMode.srcIn,
               ),
             ),

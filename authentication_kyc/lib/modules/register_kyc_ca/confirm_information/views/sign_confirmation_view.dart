@@ -33,7 +33,7 @@ Widget _buildSignConfirmation(ConfirmInformationController controller) {
             },
             isLoading: controller.isShowLoading.value,
             backgroundColor: controller.isDrawing.value
-                ? AppColors.primaryCam1
+                ? AppColors.primaryBlue1
                 : AppColors.basicGrey1,
             borderRadius: BorderRadius.circular(AppDimens.radius4),
             height: AppDimens.iconHeightButton,

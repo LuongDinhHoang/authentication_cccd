@@ -45,7 +45,7 @@ Widget _buildBody() {
               TextSpan(
                 text: "Chính sách Bảo mật ",
                 style: FontStyleUtils.fontStyleSans(
-                  color: AppColors.primaryCam1,
+                  color: AppColors.primaryBlue1,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {

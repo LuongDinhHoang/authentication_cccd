@@ -87,7 +87,7 @@ class VerifyProfileController extends BaseGetxController
 
   Color getColorButton() {
     return isPermission.value && listAuthProfileModel.isNotEmpty
-        ? AppColors.primaryCam1
+        ? AppColors.primaryBlue1
         : AppColors.basicGrey3;
   }
 
