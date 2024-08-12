@@ -25,14 +25,14 @@ class SDSInputWithLabel extends StatelessWidget {
           child: Padding(
             padding: inputLabelModel.paddingLabel ??
                 const EdgeInsets.symmetric(
-                    horizontal: AppDimens.paddingDefault),
+                    vertical: AppDimens.paddingDefault),
             child: Row(
               children: [
                 Flexible(
                   child: TextUtils(
                     text: inputLabelModel.label.tr,
                     availableStyle:
-                        inputLabelModel.styleEnum ?? StyleEnum.bodyBold,
+                        inputLabelModel.styleEnum ?? StyleEnum.bodyRegular,
                     color:
                         inputLabelModel.colorTextLabel ?? AppColors.primaryNavy,
                   ),

@@ -6,13 +6,12 @@ import 'package:asn1lib/asn1lib.dart';
 import 'package:dmrtd/dmrtd.dart';
 import 'package:dmrtd/extensions.dart';
 import 'package:dmrtd/src/proto/can_key.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_kyc/nfc_kyc.src.dart';
-import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class NfcDialogController extends BaseGetxController {
   final AppController appController = Get.find<AppController>();
@@ -40,12 +39,13 @@ class NfcDialogController extends BaseGetxController {
     await scanNFC();
     super.onInit();
   }
-  Future<void> scanNFC()async {
+
+  Future<void> scanNFC() async {
     setupData();
     // userModel = UserModel();
     await readMRTD();
     if (sendNfcRequestModel.number != null) {
-      if (Get.isDialogOpen == true) {
+      if (Get.isBottomSheetOpen == true) {
         Get.back();
       }
       Get.toNamed(
@@ -53,12 +53,12 @@ class NfcDialogController extends BaseGetxController {
         arguments: sendNfcRequestModel,
       );
     } else {
-      if (Get.isDialogOpen == true) {
+      if (Get.isBottomSheetOpen == true) {
         Get.back();
       }
       showSnackBar(LocaleKeys.nfc_nfcError.tr);
     }
-}
+  }
 
   void setupData() {
     // final backCardMrz =
@@ -74,23 +74,23 @@ class NfcDialogController extends BaseGetxController {
       //     idDocument = appController.authProfileRequestModel.identity;
       //   }
       // } else {
-        if (appController.qrUserInformation.documentNumber != null) {
-          if (appController.qrUserInformation.documentNumber!.length > 3) {
-            idDocument = appController.qrUserInformation.documentNumber;
-          }
+      if (appController.qrUserInformation.documentNumber != null) {
+        if (appController.qrUserInformation.documentNumber!.length > 3) {
+          idDocument = appController.qrUserInformation.documentNumber;
         }
-        // dateOfBirth = convertDateToDate(
-        //     convertStringToDate(
-        //       appController.qrUserInformation.dateOfBirth,
-        //       pattern1,
-        //     ),
-        //     patternDefault);
-        // dateOfExpiry = convertDateToDate(
-        //     convertStringToDate(
-        //       appController.qrUserInformation.dateOfExpiry,
-        //       pattern1,
-        //     ),
-        //     patternDefault);
+      }
+      // dateOfBirth = convertDateToDate(
+      //     convertStringToDate(
+      //       appController.qrUserInformation.dateOfBirth,
+      //       pattern1,
+      //     ),
+      //     patternDefault);
+      // dateOfExpiry = convertDateToDate(
+      //     convertStringToDate(
+      //       appController.qrUserInformation.dateOfExpiry,
+      //       pattern1,
+      //     ),
+      //     patternDefault);
       // }
       // idDocument = "099006031";
       // dateOfBirth = convertDateToDate(
@@ -149,7 +149,7 @@ class NfcDialogController extends BaseGetxController {
       // } on PassportError {
       //   // if (e.code != StatusWord.fileNotFound) rethrow;
       // }
-      nfc.setIosAlertMessage(LocaleKeys.nfc_introduceScanNfc4.tr);
+      await nfc.setIosAlertMessage(LocaleKeys.nfc_introduceScanNfc4.tr);
       if (isPace) {
         final accessKey = CanKey(idDocument!.substring(6));
         final efCardAccessData = AppConst.keyAccessDataNFCIos.parseHex();
@@ -164,7 +164,7 @@ class NfcDialogController extends BaseGetxController {
       }
 
       processQuantity.value = 4;
-      nfc.setIosAlertMessage(
+      await nfc.setIosAlertMessage(
           formatProgressMsg(LocaleKeys.nfc_introduceScanNfc5.tr, 20));
       mrtdDataTemp.com = await passport.readEfCOM();
 
@@ -175,7 +175,7 @@ class NfcDialogController extends BaseGetxController {
         mrtdDataTemp.dg2 = await passport.readEfDG2();
       }
 
-      nfc.setIosAlertMessage(
+      await nfc.setIosAlertMessage(
           formatProgressMsg(LocaleKeys.nfc_introduceScanNfc6.tr, 40));
       // if (mrtdDataTemp.com!.dgTags.contains(EfDG3.TAG)) {
       //   mrtdDataTemp.dg3 = await passport.readEfDG3();
@@ -213,7 +213,7 @@ class NfcDialogController extends BaseGetxController {
       if (mrtdDataTemp.com!.dgTags.contains(EfDG14.TAG)) {
         mrtdDataTemp.dg14 = await passport.readEfDG14();
       }
-      nfc.setIosAlertMessage(
+      await nfc.setIosAlertMessage(
           formatProgressMsg(LocaleKeys.nfc_introduceScanNfc7.tr, 60));
 
       if (mrtdDataTemp.com!.dgTags.contains(EfDG15.TAG)) {
@@ -223,7 +223,7 @@ class NfcDialogController extends BaseGetxController {
 
       formatProgressMsg(LocaleKeys.nfc_introduceScanNfc7.tr, 60);
       processQuantity.value = 6;
-      nfc.setIosAlertMessage(
+      await nfc.setIosAlertMessage(
           formatProgressMsg(LocaleKeys.nfc_introduceScanNfc8.tr, 80));
       mrtdDataTemp.sod = await passport.readEfSOD();
       mrtdData?.value = mrtdDataTemp;
@@ -272,10 +272,11 @@ class NfcDialogController extends BaseGetxController {
       processQuantity.value = 10;
       await nfc.disconnect();
     } catch (e) {
-      await nfc.disconnect(iosErrorMessage: LocaleKeys.nfc_introduceScanNfcError.tr);
+      await nfc.disconnect(
+          iosErrorMessage: LocaleKeys.nfc_introduceScanNfcError.tr);
       // nfc.setIosAlertMessage("Lỗi quét NFC. Quý khách vui lòng thử lại !");
       processQuantity.value = 0;
-      if (Get.isDialogOpen == true) {
+      if (Get.isBottomSheetOpen == true) {
         Get.back();
       }
       /*alertMsg.value = "Đã có lỗi xảy ra, vui lòng thử lại";

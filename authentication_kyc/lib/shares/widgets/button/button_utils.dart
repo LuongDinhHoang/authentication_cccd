@@ -63,7 +63,7 @@ class ButtonUtils {
   }) {
     return Container(
       width: width ?? double.infinity,
-      height: height ?? AppDimens.iconHeightButton,
+      height: height ?? AppDimens.btnMediumMax,
       decoration: BoxDecoration(
         color: backgroundColor,
         border: border ?? const Border(),

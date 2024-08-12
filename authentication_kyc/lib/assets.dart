@@ -14,6 +14,10 @@ class Assets {
   static const String ASSETS_JPG_ICON_FINGERPRINT_PNG =
       'assets/jpg/icon_fingerprint.png';
 
+  /// {@macro assets_generator.ASSETS_JPG_IMAGE_BANNER_PNG.preview}
+  static const String ASSETS_JPG_IMAGE_BANNER_PNG =
+      'assets/jpg/image_banner.png';
+
   /// {@macro assets_generator.ASSETS_JPG_IMAGE_DEFAULT_JPG.preview}
   static const String ASSETS_JPG_IMAGE_DEFAULT_JPG =
       'assets/jpg/image_default.jpg';

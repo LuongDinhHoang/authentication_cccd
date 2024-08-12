@@ -128,6 +128,7 @@ flutter:
 
     - assets/jpg/icon_faceid.png
     - assets/jpg/icon_fingerprint.png
+    - assets/jpg/image_banner.png
     - assets/jpg/image_default.jpg
     - assets/jpg/img_card_cccd.png
     - assets/jpg/img_mail.png

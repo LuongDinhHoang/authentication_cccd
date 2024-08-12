@@ -230,6 +230,13 @@ class ShowDialog {
       barrierDismissible: false,
     );
   }
+  static Future<void> funcOpenBottomSheet(Widget child) async {
+    Get.bottomSheet(SDSBottomSheet(
+      title: "",
+      body: child,
+      noHeader: true,
+    ));
+  }
 
   static Widget buildShowPopupOption(Widget? child) {
     return AlertDialog(

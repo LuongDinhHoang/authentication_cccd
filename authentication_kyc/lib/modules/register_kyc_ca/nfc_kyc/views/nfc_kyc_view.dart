@@ -11,6 +11,12 @@ Widget _body(ScanNfcKycController controller) {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const TextUtils(
+                  text: "Thông tin cá nhân",
+                  availableStyle: StyleEnum.bodyBold,
+                  color: AppColors.primaryNavy,
+                ),
+                sdsSB8,
                 Form(
                     key: controller.formKey,
                     child: Column(
@@ -28,10 +34,13 @@ Widget _body(ScanNfcKycController controller) {
                           onValidator: (text) => UtilWidget.validateId(text),
                           fillColor: AppColors.basicWhite.obs,
                           autoFocus: true,
+                          paddingModel: const EdgeInsets.symmetric(),
                         ),
                         Visibility(
-                          visible: controller.userNameController.text != "" &&
-                              controller.dobController.text != "",
+                          visible:
+                              true /*controller.userNameController.text != "" &&
+                              controller.dobController.text != ""*/
+                          ,
                           child: Column(
                             children: [
                               BaseFormLogin.buildInputData(
@@ -48,6 +57,7 @@ Widget _body(ScanNfcKycController controller) {
                                     UtilWidget.validateId(text),
                                 fillColor: AppColors.basicWhite.obs,
                                 autoFocus: true,
+                                paddingModel: const EdgeInsets.symmetric(),
                               ),
                               BaseFormLogin.buildInputData(
                                 title: "Ngày sinh:",
@@ -62,100 +72,49 @@ Widget _body(ScanNfcKycController controller) {
                                     UtilWidget.validateId(text),
                                 fillColor: AppColors.basicWhite.obs,
                                 autoFocus: true,
+                                paddingModel: const EdgeInsets.symmetric(),
                               ),
                             ],
                           ),
                         )
                       ],
                     )),
+                _buildButtonNfcContinue(controller),
                 _titleInstruct(),
               ],
             ).paddingAll(AppDimens.padding15),
           ),
         ),
-        _buildButtonNfcContinue(controller),
       ],
     ),
   );
 }
 
 Widget _titleInstruct() {
-  return Column(
+  return const Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       sdsSB5,
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.topCenter,
-            child: TextUtils(
-              text: LocaleKeys.update_information_kyc_Number1.tr,
-              availableStyle: StyleEnum.bodyRegular,
-              color: AppColors.basicBlack,
-            ),
-          ),
-          Expanded(
-            child: TextUtils(
-              text: LocaleKeys.nfc_Step1.tr,
-              size: AppDimens.sizeTextSmallTb,
-              fontWeight: FontWeight.w400,
-              color: AppColors.basicBlack,
-              maxLine: 4,
-            ),
-          ),
-        ],
+      TextUtils(
+        text: "Hướng dẫn:",
+        color: AppColors.colorDisable,
+        availableStyle: StyleEnum.subBold,
+        maxLine: 3,
       ),
       sdsSB5,
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.topCenter,
-            child: TextUtils(
-              text: LocaleKeys.update_information_kyc_Number2.tr,
-              size: AppDimens.sizeTextSmallTb,
-              fontWeight: FontWeight.w400,
-              color: AppColors.basicBlack,
-            ),
-          ),
-          Expanded(
-            child: TextUtils(
-              text: LocaleKeys.nfc_Step2.tr,
-              size: AppDimens.sizeTextSmallTb,
-              fontWeight: FontWeight.w400,
-              color: AppColors.basicBlack,
-              maxLine: 2,
-            ),
-          ),
-        ],
+      TextUtils(
+        text: "Bước 1: Đặt mã QR trên thẻ CCCD vào vị trí khung",
+        color: AppColors.colorDisable,
+        availableStyle: StyleEnum.bodyRegular,
+        maxLine: 3,
       ),
       sdsSB5,
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.topCenter,
-            child: TextUtils(
-              text: LocaleKeys.update_information_kyc_Number3.tr,
-              size: AppDimens.sizeTextSmallTb,
-              fontWeight: FontWeight.w400,
-              color: AppColors.basicBlack,
-            ),
-          ),
-          Expanded(
-            child: TextUtils(
-              text: LocaleKeys.nfc_Step3.tr,
-              size: AppDimens.sizeTextSmallTb,
-              fontWeight: FontWeight.w400,
-              color: AppColors.basicBlack,
-              maxLine: 2,
-            ),
-          ),
-        ],
+      TextUtils(
+        text:
+            "Bước 2: Chờ hệ thống định danh và xác thực cho tới khi có thông báo thành công.",
+        color: AppColors.colorDisable,
+        availableStyle: StyleEnum.bodyRegular,
+        maxLine: 3,
       ),
     ],
   ).paddingOnly(bottom: AppDimens.padding5);
@@ -164,12 +123,11 @@ Widget _titleInstruct() {
 Widget _buildButtonNfcContinue(ScanNfcKycController controller) {
   return Column(
     children: [
-      ButtonUtils.buildButton(LocaleKeys.nfc_buttonStart.tr, () async {
-        ShowDialog.funcOpenDialog(const NfcDialog());
+      ButtonUtils.buildButton("Quét chip với NFC", () async {
+        controller.scanNfc();
       },
               isLoading: controller.isShowLoading.value,
               backgroundColor: AppColors.primaryBlue1,
-              borderRadius: BorderRadius.circular(AppDimens.radius4),
               colorText: AppColors.basicWhite)
           .paddingAll(AppDimens.padding15),
       // Obx(

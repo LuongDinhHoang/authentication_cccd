@@ -722,7 +722,7 @@ class Locales {
     'biometric_msgUnavailable':
         'Quý khách vui lòng thoát ứng dụng và đặt mật khẩu máy hoặc vân tay để dùng chức năng lưu mật khẩu!',
     'biometric_msgLimit':
-        'Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!huêt',
+        'Quý khách đã xác thực sai quá nhiều lần. Xin vui lòng thử lại sau!',
     'biometric_noteSettingBiometricFace':
         'Quý khách chưa cài đặt đăng nhập bằng khuôn mặt. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực khuôn mặt trong phần cài đặt',
     'biometric_noteSettingBiometricFingerprint':

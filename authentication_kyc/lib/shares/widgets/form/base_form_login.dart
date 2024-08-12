@@ -95,22 +95,26 @@ class BaseFormLogin {
     bool autoFocus = false,
     TextInputType textInputType = TextInputType.text,
     int? maxLength,
+    EdgeInsetsGeometry? paddingModel,
     VoidCallback? onEditingComplete,
     TextInputAction iconNextTextInputAction = TextInputAction.next,
   }) {
     return Obx(
       () => SDSInputWithLabel(
         inputLabelModel: SDSInputLabelModel(
-            label: title,
-            paddingLabel: const EdgeInsets.symmetric(
-              horizontal: AppDimens.paddingDefault,
-              vertical: AppDimens.paddingDefault,
-            )),
+          label: title,
+          paddingLabel: paddingModel ??
+              const EdgeInsets.symmetric(
+                // horizontal: AppDimens.paddingDefault,
+            vertical: AppDimens.padding4,
+          ),
+        ),
         inputTextFormModel: SDSInputTextModel(
           borderRadius: AppDimens.radius8,
           isShowCounterText: false,
           maxLengthInputForm: maxLength,
-          validator: onValidator ?? (value) => value.isNullOrEmpty ? errorValidator : null,
+          validator: onValidator ??
+              (value) => value.isNullOrEmpty ? errorValidator : null,
           controller: textEditingController,
           fillColor: fillColor.value,
           isReadOnly: isLoading,
@@ -136,6 +140,8 @@ class BaseFormLogin {
           onEditingComplete: onEditingComplete,
           inputFormatters: 0,
           autoFocus: autoFocus,
+          paddingModel: const EdgeInsets.symmetric(
+              vertical: AppDimens.paddingDefault),
         ),
       ),
     ).paddingOnly(bottom: AppDimens.padding5);
