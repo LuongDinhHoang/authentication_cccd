@@ -37,9 +37,18 @@ class NfcInformationUserPage extends BaseGetWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: _buildListGuild(controller)
-            .paddingSymmetric(horizontal: AppDimens.padding20),
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.white.withOpacity(0.9),
+            ),
+            _buildListGuild(controller)
+                .paddingSymmetric(horizontal: AppDimens.paddingDefaultHeight),
+
+          ],
+        ),
       ),
+
       bottomNavigationBar: Obx(
         () => ButtonUtils.buildButton(
           LocaleKeys.registerCa_continue.tr,

@@ -122,6 +122,9 @@ class Assets {
   static const String ASSETS_SVG_ICON_DIRECTION_SVG =
       'assets/svg/icon_direction.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_DONE_SVG.preview}
+  static const String ASSETS_SVG_ICON_DONE_SVG = 'assets/svg/icon_done.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_EMAIL_SVG.preview}
   static const String ASSETS_SVG_ICON_EMAIL_SVG = 'assets/svg/icon_email.svg';
 

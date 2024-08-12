@@ -157,6 +157,7 @@ flutter:
     - assets/svg/icon_create_folder.svg
     - assets/svg/icon_delete.svg
     - assets/svg/icon_direction.svg
+    - assets/svg/icon_done.svg
     - assets/svg/icon_email.svg
     - assets/svg/icon_face_between.svg
     - assets/svg/icon_face_blink.svg

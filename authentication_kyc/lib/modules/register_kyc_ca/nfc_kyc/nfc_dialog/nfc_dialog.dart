@@ -45,7 +45,7 @@ class NfcDialog extends BaseGetWidget<NfcDialogController> {
             ).paddingAll(AppDimens.padding10),
             buildProgressBar(controller),
             ButtonUtils.buildButton(
-              LocaleKeys.nfc_buttonSkip.tr,
+              LocaleKeys.dialog_cancel.tr,
               () async {
                 Get.back();
                 await controller.nfc.disconnect();

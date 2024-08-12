@@ -31,7 +31,7 @@ Widget _body(ScanNfcKycController controller) {
                           currentNode: controller.idDocumentFocus,
                           errorValidator:
                               LocaleKeys.register_account_errorValidatorCCCD.tr,
-                          onValidator: (text) => UtilWidget.validateId(text),
+                          // onValidator: (text) => UtilWidget.validateId(text),
                           fillColor: AppColors.basicWhite.obs,
                           autoFocus: true,
                           paddingModel: const EdgeInsets.symmetric(),
@@ -53,8 +53,8 @@ Widget _body(ScanNfcKycController controller) {
                                 currentNode: controller.userNameFocus,
                                 errorValidator: LocaleKeys
                                     .register_account_errorValidatorCCCD.tr,
-                                onValidator: (text) =>
-                                    UtilWidget.validateId(text),
+                                // onValidator: (text) =>
+                                //     UtilWidget.validateId(text),
                                 fillColor: AppColors.basicWhite.obs,
                                 autoFocus: true,
                                 paddingModel: const EdgeInsets.symmetric(),
@@ -68,8 +68,8 @@ Widget _body(ScanNfcKycController controller) {
                                 currentNode: controller.dobFocus,
                                 errorValidator: LocaleKeys
                                     .register_account_errorValidatorCCCD.tr,
-                                onValidator: (text) =>
-                                    UtilWidget.validateId(text),
+                                // onValidator: (text) =>
+                                //     UtilWidget.validateId(text),
                                 fillColor: AppColors.basicWhite.obs,
                                 autoFocus: true,
                                 paddingModel: const EdgeInsets.symmetric(),
