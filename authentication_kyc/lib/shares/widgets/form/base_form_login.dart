@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:two_id_c06verify/assets.dart';
 import 'package:two_id_c06verify/core/theme/colors.dart';
 import 'package:two_id_c06verify/core/values/dimens.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
-import 'package:flutter/material.dart';
 
 import '../../shares.src.dart';
 
@@ -23,6 +24,8 @@ class BaseFormLogin {
     required Function() functionLogin,
     bool isFaceID = true,
     Function()? functionLoginBiometric,
+    final IconData? iconLeading,
+    final Color? prefixIconColor,
   }) {
     return Form(
       key: formKey,
@@ -37,25 +40,33 @@ class BaseFormLogin {
             nextMode: nextMode,
             errorValidator: LocaleKeys.login_accountEmpty.tr,
             fillColor: fillColorUserName,
+            iconLeading: IconButton(
+                padding: const EdgeInsets.all(0.0),
+                constraints: const BoxConstraints(),
+                onPressed: () {},
+                icon: SvgPicture.asset(Assets.ASSETS_SVG_ICON_USER_SVG)),
           ),
-          buildInputData(
-            title: LocaleKeys.login_password.tr,
-            textEditingController: textPassword,
-            isLoading: isLoading,
-            hintText: LocaleKeys.login_passwordHint.tr,
-            currentNode: passwordFocus,
-            errorValidator: LocaleKeys.login_passwordEmpty.tr,
-            fillColor: fillColorPassword,
-            iconNextTextInputAction: TextInputAction.done,
-            isPassword: true,
-            onEditingComplete: functionLogin,
-          ),
-          _buildOptional(isRemember, isForgotPassword),
           Row(
             children: [
               Expanded(
-                  child: _buildButtonLogin(isShowLoading,
-                      function: functionLogin)),
+                child: buildInputData(
+                  title: LocaleKeys.login_password.tr,
+                  textEditingController: textPassword,
+                  isLoading: isLoading,
+                  hintText: LocaleKeys.login_passwordHint.tr,
+                  currentNode: passwordFocus,
+                  errorValidator: LocaleKeys.login_passwordEmpty.tr,
+                  fillColor: fillColorPassword,
+                  iconNextTextInputAction: TextInputAction.done,
+                  isPassword: true,
+                  onEditingComplete: functionLogin,
+                  iconLeading: IconButton(
+                      padding: const EdgeInsets.all(0.0),
+                      constraints: const BoxConstraints(),
+                      onPressed: () {},
+                      icon: SvgPicture.asset(Assets.ASSETS_SVG_ICON_PASS_SVG)),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: AppDimens.paddingDefault),
@@ -69,11 +80,41 @@ class BaseFormLogin {
                           ? Assets.ASSETS_JPG_ICON_FACEID_PNG
                           : Assets.ASSETS_JPG_ICON_FINGERPRINT_PNG,
                       fit: BoxFit.fill,
+                      width: AppDimens.btnMediumMax,
+                      height: AppDimens.btnMediumMax,
                       // color: AppColors.primaryCam1,
                     ),
                   ),
                 ),
               )
+            ],
+          ),
+          _buildOptional(isForgotPassword),
+          Row(
+            children: [
+              Expanded(
+                  child: _buildButtonLogin(isShowLoading,
+                      function: functionLogin)),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(
+              //       horizontal: AppDimens.paddingDefault),
+              //   child: SizedBox(
+              //     width: AppDimens.btnMedium,
+              //     height: AppDimens.btnMedium,
+              //     child: IconButton(
+              //       onPressed: functionLoginBiometric ?? () {},
+              //       icon: Image.asset(
+              //         isFaceID
+              //             ? Assets.ASSETS_JPG_ICON_FACEID_PNG
+              //             : Assets.ASSETS_JPG_ICON_FINGERPRINT_PNG,
+              //         fit: BoxFit.fill,
+              //         width: AppDimens.btnMediumMax,
+              //         height: AppDimens.btnMediumMax,
+              //         // color: AppColors.primaryCam1,
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           )
         ],
@@ -98,16 +139,18 @@ class BaseFormLogin {
     EdgeInsetsGeometry? paddingModel,
     VoidCallback? onEditingComplete,
     TextInputAction iconNextTextInputAction = TextInputAction.next,
+    final Widget? iconLeading,
+    final Color? prefixIconColor,
   }) {
     return Obx(
       () => SDSInputWithLabel(
         inputLabelModel: SDSInputLabelModel(
-          label: title,
+          label: "",
           paddingLabel: paddingModel ??
               const EdgeInsets.symmetric(
                 // horizontal: AppDimens.paddingDefault,
-            vertical: AppDimens.padding4,
-          ),
+                vertical: AppDimens.padding4,
+              ),
         ),
         inputTextFormModel: SDSInputTextModel(
           borderRadius: AppDimens.radius8,
@@ -133,6 +176,8 @@ class BaseFormLogin {
             ),
           ),
           obscureText: isPassword,
+          iconLeading: iconLeading,
+          prefixIconColor: prefixIconColor,
           focusNode: currentNode.value,
           nextNode: nextMode,
           textInputType: textInputType,
@@ -140,31 +185,28 @@ class BaseFormLogin {
           onEditingComplete: onEditingComplete,
           inputFormatters: 0,
           autoFocus: autoFocus,
-          paddingModel: const EdgeInsets.symmetric(
-              vertical: AppDimens.paddingDefault),
+          paddingModel:
+              const EdgeInsets.symmetric(vertical: AppDimens.paddingDefault),
         ),
       ),
     ).paddingOnly(bottom: AppDimens.padding5);
   }
 
-  static Widget _buildOptional(RxBool isRemember, bool isForgotPassword) {
+  static Widget _buildOptional(bool isForgotPassword) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        UtilWidget.buildCheckBox(
-          isRemember,
-          LocaleKeys.login_rememberAccount.tr,
-// styleTextBox: AppTextStyle.labelStyle(),
-        ),
-        Visibility(
-          visible: isForgotPassword,
-          child: TextButton(
-            onPressed: () {},
-            child: TextUtils(
-              text: LocaleKeys.login_forgetPassword.tr,
-              availableStyle: StyleEnum.bodyRegular,
-              color: AppColors.primaryBlue1,
-            ),
+//         UtilWidget.buildCheckBox(
+//           isRemember,
+//           LocaleKeys.login_rememberAccount.tr,
+// // styleTextBox: AppTextStyle.labelStyle(),
+//         ),
+        TextButton(
+          onPressed: () {},
+          child: TextUtils(
+            text: LocaleKeys.login_forgetPassword.tr,
+            availableStyle: StyleEnum.bodyRegular,
+            color: AppColors.primaryBlue1,
           ),
         ),
       ],
@@ -174,13 +216,13 @@ class BaseFormLogin {
   static Widget _buildButtonLogin(bool isShowLoading,
       {required Function() function}) {
     return SizedBox(
-      height: AppDimens.iconHeightButton,
+      height: AppDimens.btnMediumMax,
       child: ButtonUtils.buildButton(
         LocaleKeys.login_login.tr,
         function,
         isLoading: isShowLoading,
         backgroundColor: AppColors.primaryBlue1,
-        borderRadius: BorderRadius.circular(AppDimens.radius4),
+        borderRadius: BorderRadius.circular(AppDimens.radius10),
       ),
     );
   }

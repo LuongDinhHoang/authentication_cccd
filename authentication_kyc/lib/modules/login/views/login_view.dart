@@ -152,45 +152,45 @@ Widget _buildDevelopBy() {
   );
 }
 
-Widget _buildOptional(LoginController controller) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      UtilWidget.buildCheckBox(
-        controller.isRemember,
-        LocaleKeys.login_rememberAccount.tr,
-        // styleTextBox: AppTextStyle.labelStyle(),
-      ),
-      TextButton(
-        onPressed: () {},
-        child: TextUtils(
-          text: LocaleKeys.login_forgetPassword.tr,
-          availableStyle: StyleEnum.bodyRegular,
-          color: AppColors.primaryBlue1,
-        ),
-      ),
-    ],
-  ).paddingOnly(bottom: 5);
-}
+// Widget _buildOptional(LoginController controller) {
+//   return Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       UtilWidget.buildCheckBox(
+//         controller.isRemember,
+//         LocaleKeys.login_rememberAccount.tr,
+//         // styleTextBox: AppTextStyle.labelStyle(),
+//       ),
+//       TextButton(
+//         onPressed: () {},
+//         child: TextUtils(
+//           text: LocaleKeys.login_forgetPassword.tr,
+//           availableStyle: StyleEnum.bodyRegular,
+//           color: AppColors.primaryBlue1,
+//         ),
+//       ),
+//     ],
+//   ).paddingOnly(bottom: 5);
+// }
 
-Widget _buildButtonLogin(LoginController controller,
-    {Function? function, String? titleButton}) {
-  return SizedBox(
-    height: AppDimens.iconHeightButton,
-    child: Obx(
-      () => ButtonUtils.buildButton(
-        LocaleKeys.login_login.tr,
-        function?.call() ??
-            () async {
-              Get.toNamed(AppRoutes.routeRegisterCA);
-            },
-        isLoading: controller.isShowLoading.value,
-        backgroundColor: AppColors.primaryBlue1,
-        borderRadius: BorderRadius.circular(AppDimens.radius4),
-      ),
-    ),
-  );
-}
+// Widget _buildButtonLogin(LoginController controller,
+//     {Function? function, String? titleButton}) {
+//   return SizedBox(
+//     height: AppDimens.iconHeightButton,
+//     child: Obx(
+//       () => ButtonUtils.buildButton(
+//         LocaleKeys.login_login.tr,
+//         function?.call() ??
+//             () async {
+//               Get.toNamed(AppRoutes.routeRegisterCA);
+//             },
+//         isLoading: controller.isShowLoading.value,
+//         backgroundColor: AppColors.primaryBlue1,
+//         borderRadius: BorderRadius.circular(AppDimens.radius4),
+//       ),
+//     ),
+//   );
+// }
 
 //
 // Widget _buildTitleLogin() {
@@ -338,63 +338,63 @@ Widget _buildButtonLogin(LoginController controller,
 //   );
 // }
 //
-Widget _buildInputData({
-  required String title,
-  required TextEditingController textEditingController,
-  required bool isLoading,
-  required String hintText,
-  required String errorValidator,
-  required Rx<FocusNode> currentNode,
-  FocusNode? nextMode,
-  bool isPassword = false,
-  TextInputType textInputType = TextInputType.text,
-  int? maxLength,
-  VoidCallback? onEditingComplete,
-  TextInputAction iconNextTextInputAction = TextInputAction.next,
-  required Rx<Color> fillColor,
-}) {
-  return Obx(
-    () => SDSInputWithLabel(
-      inputLabelModel: SDSInputLabelModel(
-          label: title,
-          paddingLabel: const EdgeInsets.symmetric(
-            horizontal: AppDimens.paddingDefault,
-            vertical: AppDimens.paddingDefault,
-          )),
-      inputTextFormModel: SDSInputTextModel(
-        borderRadius: 8,
-        isShowCounterText: false,
-        maxLengthInputForm: maxLength,
-        validator: (value) => value.isNullOrEmpty ? errorValidator : null,
-        controller: textEditingController,
-        fillColor: fillColor.value,
-        isReadOnly: isLoading,
-        hintTextSize: AppDimens.sizeTextSmall,
-        hintTextColor: AppColors.basicGrey2,
-        hintText: hintText,
-        // showFocusedBorder: false,
-        contentPadding: const EdgeInsets.only(
-          top: AppDimens.paddingDefault,
-          bottom: AppDimens.paddingDefault,
-          left: AppDimens.paddingDefault,
-        ),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
-              color: AppColors.primaryNavy,
-            )),
-        // colorBorder: AppColors.primaryNavy,
-        // floatingLabelStyle: AppTextStyle.labelStyle(
-        //   size: AppDimens.sizeTextLarge,
-        // ),
-        obscureText: isPassword,
-        focusNode: currentNode.value,
-        nextNode: nextMode,
-        textInputType: textInputType,
-        iconNextTextInputAction: iconNextTextInputAction,
-        onTap: onEditingComplete,
-        inputFormatters: 0,
-      ),
-    ),
-  ).paddingOnly(bottom: 5);
-}
+// Widget _buildInputData({
+//   required String title,
+//   required TextEditingController textEditingController,
+//   required bool isLoading,
+//   required String hintText,
+//   required String errorValidator,
+//   required Rx<FocusNode> currentNode,
+//   FocusNode? nextMode,
+//   bool isPassword = false,
+//   TextInputType textInputType = TextInputType.text,
+//   int? maxLength,
+//   VoidCallback? onEditingComplete,
+//   TextInputAction iconNextTextInputAction = TextInputAction.next,
+//   required Rx<Color> fillColor,
+// }) {
+//   return Obx(
+//     () => SDSInputWithLabel(
+//       inputLabelModel: SDSInputLabelModel(
+//           label: title,
+//           paddingLabel: const EdgeInsets.symmetric(
+//             horizontal: AppDimens.paddingDefault,
+//             vertical: AppDimens.paddingDefault,
+//           )),
+//       inputTextFormModel: SDSInputTextModel(
+//         borderRadius: 8,
+//         isShowCounterText: false,
+//         maxLengthInputForm: maxLength,
+//         validator: (value) => value.isNullOrEmpty ? errorValidator : null,
+//         controller: textEditingController,
+//         fillColor: fillColor.value,
+//         isReadOnly: isLoading,
+//         hintTextSize: AppDimens.sizeTextSmall,
+//         hintTextColor: AppColors.basicGrey2,
+//         hintText: hintText,
+//         // showFocusedBorder: false,
+//         contentPadding: const EdgeInsets.only(
+//           top: AppDimens.paddingDefault,
+//           bottom: AppDimens.paddingDefault,
+//           left: AppDimens.paddingDefault,
+//         ),
+//         border: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(8),
+//             borderSide: const BorderSide(
+//               color: AppColors.primaryNavy,
+//             )),
+//         // colorBorder: AppColors.primaryNavy,
+//         // floatingLabelStyle: AppTextStyle.labelStyle(
+//         //   size: AppDimens.sizeTextLarge,
+//         // ),
+//         obscureText: isPassword,
+//         focusNode: currentNode.value,
+//         nextNode: nextMode,
+//         textInputType: textInputType,
+//         iconNextTextInputAction: iconNextTextInputAction,
+//         onTap: onEditingComplete,
+//         inputFormatters: 0,
+//       ),
+//     ),
+//   ).paddingOnly(bottom: 5);
+// }

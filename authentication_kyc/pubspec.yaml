@@ -203,6 +203,7 @@ flutter:
     - assets/svg/icon_number_phone.svg
     - assets/svg/icon_package.svg
     - assets/svg/icon_package_card.svg
+    - assets/svg/icon_pass.svg
     - assets/svg/icon_register_kyc.svg
     - assets/svg/icon_scan_nfc.svg
     - assets/svg/icon_service_ca.svg
@@ -211,6 +212,7 @@ flutter:
     - assets/svg/icon_tag.svg
     - assets/svg/icon_take_picture.svg
     - assets/svg/icon_telephone.svg
+    - assets/svg/icon_user.svg
     - assets/svg/icon_user_name_card.svg
 
   # assets end

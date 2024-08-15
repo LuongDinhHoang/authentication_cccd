@@ -23,8 +23,8 @@ class LoginPage extends BaseGetWidget<LoginController> {
   Widget buildWidgets(context) {
     return Scaffold(
       body: _body(controller),
-      bottomNavigationBar:
-          _buildDevelopBy().paddingOnly(bottom: AppDimens.padding5),
+      // bottomNavigationBar:
+      //     _buildDevelopBy().paddingOnly(bottom: AppDimens.padding5),
     );
   }
 }

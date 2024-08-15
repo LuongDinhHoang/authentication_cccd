@@ -295,6 +295,9 @@ class Assets {
   static const String ASSETS_SVG_ICON_PACKAGE_CARD_SVG =
       'assets/svg/icon_package_card.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_PASS_SVG.preview}
+  static const String ASSETS_SVG_ICON_PASS_SVG = 'assets/svg/icon_pass.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_REGISTER_KYC_SVG.preview}
   static const String ASSETS_SVG_ICON_REGISTER_KYC_SVG =
       'assets/svg/icon_register_kyc.svg';
@@ -325,6 +328,9 @@ class Assets {
   /// {@macro assets_generator.ASSETS_SVG_ICON_TELEPHONE_SVG.preview}
   static const String ASSETS_SVG_ICON_TELEPHONE_SVG =
       'assets/svg/icon_telephone.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_USER_SVG.preview}
+  static const String ASSETS_SVG_ICON_USER_SVG = 'assets/svg/icon_user.svg';
 
   /// {@macro assets_generator.ASSETS_SVG_ICON_USER_NAME_CARD_SVG.preview}
   static const String ASSETS_SVG_ICON_USER_NAME_CARD_SVG =

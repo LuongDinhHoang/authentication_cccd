@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../shares.src.dart';
 
 class SDSInputTextModel {
-  final IconData? iconLeading;
+  final Widget? iconLeading;
 
   String? hintText;
 
