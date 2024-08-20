@@ -14,13 +14,20 @@
     "registerAccount": "Đăng ký tài khoản",
     "titleAccuracy": "Đăng ký và Xác thực hồ sơ",
     "passwordHint": "Nhập mật khẩu",
-    "developBy": "Phát triển bởi ",
-    "softDreams": "Softdreams",
     "rememberAccount": "Ghi nhớ tài khoản",
-    "forgetPassword": "Quên mật khẩu?",
+    "forgetPassword": "Quên mật khẩu",
     "login": "Đăng nhập",
     "accountEmpty": "Tài khoản không được để trống",
-    "passwordEmpty": "Mật khẩu không được để trống"
+    "passwordEmpty": "Mật khẩu không được để trống",
+    "clause": "Điều kiện & Điều khoản",
+    "authentication": "Xác thực khách hàng",
+    "listUser": "Danh sách khách hàng",
+    "servicePackage": "Gói dịch vụ",
+    "notUser": "Chưa có tài khoản?",
+    "RegisterNew": " Đăng ký mới",
+    "id": "2ID@2024",
+    "support": "Hỗ trợ"
+
   },
   "registerCa": {
     "tileAppbarCa": "Đăng ký dịch vụ EasyCA",

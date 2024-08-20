@@ -17,7 +17,7 @@ class BaseFormLogin {
     FocusNode? nextMode,
     required Rx<Color> fillColorUserName,
     required Rx<Color> fillColorPassword,
-    required RxBool isRemember,
+    required bool isBiometric,
     required bool isShowLoading,
     required GlobalKey formKey,
     bool isForgotPassword = true,
@@ -31,20 +31,47 @@ class BaseFormLogin {
       key: formKey,
       child: Column(
         children: [
-          buildInputData(
-            title: LocaleKeys.login_userTitle.tr,
-            textEditingController: textUserName,
-            isLoading: isLoading,
-            hintText: LocaleKeys.login_userHint.tr,
-            currentNode: userNameFocus,
-            nextMode: nextMode,
-            errorValidator: LocaleKeys.login_accountEmpty.tr,
-            fillColor: fillColorUserName,
-            iconLeading: IconButton(
-                padding: const EdgeInsets.all(0.0),
-                constraints: const BoxConstraints(),
-                onPressed: () {},
-                icon: SvgPicture.asset(Assets.ASSETS_SVG_ICON_USER_SVG)),
+          Visibility(
+            visible: !isBiometric,
+            child: buildInputData(
+              title: LocaleKeys.login_userTitle.tr,
+              textEditingController: textUserName,
+              isLoading: isLoading,
+              hintText: LocaleKeys.login_userHint.tr,
+              currentNode: userNameFocus,
+              nextMode: nextMode,
+              errorValidator: LocaleKeys.login_accountEmpty.tr,
+              fillColor: fillColorUserName,
+              isBiometric: isBiometric,
+              iconLeading: IconButton(
+                  padding: const EdgeInsets.all(0.0),
+                  constraints: const BoxConstraints(),
+                  onPressed: () {},
+                  icon: SvgPicture.asset(Assets.ASSETS_SVG_ICON_USER_SVG)),
+            ),
+          ),
+          Visibility(
+            visible: isBiometric,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextUtils(
+                      text: "Hoang",
+                      availableStyle: StyleEnum.subBold,
+                      color: AppColors.colorBlack,
+                    ),
+                  ],
+                ),
+                TextUtils(
+                  text: textUserName.text,
+                  availableStyle: StyleEnum.bodyRegular,
+                  color: AppColors.colorBlack,
+                ),
+              ],
+            ),
           ),
           Row(
             children: [
@@ -130,6 +157,7 @@ class BaseFormLogin {
     required String errorValidator,
     required Rx<FocusNode> currentNode,
     required Rx<Color> fillColor,
+    bool isBiometric = false,
     FocusNode? nextMode,
     String? Function(String?)? onValidator,
     bool isPassword = false,

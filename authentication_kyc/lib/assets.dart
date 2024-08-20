@@ -7,6 +7,10 @@
 class Assets {
   const Assets._();
 
+  /// {@macro assets_generator.ASSETS_JPG_ICON_BANNER_LOGIN_PNG.preview}
+  static const String ASSETS_JPG_ICON_BANNER_LOGIN_PNG =
+      'assets/jpg/icon_banner_login.png';
+
   /// {@macro assets_generator.ASSETS_JPG_ICON_FACEID_PNG.preview}
   static const String ASSETS_JPG_ICON_FACEID_PNG = 'assets/jpg/icon_faceid.png';
 
@@ -42,6 +46,10 @@ class Assets {
   /// {@macro assets_generator.ASSETS_SVG_ICON_APPEAR_EYE_SVG.preview}
   static const String ASSETS_SVG_ICON_APPEAR_EYE_SVG =
       'assets/svg/icon_appear_eye.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_AUTHENTICATION_SVG.preview}
+  static const String ASSETS_SVG_ICON_AUTHENTICATION_SVG =
+      'assets/svg/icon_authentication.svg';
 
   /// {@macro assets_generator.ASSETS_SVG_ICON_AWAIT_OCR_DATA_SVG.preview}
   static const String ASSETS_SVG_ICON_AWAIT_OCR_DATA_SVG =
@@ -204,6 +212,14 @@ class Assets {
   /// {@macro assets_generator.ASSETS_SVG_ICON_KYC_SVG.preview}
   static const String ASSETS_SVG_ICON_KYC_SVG = 'assets/svg/icon_kyc.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_KYC_LOGIN_SVG.preview}
+  static const String ASSETS_SVG_ICON_KYC_LOGIN_SVG =
+      'assets/svg/icon_kyc_login.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_KYC_SMALL_SVG.preview}
+  static const String ASSETS_SVG_ICON_KYC_SMALL_SVG =
+      'assets/svg/icon_kyc_small.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_LIST_SVG.preview}
   static const String ASSETS_SVG_ICON_LIST_SVG = 'assets/svg/icon_list.svg';
 
@@ -222,6 +238,10 @@ class Assets {
   /// {@macro assets_generator.ASSETS_SVG_ICON_LIST_NULL_SVG.preview}
   static const String ASSETS_SVG_ICON_LIST_NULL_SVG =
       'assets/svg/icon_list_null.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_LIST_USER_SVG.preview}
+  static const String ASSETS_SVG_ICON_LIST_USER_SVG =
+      'assets/svg/icon_list_user.svg';
 
   /// {@macro assets_generator.ASSETS_SVG_ICON_LIVE_NESS_SVG.preview}
   static const String ASSETS_SVG_ICON_LIVE_NESS_SVG =
@@ -310,9 +330,17 @@ class Assets {
   static const String ASSETS_SVG_ICON_SERVICE_CA_SVG =
       'assets/svg/icon_service_ca.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_SERVICE_PACKAGE_SVG.preview}
+  static const String ASSETS_SVG_ICON_SERVICE_PACKAGE_SVG =
+      'assets/svg/icon_service_package.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_SUCCESS_SVG.preview}
   static const String ASSETS_SVG_ICON_SUCCESS_SVG =
       'assets/svg/icon_success.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_SUPPORT_SVG.preview}
+  static const String ASSETS_SVG_ICON_SUPPORT_SVG =
+      'assets/svg/icon_support.svg';
 
   /// {@macro assets_generator.ASSETS_SVG_ICON_SUPPORT_NFC_SVG.preview}
   static const String ASSETS_SVG_ICON_SUPPORT_NFC_SVG =

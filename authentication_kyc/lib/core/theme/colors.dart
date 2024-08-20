@@ -39,7 +39,7 @@ class AppColors {
   static const Color statusRed = Color(0xFFFE0000);
   static const Color statusYellow = Color(0xFFFFC700);
 
-  static const Color secondaryNavyPastel = Color(0xFFF1F3FF);
+  static const Color secondaryNavyPastel = Color(0xFFEAF7FF);
   static const Color secondaryCamPastel2 = Color(0xFFFFF3EC);
   static const Color secondaryCamPastel = Color(0xFFFFEADE);
   static const Color secondaryCam3 = Color(0xFFCA4A00);

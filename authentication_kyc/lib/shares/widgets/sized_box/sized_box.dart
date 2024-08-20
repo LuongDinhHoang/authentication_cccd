@@ -20,6 +20,8 @@ const Widget sdsSBHeight10 = SizedBox(height: 10);
 
 const Widget sdsSBHeight12 = SizedBox(height: 12);
 
+const Widget sdsSBHeight15 = SizedBox(height: 15);
+
 const Widget sdsSBHeight25 = SizedBox(height: 25);
 
 const Widget sdsSBWidth5 = SizedBox(width: 5);

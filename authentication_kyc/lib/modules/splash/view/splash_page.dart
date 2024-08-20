@@ -15,7 +15,11 @@ class SplashPage extends GetView<AppController> {
       color: AppColors.basicGrey4,
       alignment: Alignment.center,
       child: Center(
-        child: SvgPicture.asset(Assets.ASSETS_SVG_ICON_KYC_SVG),
+        child: SvgPicture.asset(
+          Assets.ASSETS_SVG_ICON_KYC_SVG,
+          width: 136,
+          height: 115,
+        ),
       ),
     );
   }

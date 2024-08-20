@@ -20,7 +20,7 @@ Widget _buildLoginCa(VerifyProfileController controller) {
             isLoading: controller.isShowLoading.value,
             fillColorUserName: controller.fillColorUserName,
             fillColorPassword: controller.fillColorPassword,
-            isRemember: controller.isRememberLogin,
+            isBiometric: controller.isRememberLogin.value,
             isForgotPassword: false,
             isShowLoading: controller.isShowLoading.value,
             functionLogin: () async {

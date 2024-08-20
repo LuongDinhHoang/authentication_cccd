@@ -22,13 +22,19 @@ class LocaleKeys {
   static const login_registerAccount = 'login_registerAccount';
   static const login_titleAccuracy = 'login_titleAccuracy';
   static const login_passwordHint = 'login_passwordHint';
-  static const login_developBy = 'login_developBy';
-  static const login_softDreams = 'login_softDreams';
   static const login_rememberAccount = 'login_rememberAccount';
   static const login_forgetPassword = 'login_forgetPassword';
   static const login_login = 'login_login';
   static const login_accountEmpty = 'login_accountEmpty';
   static const login_passwordEmpty = 'login_passwordEmpty';
+  static const login_clause = 'login_clause';
+  static const login_authentication = 'login_authentication';
+  static const login_listUser = 'login_listUser';
+  static const login_servicePackage = 'login_servicePackage';
+  static const login_notUser = 'login_notUser';
+  static const login_RegisterNew = 'login_RegisterNew';
+  static const login_id = 'login_id';
+  static const login_support = 'login_support';
   static const registerCa_tileAppbarCa = 'registerCa_tileAppbarCa';
   static const registerCa_titleRegisterService =
       'registerCa_titleRegisterService';
@@ -409,13 +415,19 @@ class Locales {
     'login_registerAccount': 'Đăng ký tài khoản',
     'login_titleAccuracy': 'Đăng ký và Xác thực hồ sơ',
     'login_passwordHint': 'Nhập mật khẩu',
-    'login_developBy': 'Phát triển bởi ',
-    'login_softDreams': 'Softdreams',
     'login_rememberAccount': 'Ghi nhớ tài khoản',
-    'login_forgetPassword': 'Quên mật khẩu?',
+    'login_forgetPassword': 'Quên mật khẩu',
     'login_login': 'Đăng nhập',
     'login_accountEmpty': 'Tài khoản không được để trống',
     'login_passwordEmpty': 'Mật khẩu không được để trống',
+    'login_clause': 'Điều kiện & Điều khoản',
+    'login_authentication': 'Xác thực khách hàng',
+    'login_listUser': 'Danh sách khách hàng',
+    'login_servicePackage': 'Gói dịch vụ',
+    'login_notUser': 'Chưa có tài khoản?',
+    'login_RegisterNew': ' Đăng ký mới',
+    'login_id': '2ID@2024',
+    'login_support': 'Hỗ trợ',
     'registerCa_tileAppbarCa': 'Đăng ký dịch vụ EasyCA',
     'registerCa_titleRegisterService': 'Đăng ký tài khoản',
     'registerCa_contentRegisterService': 'Đăng ký dịch vụ EasyKYC cho cá nhân',

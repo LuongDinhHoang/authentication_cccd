@@ -38,6 +38,9 @@ class LoginController extends BaseGetxController {
     loginCaRepository = LoginCaRepository(this);
     super.onInit();
   }
+  // void initState(){
+  //   if()
+  // }
 
   void initText() {
     userNameFocus.value.addListener(() {
@@ -192,14 +195,14 @@ class LoginController extends BaseGetxController {
     LoginCaRequestModel loginCaRequestModel =
         hiveUserLogin.get(AppKey.keyRememberLogin) ??
             LoginCaRequestModel(
-              userName: "",
+              userName: "Hoang",
               password: "",
               isRememberMe: false,
-              isBiometric: false,
+              isBiometric: true,
             );
     userNameController.text = loginCaRequestModel.userName;
-    passwordController.text = loginCaRequestModel.password;
-    isRemember.value = loginCaRequestModel.isRememberMe;
+    // passwordController.text = loginCaRequestModel.password;
+    // isRemember.value = loginCaRequestModel.isRememberMe;
     isBiometric = loginCaRequestModel.isBiometric;
   }
 }

@@ -11,11 +11,47 @@ Widget _body(LoginController controller) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: Get.height * 0.15,
-              ),
-              SvgPicture.asset(Assets.ASSETS_SVG_ICON_KYC_SVG)
-                  .paddingOnly(bottom: 30),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SvgPicture.asset(Assets
+                      . /*ASSETS_SVG_ICON_LOCK_SVG*/ ASSETS_SVG_ICON_KYC_SMALL_SVG),
+                  // Expanded(
+                  //   child: Container(
+                  //     alignment: Alignment.centerRight,
+                  //     child: TextButton(
+                  //       onPressed: () {},
+                  //       style: TextButton.styleFrom(
+                  //           padding: EdgeInsets.zero,
+                  //           alignment: Alignment.centerLeft),
+                  //       child: TextUtils(
+                  //         text: LocaleKeys.login_clause.tr,
+                  //         availableStyle: StyleEnum.bodyRegular,
+                  //         color: AppColors.primaryBlue1,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ).paddingSymmetric(vertical: AppDimens.padding15),
+              /*SvgPicture.asset(
+                Assets.ASSETS_SVG_ICON_KYC_SVG,
+                width: 136,
+                height: 115,
+              )*/
+              /*SvgPicture.asset(
+                Assets.ASSETS_SVG_ICON_KYC_SVG,
+                width: 136,
+                height: 115,
+              )*/
+              Image.asset(
+                Assets.ASSETS_JPG_ICON_BANNER_LOGIN_PNG,
+                fit: BoxFit.fill,
+                width: Get.width - 50,
+                height: Get.height / 3.5,
+                // color: AppColors.primaryCam1,
+              ).paddingSymmetric(vertical: AppDimens.padding30),
               // _buildInputData(
               //   title: LocaleKeys.login_userTitle.tr,
               //   textEditingController: controller.userNameController,
@@ -51,7 +87,7 @@ Widget _body(LoginController controller) {
                   isLoading: controller.isShowLoading.value,
                   fillColorUserName: controller.fillColorUserName,
                   fillColorPassword: controller.fillColorPassword,
-                  isRemember: controller.isRemember,
+                  isBiometric: controller.isBiometric,
                   isShowLoading: controller.isShowLoading.value,
                   functionLogin: () async {
                     await controller.confirmLogin();
@@ -59,67 +95,69 @@ Widget _body(LoginController controller) {
                   functionLoginBiometric: () async {
                     await controller.loginFingerprint();
                   },
-                  isFaceID:controller.biometricTypes.contains(BiometricType.face),
+                  isFaceID:
+                      controller.biometricTypes.contains(BiometricType.face),
                 ),
               ),
-              TextButton(
-                onPressed: () async {
-                  controller.checkPermissionApp();
-                  // Get.toNamed(AppRoutes.routeVerifyProfile);
-                },
-                child: TextUtils(
-                  text: LocaleKeys.login_titleAccuracy.tr,
-                  availableStyle: StyleEnum.bodyRegular,
-                  color: AppColors.primaryBlue1,
-                  textDecoration: TextDecoration.underline,
-                  colorDecoration: AppColors.primaryBlue1,
-                ),
-              ),
-
-              // _buildTitleLogin(),
-              // SizedBox(
-              //   height: Get.height * 0.05,
-              // ),
-              // Container(
-              //   decoration: const BoxDecoration(
-              //       color: Colors.white,
-              //       borderRadius: BorderRadius.vertical(
-              //           top: Radius.circular(AppDimens.sizeBorderNavi))),
-              //   child: Column(
-              //     children: [
-              //       _buildFormLogin(controller),
-              //       SizedBox(
-              //         height: Get.height / 5,
-              //       ),
-              //       Center(
-              //         child: RichText(
-              //           text: TextSpan(
-              //             text: LoginSTr.developedBy,
-              //             style: FontStyleUtils.fontStyleSans(
-              //               color: AppColors.colorTitleAppbar,
-              //               fontSize: AppDimens.paddingSmall,
-              //               fontWeight: FontWeight.w400,
-              //             ),
-              //             children: [
-              //               TextSpan(
-              //                   text: LoginSTr.nameCompany,
-              //                   style: FontStyleUtils.fontStyleSans(
-              //                     fontSize: AppDimens.paddingSmall,
-              //                     color: AppColors.colorsOrange,
-              //                     fontWeight: FontWeight.w700,
-              //                   )),
-              //             ],
-              //           ),
-              //         ),
-              //       ).paddingOnly(bottom: AppDimens.paddingSmaller),
-              //     ],
-              //   ),
-              // ),
+              sdsSBHeight20,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _itemListFunction(
+                      icon: Assets.ASSETS_SVG_ICON_AUTHENTICATION_SVG,
+                      title: LocaleKeys.login_authentication.tr,
+                      action: () {}),
+                  _itemListFunction(
+                      icon: Assets.ASSETS_SVG_ICON_LIST_USER_SVG,
+                      title: LocaleKeys.login_listUser.tr,
+                      action: () {}),
+                  _itemListFunction(
+                      icon: Assets.ASSETS_SVG_ICON_SERVICE_PACKAGE_SVG,
+                      title: LocaleKeys.login_servicePackage.tr,
+                      action: () {}),
+                  _itemListFunction(
+                    icon: Assets.ASSETS_SVG_ICON_SUPPORT_SVG,
+                    title: LocaleKeys.login_support.tr,
+                    action: () async => await UtilWidget.launchInBrowser(
+                        LocaleKeys.check_nfc_number_hotline.tr),
+                  ),
+                ],
+              )
             ],
           ),
         ),
       ],
     ).paddingAll(AppDimens.padding15),
+  );
+}
+
+Widget _itemListFunction({
+  required String icon,
+  required String title,
+  required VoidCallback action,
+}) {
+  return Expanded(
+    flex: 1,
+    child: GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: action,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset(icon),
+          sdsSBHeight12,
+          TextUtils(
+            text: title,
+            availableStyle: StyleEnum.bodyRegular,
+            maxLine: 3,
+            textAlign: TextAlign.center,
+          )
+        ],
+      ).paddingSymmetric(
+        horizontal: AppDimens.padding5,
+      ),
+    ),
   );
 }
 
@@ -129,272 +167,37 @@ Widget _buildDevelopBy() {
     height: 50,
     child: Align(
       alignment: Alignment.bottomCenter,
-      child: RichText(
-        text: TextSpan(
-          text: LocaleKeys.login_developBy.tr,
-          style: FontStyleUtils.fontStyleSans(
-            color: AppColors.colorBlack,
-            fontSize: AppDimens.sizeTextSmaller,
-            fontWeight: FontWeight.w400,
+      child: Column(
+        children: [
+          RichText(
+            text: TextSpan(
+              text: LocaleKeys.login_notUser.tr,
+              style: FontStyleUtils.fontStyleSans(
+                color: AppColors.colorDisable,
+                fontSize: AppDimens.sizeTextSmaller,
+                fontWeight: FontWeight.w400,
+              ),
+              children: [
+                TextSpan(
+                    text: LocaleKeys.login_RegisterNew.tr,
+                    style: FontStyleUtils.fontStyleSans(
+                      fontSize: AppDimens.sizeTextSmaller,
+                      color: AppColors.primaryBlue1,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    )),
+              ],
+            ),
           ),
-          children: [
-            TextSpan(
-                text: LocaleKeys.login_softDreams.tr,
-                style: FontStyleUtils.fontStyleSans(
-                  fontSize: AppDimens.sizeTextSmaller,
-                  color: AppColors.primaryBlue1,
-                  fontWeight: FontWeight.w700,
-                )),
-          ],
-        ),
+          sdsSB5,
+          TextUtils(
+            text: LocaleKeys.login_id.tr,
+            availableStyle: StyleEnum.bodyRegular,
+            textAlign: TextAlign.center,
+            color: AppColors.colorDisable,
+          ),
+        ],
       ),
     ),
   );
 }
-
-// Widget _buildOptional(LoginController controller) {
-//   return Row(
-//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//     children: [
-//       UtilWidget.buildCheckBox(
-//         controller.isRemember,
-//         LocaleKeys.login_rememberAccount.tr,
-//         // styleTextBox: AppTextStyle.labelStyle(),
-//       ),
-//       TextButton(
-//         onPressed: () {},
-//         child: TextUtils(
-//           text: LocaleKeys.login_forgetPassword.tr,
-//           availableStyle: StyleEnum.bodyRegular,
-//           color: AppColors.primaryBlue1,
-//         ),
-//       ),
-//     ],
-//   ).paddingOnly(bottom: 5);
-// }
-
-// Widget _buildButtonLogin(LoginController controller,
-//     {Function? function, String? titleButton}) {
-//   return SizedBox(
-//     height: AppDimens.iconHeightButton,
-//     child: Obx(
-//       () => ButtonUtils.buildButton(
-//         LocaleKeys.login_login.tr,
-//         function?.call() ??
-//             () async {
-//               Get.toNamed(AppRoutes.routeRegisterCA);
-//             },
-//         isLoading: controller.isShowLoading.value,
-//         backgroundColor: AppColors.primaryBlue1,
-//         borderRadius: BorderRadius.circular(AppDimens.radius4),
-//       ),
-//     ),
-//   );
-// }
-
-//
-// Widget _buildTitleLogin() {
-//   return Column(
-//     // mainAxisAlignment: MainAxisAlignment.center,
-//     children: [
-//       SizedBox(
-//         width: AppDimens.iconLoginWidth,
-//         height: AppDimens.paddingSizeAppBar,
-//         child: Image.asset(ImageAsset.imgLogoApp),
-//       ),
-//       UtilWidget.sizedBox5,
-//       SizedBox(
-//           width: AppDimens.iconLogoWidth,
-//           height: AppDimens.iconLogoHeight,
-//           child: Image.asset(ImageAsset.imgLogoNameApp)),
-//     ],
-//   );
-// }
-//
-// Widget _buildFormLogin(LoginController controller) {
-//   return SingleChildScrollView(
-//     child: Column(
-//       children: [
-//         SizedBox(
-//           height: Get.height * 0.03,
-//         ),
-//         Text(
-//           LoginSTr.loginBtn,
-//           style: FontStyleUtils.fontStyleSans(
-//             fontSize: AppDimens.iconVerySmall,
-//             fontWeight: FontWeight.w800,
-//           ),
-//         ),
-//         SizedBox(
-//           height: Get.height * 0.02,
-//         ),
-//         Form(
-//           key: controller.formKey,
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               _buildInputData(
-//                 title: LoginSTr.taxCode,
-//                 textEditingController: controller.textTaxCode,
-//                 isLoading: controller.isShowLoading.value,
-//                 hintText: LoginSTr.hintTextTaxCode,
-//                 errorValidator: LoginSTr.taxCodeError,
-//                 currentNode: controller.taxCodeFocus,
-//                 nextMode: controller.userNameFocus,
-//                 textInputType: TextInputType.number,
-//                 maxLength: 14,
-//                 isTaxCode: true,
-//               ),
-//               UtilWidget.sizedBox10,
-//               _buildInputData(
-//                 title: LoginSTr.userName,
-//                 textEditingController: controller.userNameController,
-//                 isLoading: controller.isShowLoading.value,
-//                 hintText: LoginSTr.hintTextUserName,
-//                 errorValidator: LoginSTr.errorLoginUser,
-//                 currentNode: controller.userNameFocus,
-//                 nextMode: controller.passwordFocus,
-//               ),
-//               UtilWidget.sizedBox10,
-//               _buildInputData(
-//                 title: LoginSTr.password,
-//                 textEditingController: controller.passwordController,
-//                 isLoading: controller.isShowLoading.value,
-//                 hintText: LoginSTr.hintTextPassWord,
-//                 errorValidator: LoginSTr.loginErrorLengthPass,
-//                 isPassword: true,
-//                 currentNode: controller.passwordFocus,
-//                 iconNextTextInputAction: TextInputAction.done,
-//                 onEditingComplete: controller.funcLogin,
-//               ),
-//             ],
-//           ),
-//         ),
-//         const SizedBox(
-//           height: AppDimens.btnSmall,
-//         ),
-//         _buildButtonLogin(controller),
-//         UtilWidget.sizedBox10,
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.end,
-//           children: [
-//             // Text(
-//             //   LoginSTr.forgotPassword,
-//             //   style: FontStyleUtils.fontStyleSans(
-//             //       color: AppColors.colorForgotPassword,
-//             //       fontSize: AppDimens.sizeTextSmaller,
-//             //       fontWeight: FontWeight.w400),
-//             // ),
-//             GestureDetector(
-//               onTap: () async {
-//                 // Get.dialog(UtilWidget().openLoadingDialog(), barrierDismissible: true);
-//                 await UtilWidget.launchInBrowser(LoginSTr.phoneAdviceUrl)
-//                     .then((value) {
-//                   // if()
-//                   // Get.back();
-//                 });
-//                 // await launchUrlString("tel://190056 653");
-//               },
-//               child: RichText(
-//                 text: TextSpan(
-//                   text: LoginSTr.signAdvice,
-//                   style: FontStyleUtils.fontStyleSans(
-//                     color: AppColors.colorTitleAppbar,
-//                     fontSize: AppDimens.sizeTextSmaller,
-//                     fontWeight: FontWeight.w400,
-//                   ),
-//                   children: [
-//                     TextSpan(
-//                         text: LoginSTr.phoneAdvice,
-//                         style: FontStyleUtils.fontStyleSans(
-//                           fontSize: AppDimens.sizeTextSmaller,
-//                           color: AppColors.colorsOrange,
-//                           fontWeight: FontWeight.w700,
-//                         )),
-//                   ],
-//                 ),
-//               ),
-//             )
-//           ],
-//         ),
-//       ],
-//     ).paddingSymmetric(horizontal: AppDimens.paddingHuge),
-//   );
-// }
-//
-// Widget _buildButtonLogin(LoginController controller,
-//     {Function? function, String? titleButton}) {
-//   return SizedBox(
-//     height: AppDimens.iconHeightButton,
-//     child: Obx(
-//       () => UtilWidget.buildButton(
-//         titleButton ?? LoginSTr.loginBtn,
-//         function?.call() ?? () async => await controller.funcLogin(),
-//         isLoading: controller.isShowLoading.value,
-//         backgroundColor: AppColors.colorsOrange,
-//         borderRadius: BorderRadius.circular(AppDimens.paddingMediumMax),
-//       ),
-//     ),
-//   );
-// }
-//
-// Widget _buildInputData({
-//   required String title,
-//   required TextEditingController textEditingController,
-//   required bool isLoading,
-//   required String hintText,
-//   required String errorValidator,
-//   required Rx<FocusNode> currentNode,
-//   FocusNode? nextMode,
-//   bool isPassword = false,
-//   TextInputType textInputType = TextInputType.text,
-//   int? maxLength,
-//   VoidCallback? onEditingComplete,
-//   TextInputAction iconNextTextInputAction = TextInputAction.next,
-//   required Rx<Color> fillColor,
-// }) {
-//   return Obx(
-//     () => SDSInputWithLabel(
-//       inputLabelModel: SDSInputLabelModel(
-//           label: title,
-//           paddingLabel: const EdgeInsets.symmetric(
-//             horizontal: AppDimens.paddingDefault,
-//             vertical: AppDimens.paddingDefault,
-//           )),
-//       inputTextFormModel: SDSInputTextModel(
-//         borderRadius: 8,
-//         isShowCounterText: false,
-//         maxLengthInputForm: maxLength,
-//         validator: (value) => value.isNullOrEmpty ? errorValidator : null,
-//         controller: textEditingController,
-//         fillColor: fillColor.value,
-//         isReadOnly: isLoading,
-//         hintTextSize: AppDimens.sizeTextSmall,
-//         hintTextColor: AppColors.basicGrey2,
-//         hintText: hintText,
-//         // showFocusedBorder: false,
-//         contentPadding: const EdgeInsets.only(
-//           top: AppDimens.paddingDefault,
-//           bottom: AppDimens.paddingDefault,
-//           left: AppDimens.paddingDefault,
-//         ),
-//         border: OutlineInputBorder(
-//             borderRadius: BorderRadius.circular(8),
-//             borderSide: const BorderSide(
-//               color: AppColors.primaryNavy,
-//             )),
-//         // colorBorder: AppColors.primaryNavy,
-//         // floatingLabelStyle: AppTextStyle.labelStyle(
-//         //   size: AppDimens.sizeTextLarge,
-//         // ),
-//         obscureText: isPassword,
-//         focusNode: currentNode.value,
-//         nextNode: nextMode,
-//         textInputType: textInputType,
-//         iconNextTextInputAction: iconNextTextInputAction,
-//         onTap: onEditingComplete,
-//         inputFormatters: 0,
-//       ),
-//     ),
-//   ).paddingOnly(bottom: 5);
-// }
