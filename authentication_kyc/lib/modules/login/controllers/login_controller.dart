@@ -123,21 +123,21 @@ class LoginController extends BaseGetxController {
   }
 
   Future<void> confirmLogin() async {
-    // Get.toNamed(
-    //   AppRoutes.routeQrKyc,
-    // );
-    bool isLoginSuccess = await loginResponse();
-    if (isLoginSuccess) {
-      Get.offAllNamed(
-        AppRoutes.routeHome,
-      );
-      if (appController.userInfoModel.status ==
-          AppConst.statusUserCreateNewApp) {
-        Get.toNamed(AppRoutes.routeChoosePackage);
-      }
-    } else {
-      hideLoading();
-    }
+    Get.offAllNamed(
+      AppRoutes.routeHome,
+    );
+    // bool isLoginSuccess = await loginResponse();
+    // if (isLoginSuccess) {
+    //   Get.offAllNamed(
+    //     AppRoutes.routeHome,
+    //   );
+    //   if (appController.userInfoModel.status ==
+    //       AppConst.statusUserCreateNewApp) {
+    //     Get.toNamed(AppRoutes.routeChoosePackage);
+    //   }
+    // } else {
+    //   hideLoading();
+    // }
   }
 
   Future<bool> loginResponse() async {

@@ -4,6 +4,7 @@ import 'package:two_id_c06verify/assets.dart';
 import 'package:two_id_c06verify/core/theme/colors.dart';
 import 'package:two_id_c06verify/core/values/dimens.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/shares/widgets/text/font_style.dart';
 
 import '../../shares.src.dart';
 
@@ -222,13 +223,29 @@ class BaseFormLogin {
 
   static Widget _buildOptional(bool isForgotPassword) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-//         UtilWidget.buildCheckBox(
-//           isRemember,
-//           LocaleKeys.login_rememberAccount.tr,
-// // styleTextBox: AppTextStyle.labelStyle(),
-//         ),
+        RichText(
+          text: TextSpan(
+            text: LocaleKeys.login_notUser.tr,
+            style: FontStyleUtils.fontStyleSans(
+              color: AppColors.colorDisable,
+              fontSize: AppDimens.sizeTextSmaller,
+              fontWeight: FontWeight.w400,
+            ),
+            children: [
+              TextSpan(
+                  text: LocaleKeys.login_RegisterNew.tr,
+                  style: FontStyleUtils.fontStyleSans(
+                    fontSize: AppDimens.sizeTextSmaller,
+                    color: AppColors.primaryBlue1,
+                    fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline,
+                  )),
+            ],
+          ),
+        ),
+        sdsSB5,
         TextButton(
           onPressed: () {},
           child: TextUtils(

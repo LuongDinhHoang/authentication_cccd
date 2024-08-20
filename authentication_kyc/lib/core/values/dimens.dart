@@ -15,6 +15,12 @@ class AppDimens {
   static const double iconAccWidth = 22;
   static const double iconAccHeight = 35;
   static const double iconCheckmark = 70;
+  static const double heightBottomTabBar = 80;
+  static const double heightBottomTabBarAndroid = 75;
+  static const double paddingSmallBottomNavigation = 6.0;
+  static const double paddingBottomTabBar = 18.0;
+  static const double paddingTabBar = 5.0;
+  static const double sizeBorderNavi = 30.0;
 
   ///padding
   static const double padding1 = 1.0;

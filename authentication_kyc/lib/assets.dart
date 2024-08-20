@@ -181,6 +181,38 @@ class Assets {
   static const String ASSETS_SVG_ICON_HIDDEN_EYE_SVG =
       'assets/svg/icon_hidden_eye.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_AUTHENTICATION_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_AUTHENTICATION_SVG =
+      'assets/svg/icon_home_authentication.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_AUTHENTICATION_FOCUS_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_AUTHENTICATION_FOCUS_SVG =
+      'assets/svg/icon_home_authentication_focus.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_LIST_USER_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_LIST_USER_SVG =
+      'assets/svg/icon_home_list_user.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_LIST_USER_FOCUS_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_LIST_USER_FOCUS_SVG =
+      'assets/svg/icon_home_list_user_focus.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_LIST_USER_FOCUS_FOCUS_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_LIST_USER_FOCUS_FOCUS_SVG =
+      'assets/svg/icon_home_list_user_focus_focus.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_OTHER_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_OTHER_SVG =
+      'assets/svg/icon_home_other.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_SVG =
+      'assets/svg/icon_home_service_package.svg';
+
+  /// {@macro assets_generator.ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_FOCUS_SVG.preview}
+  static const String ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_FOCUS_SVG =
+      'assets/svg/icon_home_service_package_focus.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_INSTRUCT_LIVE_NESS_SVG.preview}
   static const String ASSETS_SVG_ICON_INSTRUCT_LIVE_NESS_SVG =
       'assets/svg/icon_instruct_live_ness.svg';

@@ -145,11 +145,22 @@ Widget _itemListFunction({
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(icon),
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.basicGrey3.withOpacity(0.1),
+                    blurRadius: 2,
+                    offset: const Offset(1, 2), // Shadow position
+                  ),
+                ],
+              ),
+              child: SvgPicture.asset(icon)),
           sdsSBHeight12,
           TextUtils(
             text: title,
-            availableStyle: StyleEnum.bodyRegular,
+            availableStyle: StyleEnum.detailRegular,
             maxLine: 3,
             textAlign: TextAlign.center,
           )
@@ -169,27 +180,6 @@ Widget _buildDevelopBy() {
       alignment: Alignment.bottomCenter,
       child: Column(
         children: [
-          RichText(
-            text: TextSpan(
-              text: LocaleKeys.login_notUser.tr,
-              style: FontStyleUtils.fontStyleSans(
-                color: AppColors.colorDisable,
-                fontSize: AppDimens.sizeTextSmaller,
-                fontWeight: FontWeight.w400,
-              ),
-              children: [
-                TextSpan(
-                    text: LocaleKeys.login_RegisterNew.tr,
-                    style: FontStyleUtils.fontStyleSans(
-                      fontSize: AppDimens.sizeTextSmaller,
-                      color: AppColors.primaryBlue1,
-                      fontWeight: FontWeight.w700,
-                      decoration: TextDecoration.underline,
-                    )),
-              ],
-            ),
-          ),
-          sdsSB5,
           TextUtils(
             text: LocaleKeys.login_id.tr,
             availableStyle: StyleEnum.bodyRegular,

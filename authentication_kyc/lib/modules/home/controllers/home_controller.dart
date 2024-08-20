@@ -21,6 +21,9 @@ class HomeController extends BaseGetxController {
 
   RxBool isBack = false.obs;
 
+  Rx<TabItem> currentTab = TabItem.homePage.obs;
+
+
   @override
   void onInit() {
     // listCertRepository = CertificateListRepository(this);
@@ -42,6 +45,11 @@ class HomeController extends BaseGetxController {
   //     },
   //   );
   // }
+  funcPageChange(int index) {
+    // pageIndex.value = index;
+    currentTab.value = TabItem.values[index];
+    // pageController.value.jumpToPage(index);
+  }
 
   //TODO: add other logout actions
   Future<void> funcLogout() async {
