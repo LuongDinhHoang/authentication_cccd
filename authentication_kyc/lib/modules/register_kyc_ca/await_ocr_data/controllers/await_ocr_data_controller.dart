@@ -35,16 +35,16 @@ class AwaitORCDataController extends BaseGetxController {
   Future<void> _getORCCall() async {
     try {
       await awaitOcrDataRepository.getORCRepository().then((value) async {
-        if (value.success == EnumStatusResponse.success) {
+        if (value.status) {
           if (value.data != null) {
             appController.infoORCRequest = value.data!;
             closeTime();
           }
           Get.offNamed(AppRoutes.routeConfirmInformation);
-        } else if (value.success == EnumStatusResponse.responseErrorKyc) {
+        } else if (value.status) {
           closeTime();
           Get.offNamed(AppRoutes.routeConfirmInformation);
-        } else if (value.success == EnumStatusResponse.responseAwaitKyc) {
+        } else if (value.status) {
           // showSnackBar("Dữ liệu chưa kịp tải vui lòng chờ ....");
           _isProcessing = false;
         }

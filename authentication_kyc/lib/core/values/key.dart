@@ -7,5 +7,6 @@ class AppKey {
   static const String sessionId = "sessionId";
   static const String keyRememberLoginCa  = "key_remember_login_ca";
   static const String keyRememberLogin  = "key_remember_login";
+  static const String displayName = "displayName";
 
 }

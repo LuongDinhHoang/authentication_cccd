@@ -31,7 +31,7 @@ class RegisterAccountRepository extends BaseRepository {
       "serviceName": packageInfoResponse.serviceName ?? "",
       "tokenType": packageInfoResponse.tokenType ?? "",
       "email": userInfoModel.email ?? "",
-      "identity": userInfoModel.documentNumber ?? "",
+      // "identity": userInfoModel.documentNumber ?? "",
       "phone": userInfoModel.phone ?? "",
       "registerType": "NEW",
     };

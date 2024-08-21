@@ -87,13 +87,17 @@ Widget _body(LoginController controller) {
                   isLoading: controller.isShowLoading.value,
                   fillColorUserName: controller.fillColorUserName,
                   fillColorPassword: controller.fillColorPassword,
-                  isBiometric: controller.isBiometric,
+                  isBiometric: controller.isBiometric.value,
+                  displayName: controller.displayName,
                   isShowLoading: controller.isShowLoading.value,
                   functionLogin: () async {
                     await controller.confirmLogin();
                   },
                   functionLoginBiometric: () async {
                     await controller.loginFingerprint();
+                  },
+                  functionLoginOther: (){
+                    controller.loginOther();
                   },
                   isFaceID:
                       controller.biometricTypes.contains(BiometricType.face),

@@ -1,77 +1,79 @@
 class UserInfoModel {
   UserInfoModel({
     this.id,
-    this.login,
-    this.firstName,
-    this.lastName,
+    this.username,
     this.email,
-    this.imageUrl,
-    this.activated,
-    this.langKey,
     this.fullName,
-    this.notificationType,
-    this.type,
-    this.status,
-    this.updatedBy,
-    this.createdBy,
-    this.createdDate,
-    this.lastModifiedBy,
-    this.lastModifiedDate,
-    this.authorities,
+    this.citizenNumber,
+    this.dateOfBirth,
+    this.gender,
+    this.nationality,
+    this.nativeLand,
+    this.ethnic,
+    this.religion,
+    this.address,
+    this.issuePlate,
+    this.issueDate,
+    this.expiredDate,
+    this.identification,
     this.phone,
-    this.autoApproval,
-    this.skipPayment,
-    this.documentNumber,
+    this.userType,
+    this.status,
+    this.createdAt,
+    this.createdBy,
+    this.updatedAt,
+    this.updatedBy,
   });
 
-  final int? id;
-  final String? login;
-  final String? firstName;
-  final String? lastName;
+  final String? id;
+  final String? username;
   final String? email;
-  final String? imageUrl;
-  final bool? activated;
-  final String? langKey;
   final String? fullName;
-  final dynamic notificationType;
-  final int? type;
-  final int? status;
-  final String? updatedBy;
-  final String? createdBy;
-  final DateTime? createdDate;
-  final String? lastModifiedBy;
-  final DateTime? lastModifiedDate;
-  final List<String>? authorities;
+  final String? citizenNumber;
+  final DateTime? dateOfBirth;
+  final String? gender;
+  final String? nationality;
+  final String? nativeLand;
+  final String? ethnic;
+  final String? religion;
+  final String? address;
+  final String? issuePlate;
+  final DateTime? issueDate;
+  final DateTime? expiredDate;
+  final String? identification;
   final String? phone;
-  final bool? autoApproval;
-  final bool? skipPayment;
-  final String? documentNumber;
+  final String? userType;
+  final String? status;
+  final DateTime? createdAt;
+  final String? createdBy;
+  final DateTime? updatedAt;
+  final String? updatedBy;
 
   factory UserInfoModel.fromJson(Map<String, dynamic> json){
     return UserInfoModel(
       id: json["id"],
-      login: json["login"],
-      firstName: json["firstName"],
-      lastName: json["lastName"],
+      username: json["username"],
       email: json["email"],
-      imageUrl: json["imageUrl"],
-      activated: json["activated"],
-      langKey: json["langKey"],
       fullName: json["fullName"],
-      notificationType: json["notificationType"],
-      type: json["type"],
-      status: json["status"],
-      updatedBy: json["updatedBy"],
-      createdBy: json["createdBy"],
-      createdDate: DateTime.tryParse(json["createdDate"] ?? ""),
-      lastModifiedBy: json["lastModifiedBy"],
-      lastModifiedDate: DateTime.tryParse(json["lastModifiedDate"] ?? ""),
-      authorities: json["authorities"] == null ? [] : List<String>.from(json["authorities"]!.map((x) => x)),
+      citizenNumber: json["citizenNumber"],
+      dateOfBirth: DateTime.tryParse(json["dateOfBirth"] ?? ""),
+      gender: json["gender"],
+      nationality: json["nationality"],
+      nativeLand: json["nativeLand"],
+      ethnic: json["ethnic"],
+      religion: json["religion"],
+      address: json["address"],
+      issuePlate: json["issuePlate"],
+      issueDate: DateTime.tryParse(json["issueDate"] ?? ""),
+      expiredDate: DateTime.tryParse(json["expiredDate"] ?? ""),
+      identification: json["identification"],
       phone: json["phone"],
-      autoApproval: json["autoApproval"],
-      skipPayment: json["skipPayment"],
-      documentNumber: json["cccd"],
+      userType: json["userType"],
+      status: json["status"],
+      createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
+      createdBy: json["createdBy"],
+      updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      updatedBy: json["updatedBy"],
     );
   }
-
 }

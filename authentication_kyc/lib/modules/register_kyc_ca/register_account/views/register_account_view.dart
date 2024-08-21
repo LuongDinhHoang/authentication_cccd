@@ -76,20 +76,20 @@ Widget _buildInformPackage(RegisterAccountController controller) {
         hintText: "",
         currentNode: controller.serviceFocus,
         nextMode: controller.numberPhoneFocus.value,
-        isEnable: controller.appController.userInfoModel.type ==
-                AppConst.typeAgentAccount
-            ? true
-            : false,
-        suffixIcon: controller.appController.userInfoModel.type ==
-                AppConst.typeAgentAccount
-            ? IconButton(
-                color: AppColors.primaryBlue1,
-                icon: const Icon(Icons.edit),
-                onPressed: () {
-                  Get.toNamed(AppRoutes.routeChoosePackage);
-                },
-              )
-            : null,
+        // isEnable: controller.appController.userInfoModel.type ==
+        //         AppConst.typeAgentAccount
+        //     ? true
+        //     : false,
+        // suffixIcon: controller.appController.userInfoModel.type ==
+        //         AppConst.typeAgentAccount
+        //     ? IconButton(
+        //         color: AppColors.primaryBlue1,
+        //         icon: const Icon(Icons.edit),
+        //         onPressed: () {
+        //           Get.toNamed(AppRoutes.routeChoosePackage);
+        //         },
+        //       )
+        //     : null,
       ),
     ],
   );

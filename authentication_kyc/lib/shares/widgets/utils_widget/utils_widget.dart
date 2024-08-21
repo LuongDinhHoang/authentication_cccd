@@ -25,10 +25,11 @@ class UtilWidget {
   }) {
     return isShowLoading ? Center(child: buildLoading(colorIcon)) : child();
   }
+
   static String? validateId(String? text) {
     if (text == null || text.isEmpty) {
       return LocaleKeys.register_account_errorValidatorCCCD.tr;
-    }else if(text.length < 7 || text.length > 12){
+    } else if (text.length < 7 || text.length > 12) {
       return "CMND/CCCD phải từ 7 tới 12 kí tự";
     }
     return null;
@@ -324,6 +325,34 @@ class UtilWidget {
             )
           : null,
       child: child,
+    );
+  }
+
+  static Widget bottomSheetRow(String svgIcon, String title,
+      {void Function()? onTap}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ListTile(
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+          title: TextUtils(
+            text: title,
+            size: AppDimens.sizeTextSmall,
+          ),
+          leading: SvgPicture.asset(
+            svgIcon,
+            width: 20,
+            height: 20,
+            colorFilter: const ColorFilter.mode(
+              AppColors.primaryBlue1,
+              BlendMode.srcIn,
+            ),
+          ),
+          onTap: onTap,
+        ),
+        const Divider(color: AppColors.basicBlack),
+      ],
     );
   }
 }

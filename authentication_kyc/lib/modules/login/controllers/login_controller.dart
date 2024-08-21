@@ -23,10 +23,10 @@ class LoginController extends BaseGetxController {
   final Rx<Color> fillColorPassword = AppColors.basicWhite.obs;
   final formKey = GlobalKey<FormState>();
 
-  RxBool isShowTime = false.obs;
-  bool isBiometric = false;
-  RxString checkStatusNfc = "".obs;
+  // RxBool isShowTime = false.obs;
+  RxBool isBiometric = false.obs;
   RxList<BiometricType> biometricTypes = RxList<BiometricType>();
+  String? displayName;
 
   late LoginCaRepository loginCaRepository;
 
@@ -80,7 +80,7 @@ class LoginController extends BaseGetxController {
   }
 
   Future<void> loginFingerprint({bool? autoBiometric}) async {
-    if (isBiometric) {
+    if (isBiometric.value) {
       await Biometrics().authenticate(
           // localizedReasonStr: "Quý khách vui lòng quét vân tay hoặc khuôn mặt để xác thực",
           onDeviceUnlockUnavailable: () {
@@ -92,20 +92,20 @@ class LoginController extends BaseGetxController {
             msg: LocaleKeys.biometric_msgLimit.tr,
             toastLength: Toast.LENGTH_LONG);
       }).then((isAuthenticated) async {
-        // if (isAuthenticated != null && isAuthenticated) {
-        //   await appController.savePassword
-        //       .read(AppKey.keyPass + HIVE_APP.get(AppKey.keyPhone))
-        //       .then((result) {
-        //     if (result.isNotEmpty) {
-        //       passwordController.text = result;
-        //       funcLogin();
-        //     } else {
-        //       showSnackBar(AppStr.notSavedAccount.tr);
-        //     }
-        //   });
-        // } else {
-        //   showSnackBar(AppStr.authenticationFailed.tr);
-        // }
+        if (isAuthenticated != null && isAuthenticated) {
+          LoginCaRequestModel loginCaRequestModel =
+              hiveUserLogin.get(AppKey.keyRememberLogin) ??
+                  LoginCaRequestModel(
+                    userName: "",
+                    password: "",
+                    isRememberMe: false,
+                    isBiometric: false,
+                  );
+          passwordController.text = loginCaRequestModel.password;
+          await confirmLogin();
+        } else {
+          showSnackBar(LocaleKeys.login_biometricError.tr);
+        }
       });
     } else {
       ShowDialog.showDialogNotificationError(
@@ -123,21 +123,17 @@ class LoginController extends BaseGetxController {
   }
 
   Future<void> confirmLogin() async {
-    Get.offAllNamed(
-      AppRoutes.routeHome,
-    );
-    // bool isLoginSuccess = await loginResponse();
-    // if (isLoginSuccess) {
-    //   Get.offAllNamed(
-    //     AppRoutes.routeHome,
-    //   );
-    //   if (appController.userInfoModel.status ==
-    //       AppConst.statusUserCreateNewApp) {
-    //     Get.toNamed(AppRoutes.routeChoosePackage);
-    //   }
-    // } else {
-    //   hideLoading();
-    // }
+    // Get.offAllNamed(
+    //   AppRoutes.routeHome,
+    // );
+    bool isLoginSuccess = await loginResponse();
+    if (isLoginSuccess) {
+      Get.offAllNamed(
+        AppRoutes.routeHome,
+      );
+    } /*else {
+      hideLoading();
+    }*/
   }
 
   Future<bool> loginResponse() async {
@@ -150,19 +146,19 @@ class LoginController extends BaseGetxController {
         LoginCaRequestModel loginCaRequestModel = LoginCaRequestModel(
           userName: userNameController.text.trim(),
           password: passwordController.text.trim(),
-          isRememberMe: false,
-          isBiometric: isBiometric,
+          isRememberMe: true,
+          isBiometric: true,
         );
         BaseResponseBE baseResponseBE =
-            await loginCaRepository.loginCaRepository(loginCaRequestModel);
-        if (baseResponseBE.success == EnumStatusResponse.success) {
+            await loginCaRepository.loginAppRepository(loginCaRequestModel);
+        if (baseResponseBE.status) {
           LoginCaResponseModel loginCaResponseModel = baseResponseBE.data;
-          hiveApp.put(AppKey.keyToken, "Bearer ${loginCaResponseModel.token}");
+          hiveApp.put(AppKey.keyToken, "Bearer ${loginCaResponseModel.accessToken}");
           isLoginSuccess = true;
           saveAccUser(loginCaRequestModel);
           await getUserInfo();
         } else {
-          showSnackBar(baseResponseBE.message);
+          showSnackBar(baseResponseBE.errors?.first.message?.vn ?? "");
         }
       } catch (e) {
         // showSnackBar(LocaleKeys.registerCa_loginFalse.tr);
@@ -175,8 +171,10 @@ class LoginController extends BaseGetxController {
 
   Future<void> getUserInfo() async {
     await loginCaRepository.getUserInfo().then((value) {
-      if (value.success == EnumStatusResponse.success) {
+      if (value.status) {
         appController.userInfoModel = value.data ?? UserInfoModel();
+        hiveApp.put(AppKey.displayName, appController.userInfoModel.fullName);
+
       }
     });
   }
@@ -195,14 +193,19 @@ class LoginController extends BaseGetxController {
     LoginCaRequestModel loginCaRequestModel =
         hiveUserLogin.get(AppKey.keyRememberLogin) ??
             LoginCaRequestModel(
-              userName: "Hoang",
+              userName: "",
               password: "",
               isRememberMe: false,
-              isBiometric: true,
+              isBiometric: false,
             );
-    userNameController.text = loginCaRequestModel.userName;
+    userNameController.text = "036085000020"/*loginCaRequestModel.userName*/;
     // passwordController.text = loginCaRequestModel.password;
     // isRemember.value = loginCaRequestModel.isRememberMe;
-    isBiometric = loginCaRequestModel.isBiometric;
+    isBiometric.value = loginCaRequestModel.isBiometric;
+    displayName = hiveApp.get(AppKey.displayName) ?? "";
+  }
+  void loginOther() {
+    userNameController.clear();
+    isBiometric.toggle();
   }
 }

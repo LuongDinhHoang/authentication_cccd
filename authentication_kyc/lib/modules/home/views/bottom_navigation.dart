@@ -29,7 +29,13 @@ class BottomNavigation extends StatelessWidget {
           : AppDimens.heightBottomTabBarAndroid,
       // color: AppColors.white,
       decoration: BoxDecoration(
-        color: Colors.white, // Màu nền của Container
+        color: AppColors.basicWhite,
+        border: const Border(
+          top: BorderSide( //                   <--- left side
+            color: AppColors.primaryBlue1,
+            width: 0.5,
+          ),
+        ),// Màu nền của Container
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3), // Màu bóng và độ mờ
@@ -47,6 +53,8 @@ class BottomNavigation extends StatelessWidget {
         children: [
           Expanded(
             child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(AppDimens.sizeBorderNavi)),
               child: TabBar(
                 // indicator: CustomIndicator(),
                 indicatorColor: Colors.transparent,
@@ -64,51 +72,37 @@ class BottomNavigation extends StatelessWidget {
                         currentTab != TabItem.homePage
                             ? Assets.ASSETS_SVG_ICON_HOME_AUTHENTICATION_SVG
                             : Assets.ASSETS_SVG_ICON_HOME_AUTHENTICATION_FOCUS_SVG,
-                        // color: currentTab != TabItem.homePage
-                        //     ? AppColors.primaryBlue1
-                        //     : AppColors.basicGrey4,
                       ),
                       isSelect: currentTab == TabItem.homePage,
                       label: "Xác thưc"),
                   _bottomNavigationBarItem(
                       icon: SvgPicture.asset(
-                        currentTab != TabItem.documentManagement
+                        currentTab != TabItem.listUser
                             ? Assets.ASSETS_SVG_ICON_HOME_LIST_USER_SVG
                             : Assets.ASSETS_SVG_ICON_HOME_LIST_USER_FOCUS_SVG,
-                        // color: currentTab != TabItem.documentManagement
-                        //     ? AppColors.primaryBlue1
-                        //     : AppColors.basicGrey4,
                       ),
-                      isSelect: currentTab == TabItem.documentManagement,
+                      isSelect: currentTab == TabItem.listUser,
                       label: "Khách hàng"),
                   _bottomNavigationBarItem(
                       icon: SvgPicture.asset(
-                        currentTab != TabItem.notify
+                        currentTab != TabItem.listPackage
                             ? Assets.ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_SVG
                             : Assets.ASSETS_SVG_ICON_HOME_SERVICE_PACKAGE_FOCUS_SVG,
-                        // color: currentTab != TabItem.notify
-                        //     ? AppColors.primaryBlue1
-                        //     : AppColors.basicGrey4,
                       ),
-                      isSelect: currentTab == TabItem.notify,
+                      isSelect: currentTab == TabItem.listPackage,
                       label: "Gói dich vụ"),
                   _bottomNavigationBarItem(
                       icon: SvgPicture.asset(
-                        currentTab != TabItem.profile
+                        currentTab != TabItem.other
                             ? Assets.ASSETS_SVG_ICON_HOME_OTHER_SVG
                             : Assets.ASSETS_SVG_ICON_HOME_OTHER_SVG,
-                        // color: currentTab != TabItem.profile
-                        //     ? AppColors.primaryBlue1
-                        //     : AppColors.basicGrey4,
                       ),
-                      isSelect: currentTab == TabItem.profile,
+                      isSelect: currentTab == TabItem.other,
                       label: "Khác")
                 ],
               ).paddingOnly(
                   left: AppDimens.paddingTabBar,
                   right: AppDimens.paddingTabBar),
-              borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(AppDimens.sizeBorderNavi)),
             ),
           ),
         ],

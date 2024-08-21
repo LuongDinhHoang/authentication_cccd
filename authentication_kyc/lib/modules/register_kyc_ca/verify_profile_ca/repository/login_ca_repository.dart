@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:two_id_c06verify/base_app/controllers_base/base_controller/base_controller.dart';
 import 'package:two_id_c06verify/base_app/repository_base/base_repository.dart';
 import 'package:two_id_c06verify/core/base/base.src.dart';
@@ -10,10 +11,11 @@ import '../verify_profile_ca_src.dart';
 class LoginCaRepository extends BaseRepository {
   LoginCaRepository(BaseGetxController controller) : super(controller);
 
-  Future<BaseResponseBE<LoginCaResponseModel>> loginCaRepository(
+  Future<BaseResponseBE<LoginCaResponseModel>> loginAppRepository(
       LoginCaRequestModel loginCaRequestModel) async {
-    var response = await baseCallApi(AppApi.loginCa, EnumRequestMethod.post,
-        jsonMap: loginCaRequestModel.toJson(),
+    FormData formData = FormData.fromMap(loginCaRequestModel.toJson());
+    var response = await baseCallApi(AppApi.loginApp, EnumRequestMethod.post,
+        jsonMap: formData,
         isHaveVersion: false,
         isToken: false);
     return BaseResponseBE.fromJson(

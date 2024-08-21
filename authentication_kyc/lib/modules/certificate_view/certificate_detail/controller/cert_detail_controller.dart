@@ -37,10 +37,10 @@ class CertificateDetailController extends BaseGetxController {
         ),
       )
           .then((res) {
-        if (res.success == EnumStatusResponse.success) {
+        if (res.status) {
           Get.back(result: true);
         } else {
-          showSnackBar(res.message);
+          // showSnackBar(res.message);
         }
       });
     } else {

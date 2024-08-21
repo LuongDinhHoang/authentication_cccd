@@ -1,16 +1,22 @@
 class LoginCaResponseModel {
   LoginCaResponseModel({
-    required this.token,
-    required this.userId,
+    required this.accessToken,
+    required this.refreshToken,
   });
 
-  final String token;
-  final int userId;
+  final String? accessToken;
+  final String? refreshToken;
 
-  factory LoginCaResponseModel.fromJson(Map<String, dynamic> json) {
+  factory LoginCaResponseModel.fromJson(Map<String, dynamic> json){
     return LoginCaResponseModel(
-      token: json["token"] ?? "",
-      userId: json["userId"] ?? 0,
+      accessToken: json["accessToken"],
+      refreshToken: json["refreshToken"],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    "accessToken": accessToken,
+    "refreshToken": refreshToken,
+  };
+
 }

@@ -60,16 +60,16 @@ mixin LoginCaController {
           isBiometric: false,
         );
         BaseResponseBE baseResponseBE = await controller.loginCaRepository
-            .loginCaRepository(loginCaRequestModel);
-        if (baseResponseBE.success == EnumStatusResponse.success) {
-          LoginCaResponseModel loginCaResponseModel = baseResponseBE.data;
-          controller.uIdCa = loginCaResponseModel.userId;
-          hiveApp.put(AppKey.keyToken, "Bearer ${loginCaResponseModel.token}");
-          isLoginSuccess = true;
-          saveAccUser(controller, loginCaRequestModel);
-        } else {
-          controller.showSnackBar(baseResponseBE.message);
-        }
+            .loginAppRepository(loginCaRequestModel);
+        // if (baseResponseBE.success == EnumStatusResponse.success) {
+        //   LoginCaResponseModel loginCaResponseModel = baseResponseBE.data;
+        //   controller.uIdCa = loginCaResponseModel.userId;
+        //   hiveApp.put(AppKey.keyToken, "Bearer ${loginCaResponseModel.token}");
+        //   isLoginSuccess = true;
+        //   saveAccUser(controller, loginCaRequestModel);
+        // } else {
+        //   controller.showSnackBar(baseResponseBE.message);
+        // }
       } catch (e) {
         controller.hideLoading();
         controller.showSnackBar(LocaleKeys.registerCa_loginFalse.tr);

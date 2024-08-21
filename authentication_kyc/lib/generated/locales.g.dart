@@ -35,6 +35,7 @@ class LocaleKeys {
   static const login_RegisterNew = 'login_RegisterNew';
   static const login_id = 'login_id';
   static const login_support = 'login_support';
+  static const login_biometricError = 'login_biometricError';
   static const registerCa_tileAppbarCa = 'registerCa_tileAppbarCa';
   static const registerCa_titleRegisterService =
       'registerCa_titleRegisterService';
@@ -428,6 +429,7 @@ class Locales {
     'login_RegisterNew': ' Đăng ký mới',
     'login_id': '2ID@2024',
     'login_support': 'Hỗ trợ',
+    'login_biometricError': 'Xác thực thất bại',
     'registerCa_tileAppbarCa': 'Đăng ký dịch vụ EasyCA',
     'registerCa_titleRegisterService': 'Đăng ký tài khoản',
     'registerCa_contentRegisterService': 'Đăng ký dịch vụ EasyKYC cho cá nhân',

@@ -32,7 +32,7 @@ class LoginCaRequestModel extends HiveObject {
   Map<String, dynamic> toJson() => {
         "username": userName,
         "password": password,
-        "rememberMe": isRememberMe,
-        "isBiometric": isBiometric,
+        // "rememberMe": isRememberMe,
+        // "isBiometric": isBiometric,
       };
 }

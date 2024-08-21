@@ -46,9 +46,7 @@ Widget _buildSignConfirmation(ConfirmInformationController controller) {
 }
 
 Widget _buildPackage(ConfirmInformationController controller) {
-  bool isViewPackage = controller.appController.userInfoModel.type ==
-          AppConst.typeRegularAccount &&
-      controller.appController.configCertificateModel.isCreateCertificate;
+  bool isViewPackage = true;
   return Visibility(
     visible: isViewPackage,
     child: Column(

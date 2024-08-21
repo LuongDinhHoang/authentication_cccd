@@ -1,15 +1,15 @@
 /// class chứa các api để giao tiếp với BE
 // Todo: AppUrl
 class AppApi {
-  static const String url = 'http://14.225.3.214:8080/api';
+  static const String url = 'https://uat-api-c06verify.2id.vn/api';
   static const String version = "?v=1.0";
-  static const String loginCa = "/authenticate";
+  static const String loginApp = "/v1/auth/customer/login";
   static const String sendLiveNessData = "/live-ness-data/sendLiveNessData";
   static const String getAuthProfile = "/certificate-orders/list-auth-request";
   static const String sendNfcData = "/nfc-data/sendNFCData";
   static const String getDataORC = "/ocr-data/get-ocr";
   static const String sendFileOCR = "/files/send-file";
-  static const String getUserInfo= "/account";
+  static const String getUserInfo= "/v1/customers/me";
   static const String getPackagesDefault= "/customer-config/packages/default";
 
   static const String acceptTerms = "/certificate-orders/sendPolicyAgreement";

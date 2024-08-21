@@ -12,7 +12,7 @@ class BaseGetxController extends GetxController {
   /// Show loading button
   RxBool isShowLoading = false.obs;
   String errorContent = '';
-  RxBool isRemember = false.obs;
+  RxBool isRemember = true.obs;
   BaseApi baseRequestController = Get.find();
 
   ///1 CancelToken để huỷ 1 request.

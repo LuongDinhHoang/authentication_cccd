@@ -133,16 +133,16 @@ class VerifyProfileController extends BaseGetxController
     );
 
     try {
-      showLoading();
-      BaseResponseBE baseResponseBE =
-          await authProfileRepository.acceptTerms(authProfileRequestModel);
-      if (baseResponseBE.success == EnumStatusResponse.success) {
-        hiveApp.put(AppKey.sessionId, authProfileRequestModel.sessionId);
-        await getToUpdatePhotoInfo(authProfileModel);
-        // Get.toNamed(AppRoutes.routeConfirmInformation);
-      } else {
-        showSnackBar(baseResponseBE.message);
-      }
+      // showLoading();
+      // BaseResponseBE baseResponseBE =
+      //     await authProfileRepository.acceptTerms(authProfileRequestModel);
+      // if (baseResponseBE.success == EnumStatusResponse.success) {
+      //   hiveApp.put(AppKey.sessionId, authProfileRequestModel.sessionId);
+      //   await getToUpdatePhotoInfo(authProfileModel);
+      //   // Get.toNamed(AppRoutes.routeConfirmInformation);
+      // } else {
+      //   showSnackBar(baseResponseBE.message);
+      // }
     } catch (e) {
       showSnackBar(LocaleKeys.errorApi_errorException.tr);
     }

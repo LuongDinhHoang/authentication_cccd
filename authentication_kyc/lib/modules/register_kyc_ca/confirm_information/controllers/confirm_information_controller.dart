@@ -140,21 +140,21 @@ class ConfirmInformationController extends BaseGetxController
   }
 
   Future<void> confirmInfo() async {
-    Uint8List byteSign = await getSignature();
-    try {
-      showLoading();
-      BaseResponseBE baseResponseBE =
-          await confirmInfoRepository.fileSignatureRepository(byteSign);
-      if (baseResponseBE.success == EnumStatusResponse.success) {
-        appController.clearData();
-        Get.offAllNamed(AppRoutes.routeHome);
-        showDialog();
-      } else {
-        showSnackBar(baseResponseBE.message);
-      }
-    } catch (e) {
-      showSnackBar(LocaleKeys.errorApi_errorException.tr);
-    }
+    // Uint8List byteSign = await getSignature();
+    // try {
+    //   showLoading();
+    //   BaseResponseBE baseResponseBE =
+    //       await confirmInfoRepository.fileSignatureRepository(byteSign);
+    //   if (baseResponseBE.success == EnumStatusResponse.success) {
+    //     appController.clearData();
+    //     Get.offAllNamed(AppRoutes.routeHome);
+    //     showDialog();
+    //   } else {
+    //     showSnackBar(baseResponseBE.message);
+    //   }
+    // } catch (e) {
+    //   showSnackBar(LocaleKeys.errorApi_errorException.tr);
+    // }
   }
 
   void showDialog() {
@@ -204,18 +204,18 @@ class ConfirmInformationController extends BaseGetxController
           email: textEditingEmail.text.trim(),
         );
         try {
-          showLoading();
-          final baseResponseBE = await confirmInfoRepository
-              .updatePersonInfo(personInfoRequestModel);
-          if (baseResponseBE.success == EnumStatusResponse.success) {
-            pageViewController.animateToPage(
-              currentPageIndex.value + 1,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
-          } else {
-            showSnackBar(baseResponseBE.message);
-          }
+          // showLoading();
+          // final baseResponseBE = await confirmInfoRepository
+          //     .updatePersonInfo(personInfoRequestModel);
+          // if (baseResponseBE.success == EnumStatusResponse.success) {
+          //   pageViewController.animateToPage(
+          //     currentPageIndex.value + 1,
+          //     duration: const Duration(milliseconds: 500),
+          //     curve: Curves.ease,
+          //   );
+          // } else {
+          //   showSnackBar(baseResponseBE.message);
+          // }
         } catch (e) {
           showSnackBar(LocaleKeys.errorApi_errorException.tr);
         } finally {

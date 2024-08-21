@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:two_id_c06verify/assets.dart';
 import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/modules/home/home.src.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../shares/shares.src.dart';
 
@@ -22,7 +23,6 @@ class HomeController extends BaseGetxController {
   RxBool isBack = false.obs;
 
   Rx<TabItem> currentTab = TabItem.homePage.obs;
-
 
   @override
   void onInit() {
@@ -47,15 +47,42 @@ class HomeController extends BaseGetxController {
   // }
   funcPageChange(int index) {
     // pageIndex.value = index;
-    currentTab.value = TabItem.values[index];
+    if (index == 3) {
+      Get.bottomSheet(SDSBottomSheet(
+        title: "",
+        body: Column(
+          children: [
+            const Divider(color: AppColors.basicBlack),
+            UtilWidget.bottomSheetRow(
+              Assets.ASSETS_SVG_ICON_USER_NAME_CARD_SVG,
+              LocaleKeys.home_accountInfo.tr,
+            ),
+            UtilWidget.bottomSheetRow(
+              Assets.ASSETS_SVG_ICON_TELEPHONE_SVG,
+              LocaleKeys.login_support.tr,
+            ),
+            UtilWidget.bottomSheetRow(
+              Assets.ASSETS_SVG_ICON_USER_NAME_CARD_SVG,
+              LocaleKeys.home_logout.tr,
+              onTap: () => funcLogout(),
+            ),
+          ],
+        ),
+        noHeader: true,
+      ));
+    } else {
+      currentTab.value = TabItem.values[index];
+    }
     // pageController.value.jumpToPage(index);
   }
 
-  //TODO: add other logout actions
-  Future<void> funcLogout() async {
+  void funcLogout() async {
+    if(Get.isSnackbarOpen){
+      Get.back();
+    }
     ShowDialog.showDialogConfirm(
       LocaleKeys.home_logoutConfirm.tr,
-      cancelFunc: () => ShowDialog.dismissDialog(),
+      // cancelFunc: () => ShowDialog.dismissDialog(),
       confirm: () {
         appController.clearData(clearUserInfo: true);
         Get.offAllNamed(AppRoutes.routeLogin);
@@ -70,11 +97,13 @@ class HomeController extends BaseGetxController {
       case HomeCollection.codeCreateCert:
         fucCreateCert();
         break;
-        /// màn ds chứng thư số
+
+      /// màn ds chứng thư số
       case HomeCollection.codeViewListCTS:
         routerName(nameRouter: AppRoutes.routeCertificationList);
         break;
-        ///xác thực hồ sơ
+
+      ///xác thực hồ sơ
       case HomeCollection.codeViewListAuth:
         // truyen id user sang
         routerName(
@@ -87,20 +116,20 @@ class HomeController extends BaseGetxController {
 
   void fucCreateCert() {
     appController.configCertificateModel.isCreateCertificate = true;
-    if (appController.userInfoModel.type == AppConst.typeRegularAccount) {
-      routerName(
-          nameRouter: AppRoutes.routeChoosePackage,
-          fuc: () {
-            appController.configCertificateModel.isCreateCertificate = false;
-          });
-    } else {
-      routerName(
-          nameRouter: AppRoutes.routeRegisterAccount,
-          arguments: false,
-          fuc: () {
-            appController.configCertificateModel.isCreateCertificate = false;
-          });
-    }
+    // if (appController.userInfoModel.type == AppConst.typeRegularAccount) {
+    //   routerName(
+    //       nameRouter: AppRoutes.routeChoosePackage,
+    //       fuc: () {
+    //         appController.configCertificateModel.isCreateCertificate = false;
+    //       });
+    // } else {
+    //   routerName(
+    //       nameRouter: AppRoutes.routeRegisterAccount,
+    //       arguments: false,
+    //       fuc: () {
+    //         appController.configCertificateModel.isCreateCertificate = false;
+    //       });
+    // }
   }
 
   /// Dùng để chuyển màn hình

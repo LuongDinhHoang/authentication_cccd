@@ -46,37 +46,37 @@ class RegisterAccountController extends BaseGetxController {
   @override
   void onInit() {
     isVerifyProfile = Get.arguments;
-    authProfileRepository = AuthProfileRepository(this);
-    enableTextInput =
-        appController.userInfoModel.type != AppConst.typeRegularAccount;
-    fillDataInfo();
-    registerAccountRepository = RegisterAccountRepository(this);
-    if (appController.userInfoModel.type == AppConst.typeAgentAccount) {
-      registerAccountRepository.getPackageDefault().then((value) {
-        if (value.success == EnumStatusResponse.success) {
-          appController.configCertificateModel.itemSelectPackage =
-              value.data ?? PackageInfoResponse();
-          textEditService.text = value.data?.serviceName ?? "";
-        }
-      });
-    } else if (appController.userInfoModel.type ==
-        AppConst.typeRegularAccount) {
-      textEditService.text =
-          appController.configCertificateModel.itemSelectPackage?.serviceName ??
-              "";
-    }
+    // authProfileRepository = AuthProfileRepository(this);
+    // enableTextInput =
+    //     appController.userInfoModel.type != AppConst.typeRegularAccount;
+    // fillDataInfo();
+    // registerAccountRepository = RegisterAccountRepository(this);
+    // if (appController.userInfoModel.type == AppConst.typeAgentAccount) {
+    //   registerAccountRepository.getPackageDefault().then((value) {
+    //     if (value.status) {
+    //       appController.configCertificateModel.itemSelectPackage =
+    //           value.data ?? PackageInfoResponse();
+    //       textEditService.text = value.data?.serviceName ?? "";
+    //     }
+    //   });
+    // } else if (appController.userInfoModel.type ==
+    //     AppConst.typeRegularAccount) {
+    //   textEditService.text =
+    //       appController.configCertificateModel.itemSelectPackage?.serviceName ??
+    //           "";
+    // }
     super.onInit();
   }
 
-  void fillDataInfo() {
-    if (!isVerifyProfile &&
-        appController.userInfoModel.type == AppConst.typeRegularAccount) {
-      final UserInfoModel userInfoModel = appController.userInfoModel;
-      textEditEmail.text = userInfoModel.email ?? "";
-      textEditNumberPhone.text = userInfoModel.phone ?? "";
-      textEditIdNumber.text = userInfoModel.documentNumber ?? "";
-    }
-  }
+  // void fillDataInfo() {
+  //   if (!isVerifyProfile &&
+  //       appController.userInfoModel.type == AppConst.typeRegularAccount) {
+  //     final UserInfoModel userInfoModel = appController.userInfoModel;
+  //     textEditEmail.text = userInfoModel.email ?? "";
+  //     textEditNumberPhone.text = userInfoModel.phone ?? "";
+  //     textEditIdNumber.text = userInfoModel.documentNumber ?? "";
+  //   }
+  // }
 
   String getTitle() {
     return isVerifyProfile
@@ -96,7 +96,7 @@ class RegisterAccountController extends BaseGetxController {
       showLoading();
       BaseResponseBE baseResponseBE = await registerAccountRepository
           .createAccount(accountInformationModel);
-      if (baseResponseBE.success == EnumStatusResponse.success) {
+      if (baseResponseBE.status) {
         final loginController = Get.find<LoginController>();
         loginController.userNameController.text = textEditIdNumber.text;
         loginController.passwordController.text = "";
@@ -119,7 +119,7 @@ class RegisterAccountController extends BaseGetxController {
               }
             });
       } else {
-        showSnackBar(baseResponseBE.message);
+        // showSnackBar(baseResponseBE.message);
       }
     } catch (e) {
       showSnackBar(LocaleKeys.errorApi_errorException.tr);
@@ -132,7 +132,7 @@ class RegisterAccountController extends BaseGetxController {
     try {
       UserInfoModel userInfoModelRepository = UserInfoModel(
         email: textEditEmail.text,
-        documentNumber: textEditIdNumber.text,
+        // documentNumber: textEditIdNumber.text,
         phone: textEditNumberPhone.text,
       );
       showLoading();
@@ -144,7 +144,7 @@ class RegisterAccountController extends BaseGetxController {
                 PackageInfoResponse(),
       )
           .then((value) {
-        if (value.success == EnumStatusResponse.success) {
+        if (value.status) {
           hiveApp.put(AppKey.sessionId, value.data);
           appController.authProfileRequestModel.identity =
               textEditIdNumber.text;
@@ -153,7 +153,7 @@ class RegisterAccountController extends BaseGetxController {
           // appController.packageInfoSelectItem.isSelectPackage = true;
           Get.toNamed(AppRoutes.routeAuthenticationGuide);
         } else {
-          showSnackBar(value.message);
+          // showSnackBar(value.message);
         }
       });
     } catch (e) {

@@ -25,8 +25,10 @@ class BaseFormLogin {
     required Function() functionLogin,
     bool isFaceID = true,
     Function()? functionLoginBiometric,
+    Function()? functionLoginOther,
     final IconData? iconLeading,
     final Color? prefixIconColor,
+    final String? displayName,
   }) {
     return Form(
       key: formKey,
@@ -51,29 +53,33 @@ class BaseFormLogin {
                   icon: SvgPicture.asset(Assets.ASSETS_SVG_ICON_USER_SVG)),
             ),
           ),
-          Visibility(
-            visible: isBiometric,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+          isBiometric
+              ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Row(
+                      children: [
+                        TextUtils(
+                          text: displayName ?? "",
+                          availableStyle: StyleEnum.subBold,
+                          color: AppColors.colorBlack,
+                        ),
+                        sdsSBWidth8,
+                        GestureDetector(
+                          onTap: functionLoginOther,
+                            child: SvgPicture.asset(
+                                Assets.ASSETS_SVG_ICON_OTHER_USER_SVG)),
+                      ],
+                    ),
                     TextUtils(
-                      text: "Hoang",
-                      availableStyle: StyleEnum.subBold,
-                      color: AppColors.colorBlack,
+                      text: textUserName.text
+                          .replaceRange(7, textUserName.text.length, "*" * 5),
+                      availableStyle: StyleEnum.detailRegular,
+                      color: AppColors.basicBlack,
                     ),
                   ],
-                ),
-                TextUtils(
-                  text: textUserName.text,
-                  availableStyle: StyleEnum.bodyRegular,
-                  color: AppColors.colorBlack,
-                ),
-              ],
-            ),
-          ),
+                )
+              : const SizedBox(),
           Row(
             children: [
               Expanded(

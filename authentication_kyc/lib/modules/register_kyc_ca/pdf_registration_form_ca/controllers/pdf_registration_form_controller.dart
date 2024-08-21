@@ -31,15 +31,15 @@ class PdfRegistrationFormController extends BaseGetxController {
 
   Future<void> getPdfData() async {
     try {
-      showLoading();
-      BaseResponseBE baseResponseBE =
-          await pdfRegistrationFormRepository.getPdf();
-      if (baseResponseBE.success == EnumStatusResponse.success) {
-        String data = baseResponseBE.data.toString();
-        pdfData.value = base64ToUint8List(data);
-        isLoadPdfFalse.value = false;
-      }
-      hideLoading();
+      // showLoading();
+      // BaseResponseBE baseResponseBE =
+      //     await pdfRegistrationFormRepository.getPdf();
+      // if (baseResponseBE.success == EnumStatusResponse.success) {
+      //   String data = baseResponseBE.data.toString();
+      //   pdfData.value = base64ToUint8List(data);
+      //   isLoadPdfFalse.value = false;
+      // }
+      // hideLoading();
     } catch (e) {
       hideLoading();
       isLoadPdfFalse.value = true;

@@ -177,7 +177,6 @@ flutter:
     - assets/svg/icon_home_authentication_focus.svg
     - assets/svg/icon_home_list_user.svg
     - assets/svg/icon_home_list_user_focus.svg
-    - assets/svg/icon_home_list_user_focus_focus.svg
     - assets/svg/icon_home_other.svg
     - assets/svg/icon_home_service_package.svg
     - assets/svg/icon_home_service_package_focus.svg
@@ -214,6 +213,7 @@ flutter:
     - assets/svg/icon_noti_success.svg
     - assets/svg/icon_notification.svg
     - assets/svg/icon_number_phone.svg
+    - assets/svg/icon_other_user.svg
     - assets/svg/icon_package.svg
     - assets/svg/icon_package_card.svg
     - assets/svg/icon_pass.svg

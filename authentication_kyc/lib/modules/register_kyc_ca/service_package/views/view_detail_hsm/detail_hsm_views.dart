@@ -11,8 +11,8 @@ Widget _buildBody(DetailHsmController controller) {
               colorBackground: controller.getColorBackgroundSelect(index),
               colorBorder: controller.getColorBorderSelect(index),
               price: controller.listDetailHSM[index].price,
-              isEnterprise: controller.appController.userInfoModel.type ==
-                  AppConst.typeAgentAccount,
+              // isEnterprise: controller.appController.userInfoModel.type ==
+              //     AppConst.typeAgentAccount,
               onTap: () {
                 controller.indexHsm.value = index;
               }).paddingOnly(bottom: AppDimens.padding10),
