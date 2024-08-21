@@ -56,6 +56,10 @@ class HomeController extends BaseGetxController {
             UtilWidget.bottomSheetRow(
               Assets.ASSETS_SVG_ICON_USER_NAME_CARD_SVG,
               LocaleKeys.home_accountInfo.tr,
+              onTap: (){
+                Get.back();
+                Get.toNamed(AppRoutes.routeUserInfo);
+              }
             ),
             UtilWidget.bottomSheetRow(
               Assets.ASSETS_SVG_ICON_TELEPHONE_SVG,

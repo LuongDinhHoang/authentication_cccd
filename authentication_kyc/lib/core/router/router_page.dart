@@ -14,6 +14,7 @@ import 'package:two_id_c06verify/modules/register_kyc_ca/take_picture_card_kyc/v
 import 'package:two_id_c06verify/modules/register_kyc_ca/update_photo_information_kyc/update_photo_information_kyc.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/verify_profile_ca/verify_profile_ca_src.dart';
 import 'package:two_id_c06verify/modules/terms_policies/terms_policies.src.dart';
+import 'package:two_id_c06verify/modules/user_info/user_info.src.dart';
 import 'package:two_id_c06verify/shares/shares.src.dart';
 
 import '../../modules/certificate_view/certificate_view.src.dart';
@@ -143,6 +144,11 @@ class RouteAppPage {
       name: AppRoutes.routeChangePassword,
       page: () => const ChangePasswordPage(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.routeUserInfo,
+      page: () => const UserInfoPage(),
+      // transition: Transition.rightToLeft,
     )
   ];
 }

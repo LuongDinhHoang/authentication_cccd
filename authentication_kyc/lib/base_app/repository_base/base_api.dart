@@ -2,11 +2,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
+import 'package:get/get.dart';
 import 'package:two_id_c06verify/base_app/controllers_base/base_controller.src.dart';
+import 'package:two_id_c06verify/core/base/base.src.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
 
 class BaseApi {
   static Dio dio = getBaseDio();
+  late Function(Object error) onErrorCallBack;
 
   static Dio getBaseDio() {
     Dio dio = Dio();
@@ -58,8 +61,6 @@ class BaseApi {
   void setOnErrorListener(Function(Object error) onErrorCallBack) {
     this.onErrorCallBack = onErrorCallBack;
   }
-
-  late Function(Object error) onErrorCallBack;
 
   /// [isQueryParametersPost]: `true`: phương thức post gửi params, mặc định = `false`
   ///
@@ -144,10 +145,47 @@ class BaseApi {
       }
       return response.data;
     } catch (e) {
+      var baseResponseError = catchErrorBE(e);
+      if (baseResponseError != null) {
+        return baseResponseError;
+      }
       controller.cancelRequest(cancelToken);
+
       return functionError != null ? functionError(e) : showDialogError(e);
     }
   }
+
+  // dynamic showDialogError(dynamic e) {
+  //   if (e.response?.data != null &&
+  //       e.response.data is Map &&
+  //       e.response.data["Data"] != null) return e.response.data;
+  //   onErrorCallBack(e);
+  // }
+
+  dynamic catchErrorBE(Object e) {
+    try {
+      if (e is DioError && e.response?.data is Map) {
+        if (Get.isDialogOpen ?? false) {
+          Get.back();
+        }
+        final BaseResponseBE temp = BaseResponseBE.fromJson(e.response?.data);
+        if (!temp.status) {
+          // if (temp.errors?.first.code == "TOKEN_EXPIRED") {
+          //   isCheckShowDialog = true;
+          //   gotoLogin();
+          // }
+
+          return e.response?.data;
+        }
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+// void setOnErrorListener(Function(Object error) onErrorCallBack) {
+//   this.onErrorCallBack = onErrorCallBack;
+// }
 
   dynamic showDialogError(dynamic e) {
     if (e.response?.data != null &&
