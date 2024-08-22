@@ -64,33 +64,36 @@ class NfcInformationUserController extends BaseGetxController {
   }
 
   Future<void> sendNfcData() async {
-    if (convertStringToDate(
-          sendNfcRequestModel.doe,
-          pattern5,
-        )?.isAfter(DateTime.now()) ??
-        true) {
-      showLoading();
-      await nfcRepository.sendNfcRepository(sendNfcRequestModel);
-      appController.sendNfcRequestGlobalModel = sendNfcRequestModel;
-      hideLoading();
-      Get.toNamed(
-        AppRoutes.routeInstructLiveNessKyc,
-      );
-      // Get.toNamed(AppRoutes.routeAwaitOCRData);
-    } else {
-      if (appController.configCertificateModel.isCreateCertificate) {
-        if (Get.isRegistered<RegisterAccountController>()) {
-          Get.until(
-              (route) => route.settings.name == AppRoutes.routeRegisterAccount);
-        }
-      } else {
-        if (Get.isRegistered<VerifyProfileController>()) {
-          Get.until(
-              (route) => route.settings.name == AppRoutes.routeVerifyProfile);
-        }
-      }
-      showSnackBar(LocaleKeys.nfc_nfc_expired_message.tr);
+    if(appController.typeAuthentication == AppConst.typeRegister){
+
     }
+    // if (convertStringToDate(
+    //       sendNfcRequestModel.doe,
+    //       pattern5,
+    //     )?.isAfter(DateTime.now()) ??
+    //     true) {
+    //   showLoading();
+    //   await nfcRepository.sendNfcRepository(sendNfcRequestModel);
+    //   appController.sendNfcRequestGlobalModel = sendNfcRequestModel;
+    //   hideLoading();
+    //   Get.toNamed(
+    //     AppRoutes.routeInstructLiveNessKyc,
+    //   );
+    //   // Get.toNamed(AppRoutes.routeAwaitOCRData);
+    // } else {
+    //   if (appController.configCertificateModel.isCreateCertificate) {
+    //     if (Get.isRegistered<RegisterAccountController>()) {
+    //       Get.until(
+    //           (route) => route.settings.name == AppRoutes.routeRegisterAccount);
+    //     }
+    //   } else {
+    //     if (Get.isRegistered<VerifyProfileController>()) {
+    //       Get.until(
+    //           (route) => route.settings.name == AppRoutes.routeVerifyProfile);
+    //     }
+    //   }
+    //   showSnackBar(LocaleKeys.nfc_nfc_expired_message.tr);
+    // }
   }
 
   void sendLiveNessData(LiveNessRequestModel inspectReportModel) {

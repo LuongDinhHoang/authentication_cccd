@@ -50,4 +50,9 @@ class AppConst {
   static const int statusUserCreateBE = 2;
   static const int statusUserCreateAPP = 3;
 
+  ///type authentication
+  static const String typeRegister = "Register";
+  static const String typeAuthentication = "Authentication";
+
+
 }

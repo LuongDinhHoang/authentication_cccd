@@ -66,7 +66,7 @@ class HomeController extends BaseGetxController {
               LocaleKeys.login_support.tr,
             ),
             UtilWidget.bottomSheetRow(
-              Assets.ASSETS_SVG_ICON_USER_NAME_CARD_SVG,
+              Assets.ASSETS_SVG_ICON_OTHER_USER_SVG,
               LocaleKeys.home_logout.tr,
               onTap: () => funcLogout(),
             ),

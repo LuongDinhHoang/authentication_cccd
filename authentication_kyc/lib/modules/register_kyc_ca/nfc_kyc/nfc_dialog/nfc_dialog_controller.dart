@@ -36,7 +36,9 @@ class NfcDialogController extends BaseGetxController {
   @override
   Future<void> onInit() async {
     // dataOcrModel = Get.arguments;
-    await scanNFC();
+    if(GetPlatform.isAndroid){
+      await scanNFC();
+    }
     super.onInit();
   }
 
@@ -44,7 +46,7 @@ class NfcDialogController extends BaseGetxController {
     setupData();
     // userModel = UserModel();
     await readMRTD();
-    if (sendNfcRequestModel.number != null) {
+    if (sendNfcRequestModel.number == null) {
       if (Get.isBottomSheetOpen == true) {
         Get.back();
       }
@@ -58,6 +60,7 @@ class NfcDialogController extends BaseGetxController {
       }
       showSnackBar(LocaleKeys.nfc_nfcError.tr);
     }
+    sendNfcRequestModel = SendNfcRequestModel();
   }
 
   void setupData() {

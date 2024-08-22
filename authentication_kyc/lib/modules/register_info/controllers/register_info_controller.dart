@@ -4,16 +4,16 @@ import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
 
 import '../../../../shares/shares.src.dart';
 
-class UserInfoController extends BaseGetxController {
+class RegisterInfoController extends BaseGetxController {
   final TextEditingController phoneNumberConfirm = TextEditingController();
 
   final TextEditingController emailConfirm = TextEditingController();
 
   final TextEditingController userNameConfirm = TextEditingController();
 
-  final TextEditingController registerDateConfirm = TextEditingController();
+  final TextEditingController password = TextEditingController();
 
-  final TextEditingController statusConfirm = TextEditingController();
+  final TextEditingController passwordConfirm = TextEditingController();
 
   AppController appController = Get.find<AppController>();
 
@@ -25,20 +25,20 @@ class UserInfoController extends BaseGetxController {
 
   final Rx<FocusNode> userNameFocus = FocusNode().obs;
 
-  final Rx<FocusNode> registerDateFocus = FocusNode().obs;
+  final Rx<FocusNode> passwordFocus = FocusNode().obs;
 
-  final Rx<FocusNode> statusFocus = FocusNode().obs;
+  final Rx<FocusNode> passwordConfirmFocus = FocusNode().obs;
 
   @override
   Future<void> onInit() async {
     phoneNumberConfirm.text = appController.userInfoModel.phone ?? "";
     emailConfirm.text = appController.userInfoModel.email ?? "";
     userNameConfirm.text = appController.userInfoModel.username ?? "";
-    registerDateConfirm.text = convertDateToString(
+    password.text = convertDateToString(
       appController.userInfoModel.createdAt,
       pattern1,
     );
-    statusConfirm.text = appController.userInfoModel.status ?? "";
+    passwordConfirm.text = appController.userInfoModel.status ?? "";
     super.onInit();
   }
 }

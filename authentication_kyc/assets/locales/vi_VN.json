@@ -348,5 +348,11 @@
     "passwordNew": "Mật khẩu mới",
     "passwordNewConfirm": "Nhập lại mật khẩu mới",
     "passwordDifferent": "Mật khẩu không trùng khớp"
+  },
+  "userInfo": {
+    "userName": "Tên đăng nhập",
+    "registerDate": "Ngày đăng ký",
+    "status": "Trạng thái"
+
   }
 }

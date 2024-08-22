@@ -400,6 +400,9 @@ class LocaleKeys {
       'ChangePassword_passwordNewConfirm';
   static const ChangePassword_passwordDifferent =
       'ChangePassword_passwordDifferent';
+  static const userInfo_userName = 'userInfo_userName';
+  static const userInfo_registerDate = 'userInfo_registerDate';
+  static const userInfo_status = 'userInfo_status';
 }
 
 class Locales {
@@ -745,5 +748,8 @@ class Locales {
     'ChangePassword_passwordNew': 'Mật khẩu mới',
     'ChangePassword_passwordNewConfirm': 'Nhập lại mật khẩu mới',
     'ChangePassword_passwordDifferent': 'Mật khẩu không trùng khớp',
+    'userInfo_userName': 'Tên đăng nhập',
+    'userInfo_registerDate': 'Ngày đăng ký',
+    'userInfo_status': 'Trạng thái',
   };
 }

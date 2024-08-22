@@ -31,12 +31,12 @@ class ScanNfcKycController extends BaseGetxController {
   }
 
   Future<void> scanNfc() async {
-    ShowDialog.funcOpenBottomSheet(const NfcDialog());
-    // if (GetPlatform.isIOS) {
-    //   NfcDialogController nfcDialogController = Get.put(NfcDialogController());
-    //   await nfcDialogController.scanNFC();
-    // } else if (GetPlatform.isAndroid) {
-    //   ShowDialog.funcOpenBottomSheet(const NfcDialog());
-    // }
+    // ShowDialog.funcOpenBottomSheet(const NfcDialog());
+    if (GetPlatform.isIOS) {
+      NfcDialogController nfcDialogController = Get.put(NfcDialogController());
+      await nfcDialogController.scanNFC();
+    } else if (GetPlatform.isAndroid) {
+      ShowDialog.funcOpenBottomSheet(const NfcDialog());
+    }
   }
 }

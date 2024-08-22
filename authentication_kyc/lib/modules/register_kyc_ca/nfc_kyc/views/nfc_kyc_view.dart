@@ -124,25 +124,12 @@ Widget _buildButtonNfcContinue(ScanNfcKycController controller) {
   return Column(
     children: [
       ButtonUtils.buildButton("Quét chip với NFC", () async {
-        controller.scanNfc();
+        await controller.scanNfc();
       },
               isLoading: controller.isShowLoading.value,
               backgroundColor: AppColors.primaryBlue1,
               colorText: AppColors.basicWhite)
           .paddingAll(AppDimens.padding15),
-      // Obx(
-      //   () => ButtonUtils.buildButton(
-      //     LocaleKeys.nfc_buttonSkip.tr,
-      //     () async {
-      //       await controller.getInfoORC();
-      //     },
-      //     isLoading: controller.isShowLoading.value,
-      //     backgroundColor: AppColors.colorTransparent,
-      //     border: Border.all(width: 1, color: AppColors.primaryCam1),
-      //     borderRadius: BorderRadius.circular(AppDimens.radius4),
-      //     colorText: AppColors.primaryCam1,
-      //   ).paddingAll(AppDimens.padding15),
-      // ),
     ],
   );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:two_id_c06verify/assets.dart';
+import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:two_id_c06verify/core/theme/colors.dart';
 import 'package:two_id_c06verify/core/values/dimens.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
@@ -26,6 +27,7 @@ class BaseFormLogin {
     bool isFaceID = true,
     Function()? functionLoginBiometric,
     Function()? functionLoginOther,
+    Function()? functionRegister,
     final IconData? iconLeading,
     final Color? prefixIconColor,
     final String? displayName,
@@ -37,7 +39,7 @@ class BaseFormLogin {
           Visibility(
             visible: !isBiometric,
             child: buildInputData(
-              title: LocaleKeys.login_userTitle.tr,
+              title: "" /*LocaleKeys.login_userTitle.tr*/,
               textEditingController: textUserName,
               isLoading: isLoading,
               hintText: LocaleKeys.login_userHint.tr,
@@ -66,7 +68,7 @@ class BaseFormLogin {
                         ),
                         sdsSBWidth8,
                         GestureDetector(
-                          onTap: functionLoginOther,
+                            onTap: functionLoginOther,
                             child: SvgPicture.asset(
                                 Assets.ASSETS_SVG_ICON_OTHER_USER_SVG)),
                       ],
@@ -81,10 +83,11 @@ class BaseFormLogin {
                 )
               : const SizedBox(),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: buildInputData(
-                  title: LocaleKeys.login_password.tr,
+                  title: "" /*LocaleKeys.login_password.tr*/,
                   textEditingController: textPassword,
                   isLoading: isLoading,
                   hintText: LocaleKeys.login_passwordHint.tr,
@@ -102,20 +105,22 @@ class BaseFormLogin {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: AppDimens.paddingDefault),
+                padding: const EdgeInsets.only(
+                  top: AppDimens.padding11,
+                  left: AppDimens.padding11,
+                ),
                 child: SizedBox(
-                  width: AppDimens.btnMedium,
-                  height: AppDimens.btnMedium,
-                  child: IconButton(
-                    onPressed: functionLoginBiometric ?? () {},
-                    icon: Image.asset(
+                  width: AppDimens.btnMediumTb,
+                  height: AppDimens.btnMediumTb,
+                  child: GestureDetector(
+                    onTap: functionLoginBiometric ?? () {},
+                    child: Image.asset(
                       isFaceID
                           ? Assets.ASSETS_JPG_ICON_FACEID_PNG
                           : Assets.ASSETS_JPG_ICON_FINGERPRINT_PNG,
                       fit: BoxFit.fill,
-                      width: AppDimens.btnMediumMax,
-                      height: AppDimens.btnMediumMax,
+                      width: AppDimens.btnMediumTb,
+                      height: AppDimens.btnMediumTb,
                       // color: AppColors.primaryCam1,
                     ),
                   ),
@@ -123,7 +128,10 @@ class BaseFormLogin {
               )
             ],
           ),
-          _buildOptional(isForgotPassword),
+          _buildOptional(
+            isForgotPassword,
+            functionRegister: functionRegister,
+          ),
           Row(
             children: [
               Expanded(
@@ -176,16 +184,18 @@ class BaseFormLogin {
     TextInputAction iconNextTextInputAction = TextInputAction.next,
     final Widget? iconLeading,
     final Color? prefixIconColor,
+    isValidate = false,
   }) {
     return Obx(
       () => SDSInputWithLabel(
         inputLabelModel: SDSInputLabelModel(
-          label: "",
+          label: title,
           paddingLabel: paddingModel ??
               const EdgeInsets.symmetric(
                 // horizontal: AppDimens.paddingDefault,
                 vertical: AppDimens.padding4,
               ),
+          isValidate: isValidate,
         ),
         inputTextFormModel: SDSInputTextModel(
           borderRadius: AppDimens.radius8,
@@ -227,28 +237,33 @@ class BaseFormLogin {
     ).paddingOnly(bottom: AppDimens.padding5);
   }
 
-  static Widget _buildOptional(bool isForgotPassword) {
+  static Widget _buildOptional(bool isForgotPassword,
+      {Function()? functionRegister}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        RichText(
-          text: TextSpan(
-            text: LocaleKeys.login_notUser.tr,
-            style: FontStyleUtils.fontStyleSans(
-              color: AppColors.colorDisable,
-              fontSize: AppDimens.sizeTextSmaller,
-              fontWeight: FontWeight.w400,
+        GestureDetector(
+          onTap: functionRegister,
+          behavior: HitTestBehavior.opaque,
+          child: RichText(
+            text: TextSpan(
+              text: LocaleKeys.login_notUser.tr,
+              style: FontStyleUtils.fontStyleSans(
+                color: AppColors.colorDisable,
+                fontSize: AppDimens.sizeTextSmaller,
+                fontWeight: FontWeight.w400,
+              ),
+              children: [
+                TextSpan(
+                    text: LocaleKeys.login_RegisterNew.tr,
+                    style: FontStyleUtils.fontStyleSans(
+                      fontSize: AppDimens.sizeTextSmaller,
+                      color: AppColors.primaryBlue1,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    )),
+              ],
             ),
-            children: [
-              TextSpan(
-                  text: LocaleKeys.login_RegisterNew.tr,
-                  style: FontStyleUtils.fontStyleSans(
-                    fontSize: AppDimens.sizeTextSmaller,
-                    color: AppColors.primaryBlue1,
-                    fontWeight: FontWeight.w700,
-                    decoration: TextDecoration.underline,
-                  )),
-            ],
           ),
         ),
         sdsSB5,

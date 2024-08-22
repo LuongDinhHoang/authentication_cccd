@@ -96,8 +96,15 @@ Widget _body(LoginController controller) {
                   functionLoginBiometric: () async {
                     await controller.loginFingerprint();
                   },
-                  functionLoginOther: (){
+                  functionLoginOther: () {
                     controller.loginOther();
+                  },
+                  functionRegister: () {
+                    controller.appController.typeAuthentication =
+                        AppConst.typeRegister;
+                    Get.toNamed(AppRoutes.routeProvision)?.then((value) {
+                      controller.appController.clearData();
+                    });
                   },
                   isFaceID:
                       controller.biometricTypes.contains(BiometricType.face),

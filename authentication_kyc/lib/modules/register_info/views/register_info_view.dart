@@ -1,6 +1,6 @@
-part of 'user_info_page.dart';
+part of 'register_info_page.dart';
 
-Widget _itemBody(UserInfoController controller) {
+Widget _itemBody(RegisterInfoController controller) {
   return Column(
     children: [
       Expanded(
@@ -18,7 +18,7 @@ Widget _itemBody(UserInfoController controller) {
                   errorValidator: LocaleKeys.login_passwordEmpty.tr,
                   onValidator: (text) => validatePass(text),
                   fillColor: AppColors.basicWhite.obs,
-                  isLoading: true,
+                  isLoading: false,
                   // textInputType: TextInputType.number,
                   // inputFormatters: InputFormatterEnum.identity,
                   // isEnable: controller.enableTextInput,
@@ -32,7 +32,7 @@ Widget _itemBody(UserInfoController controller) {
                   errorValidator: LocaleKeys.login_passwordEmpty.tr,
                   onValidator: (text) => validatePass(text),
                   fillColor: AppColors.basicWhite.obs,
-                  isLoading: true,
+                  isLoading: false,
                   // inputFormatters: InputFormatterEnum.phoneNumber,
                   // textInputType: TextInputType.phone,
                   // isEnable: controller.enableTextInput,
@@ -57,18 +57,18 @@ Widget _itemBody(UserInfoController controller) {
                   fillColor: AppColors.basicWhite.obs,
                 ),
                 BaseFormLogin.buildInputData(
-                  title: LocaleKeys.userInfo_registerDate.tr,
-                  textEditingController: controller.registerDateConfirm,
+                  title: LocaleKeys.login_password.tr,
+                  textEditingController: controller.password,
                   hintText: "",
-                  currentNode: controller.registerDateFocus,
-                  isLoading: true,
+                  currentNode: controller.passwordFocus,
+                  isLoading: false,
                   // onValidator: (text) =>
                   //     validateRepass(text, controller.emailConfirm.text),
                   // inputFormatters: InputFormatterEnum.email,
                   // textInputType: TextInputType.emailAddress,
                   iconNextTextInputAction: TextInputAction.done,
                   // isEnable: controller.enableTextInput,
-                  isPassword: false,
+                  isPassword: true,
                   onEditingComplete: () {
                     KeyBoard.hide();
                   },
@@ -76,10 +76,10 @@ Widget _itemBody(UserInfoController controller) {
                   fillColor: AppColors.basicWhite.obs,
                 ),
                 BaseFormLogin.buildInputData(
-                  title: LocaleKeys.userInfo_registerDate.tr,
-                  textEditingController: controller.statusConfirm,
+                  title: LocaleKeys.ChangePassword_passwordNewConfirm.tr,
+                  textEditingController: controller.passwordConfirm,
                   hintText: "",
-                  currentNode: controller.statusFocus,
+                  currentNode: controller.passwordConfirmFocus,
                   isLoading: true,
                   // onValidator: (text) =>
                   //     validateRepass(text, controller.emailConfirm.text),
@@ -87,7 +87,7 @@ Widget _itemBody(UserInfoController controller) {
                   // textInputType: TextInputType.emailAddress,
                   iconNextTextInputAction: TextInputAction.done,
                   // isEnable: controller.enableTextInput,
-                  isPassword: false,
+                  isPassword: true,
                   onEditingComplete: () {
                     KeyBoard.hide();
                   },

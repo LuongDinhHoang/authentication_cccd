@@ -1,5 +1,6 @@
 import 'package:two_id_c06verify/modules/home/home.src.dart';
 import 'package:two_id_c06verify/modules/login/views/login_page.dart';
+import 'package:two_id_c06verify/modules/provision/provision.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/await_ocr_data/await_ocr_data.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/change_password/change_password.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/confirm_information/views/confirm_information_page.dart';
@@ -149,6 +150,11 @@ class RouteAppPage {
       name: AppRoutes.routeUserInfo,
       page: () => const UserInfoPage(),
       // transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.routeProvision,
+      page: () => const ProvisionPage(),
+      transition: Transition.rightToLeft,
     )
   ];
 }

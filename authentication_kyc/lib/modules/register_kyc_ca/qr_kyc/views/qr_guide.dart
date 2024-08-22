@@ -38,11 +38,11 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                   onDetect: (capture) {
                     final List<Barcode> barcodes = capture.barcodes;
                     // final Uint8List? image = capture.image;
-                    for (final barcode in barcodes) {
-                      if (barcode.rawValue != null) {
-                        controller.getData(barcode.rawValue ?? "");
+                    // for (final barcode in barcodes) {
+                      if (barcodes.first.rawValue != null) {
+                        controller.getData(barcodes.first.rawValue ?? "");
                       }
-                    }
+                    // }
                   },
                   onScannerStarted: (_) {
                     controller.cameraController
@@ -55,8 +55,8 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                 _buildListGuild(),
                 _buildListImage(controller),
                 Positioned(
-                    top: Get.height / 4.2 - Get.height / 6,
-                    left: 40,
+                    top: Get.height / 4.2 - Get.height / 6 - 3,
+                    left: 40 - 2,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_LEFT_DOWN_PNG,
                       width: AppDimens.size45,
@@ -64,8 +64,8 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                       color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 4.2 - Get.height / 6,
-                    right: 40,
+                    top: Get.height / 4.2 - Get.height / 6 - 3,
+                    right: 40 - 3,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_RIGHT_DOWN_PNG,
                       width: AppDimens.size45,
@@ -73,8 +73,11 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                       color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 4.2 + Get.height / 6 - AppDimens.size45,
-                    left: 40,
+                    top: Get.height / 4.2 +
+                        Get.height / 6 -
+                        AppDimens.size45 +
+                        2,
+                    left: 40 - 2,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_LEFT_UP_PNG,
                       width: AppDimens.size45,
@@ -82,8 +85,11 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                       color: AppColors.primaryNavy,
                     )),
                 Positioned(
-                    top: Get.height / 4.2 + Get.height / 6 - AppDimens.size45,
-                    right: 40,
+                    top: Get.height / 4.2 +
+                        Get.height / 6 -
+                        AppDimens.size45 +
+                        3,
+                    right: 40 - 3,
                     child: Image.asset(
                       Assets.ASSETS_SVG_ICON_CORNER_RIGHT_UP_PNG,
                       width: AppDimens.size45,
@@ -121,7 +127,7 @@ class QRGuidePage extends BaseGetWidget<QRController> {
           sdsSB5,
           TextUtils(
             text:
-            "Bước 2: Chờ hệ thống định danh và xác thực cho tới khi có thông báo thành công.",
+                "Bước 2: Chờ hệ thống định danh và xác thực cho tới khi có thông báo thành công.",
             color: AppColors.colorDisable,
             availableStyle: StyleEnum.bodyRegular,
             maxLine: 3,
@@ -208,26 +214,26 @@ class QRGuidePage extends BaseGetWidget<QRController> {
                       Form(
                         key: controller.formKey,
                         child: BaseFormLogin.buildInputData(
-                          title: "Số CCCD",
-                          textEditingController: controller.idDocumentController,
-                          isLoading: false,
-                          hintText: "Nhập số CCCD",
-                          textInputType: TextInputType.number,
-                          currentNode: controller.idDocumentFocus,
-                          errorValidator:
-                          LocaleKeys.register_account_errorValidatorCCCD.tr,
-                          onValidator: (text) =>UtilWidget.validateId(text),
-                          fillColor: AppColors.basicWhite.obs,
-                          autoFocus: true,
-                          onEditingComplete: (){
-                            controller.getDataToEnter(
-                                controller.idDocumentController.text);
-                          }
-                        ),
+                            title: "Số CCCD",
+                            textEditingController:
+                                controller.idDocumentController,
+                            isLoading: false,
+                            hintText: "Nhập số CCCD",
+                            textInputType: TextInputType.number,
+                            currentNode: controller.idDocumentFocus,
+                            errorValidator: LocaleKeys
+                                .register_account_errorValidatorCCCD.tr,
+                            onValidator: (text) => UtilWidget.validateId(text),
+                            fillColor: AppColors.basicWhite.obs,
+                            autoFocus: true,
+                            onEditingComplete: () {
+                              controller.getDataToEnter(
+                                  controller.idDocumentController.text);
+                            }),
                       ),
                       ButtonUtils.buildButton(
                         LocaleKeys.registerCa_continue.tr,
-                            () {
+                        () {
                           controller.getDataToEnter(
                               controller.idDocumentController.text);
                         },
@@ -305,11 +311,10 @@ class QRGuidePage extends BaseGetWidget<QRController> {
           leading: true,
           backgroundColor: AppColors.colorTransparent,
         ),
-        body: Obx(() =>
-        controller.isShowLoading.value
+        body: Obx(() => controller.isShowLoading.value
             ? Container(
-            color: Colors.white,
-            child: const Center(child: CupertinoActivityIndicator()))
+                color: Colors.white,
+                child: const Center(child: CupertinoActivityIndicator()))
             : _buildBody()),
       ),
     );
@@ -328,9 +333,9 @@ class CustomShapePainterDaily extends CustomPainter {
     final height = size.height / 3; // Chiều cao của hình vuông
 
     Path clipPath = Path()
-      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height))..addRect(
-          Rect.fromCenter(
-              center: Offset(centerX, centerY), width: width, height: height));
+      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height))
+      ..addRect(Rect.fromCenter(
+          center: Offset(centerX, centerY), width: width, height: height));
     clipPath.fillType = PathFillType.evenOdd;
 
     canvas.clipPath(clipPath);

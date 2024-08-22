@@ -40,6 +40,7 @@ class AppController extends GetxController {
   QrUserInformation qrUserInformation = QrUserInformation();
   SendNfcRequestModel sendNfcRequestGlobalModel = SendNfcRequestModel();
   UserInfoModel userInfoModel = UserInfoModel();
+  String typeAuthentication = "";
 
   Timer? timer;
 
@@ -91,6 +92,7 @@ class AppController extends GetxController {
     configCertificateModel.itemSelectPackage = PackageInfoResponse();
     authProfileRequestModel = AuthProfileResponseModel();
     hiveApp.delete(AppKey.sessionId);
+    typeAuthentication = "";
     if (clearUserInfo) {
       userInfoModel = UserInfoModel();
     }

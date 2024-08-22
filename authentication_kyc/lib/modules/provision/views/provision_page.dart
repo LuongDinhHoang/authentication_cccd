@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/modules/provision/provision.src.dart';
 import 'package:two_id_c06verify/modules/user_info/user_info.src.dart';
 import 'package:two_id_c06verify/shares/widgets/form/base_form_login.dart';
 
 import '../../../../shares/shares.src.dart';
 
-part 'user_info_view.dart';
+part 'provision_view.dart';
 
-class UserInfoPage extends BaseGetWidget<UserInfoController> {
-  const UserInfoPage({Key? key}) : super(key: key);
+class ProvisionPage extends BaseGetWidget<ProvisionController> {
+  const ProvisionPage({Key? key}) : super(key: key);
 
   @override
-  UserInfoController get controller => Get.put(UserInfoController());
+  ProvisionController get controller => Get.put(ProvisionController());
 
   @override
   Widget buildWidgets(BuildContext context) {
@@ -24,7 +25,7 @@ class UserInfoPage extends BaseGetWidget<UserInfoController> {
     return Scaffold(
       backgroundColor: AppColors.basicWhite,
       appBar: BackgroundAppBar.buildAppBar(
-        LocaleKeys.home_accountInfo.tr,
+        "Điều khoản & Điều kiện",
         isColorGradient: false,
         centerTitle: false,
         leading: true,
