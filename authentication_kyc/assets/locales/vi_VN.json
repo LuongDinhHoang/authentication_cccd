@@ -345,6 +345,8 @@
   },
   "ChangePassword": {
     "passwordOld": "Mật khẩu cũ",
+    "success": "Hoàn tất",
+    "passwordConfirm": "Nhập lại mật khẩu",
     "passwordNew": "Mật khẩu mới",
     "passwordNewConfirm": "Nhập lại mật khẩu mới",
     "passwordDifferent": "Mật khẩu không trùng khớp"

@@ -11,6 +11,7 @@ class AppApi {
   static const String sendFileOCR = "/files/send-file";
   static const String getUserInfo= "/v1/customers/me";
   static const String getPackagesDefault= "/customer-config/packages/default";
+  static const String getRegister = "/v1/auth/customer/register";
 
   static const String acceptTerms = "/certificate-orders/sendPolicyAgreement";
   static const String registerAccount = "/account/register";

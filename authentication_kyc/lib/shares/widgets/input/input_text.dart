@@ -107,9 +107,7 @@ class _SDSInputTextState extends State<SDSInputText> with FormatterEnum {
           inputFormatters: getFormatters(widget.inputTextFormModel),
           validator: widget.inputTextFormModel.validator,
           autovalidateMode: widget.inputTextFormModel.autovalidateMode ??
-              (widget.inputTextFormModel.controller.text.isNullOrEmpty
-                  ? AutovalidateMode.disabled
-                  : AutovalidateMode.always),
+              AutovalidateMode.onUserInteraction,
           onChanged: (v) {
             if (!_isShowButtonClear.value || v.isEmpty) {
               _isShowButtonClear.value = v.isNotEmpty;

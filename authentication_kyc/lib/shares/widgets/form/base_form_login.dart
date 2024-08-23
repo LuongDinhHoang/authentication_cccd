@@ -185,6 +185,7 @@ class BaseFormLogin {
     final Widget? iconLeading,
     final Color? prefixIconColor,
     isValidate = false,
+    int inputFormatters = InputFormatterEnum.lengthLimitingText,
   }) {
     return Obx(
       () => SDSInputWithLabel(
@@ -228,7 +229,7 @@ class BaseFormLogin {
           textInputType: textInputType,
           iconNextTextInputAction: iconNextTextInputAction,
           onEditingComplete: onEditingComplete,
-          inputFormatters: 0,
+          inputFormatters: inputFormatters,
           autoFocus: autoFocus,
           paddingModel:
               const EdgeInsets.symmetric(vertical: AppDimens.paddingDefault),

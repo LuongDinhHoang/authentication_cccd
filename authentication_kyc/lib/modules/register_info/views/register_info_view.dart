@@ -15,11 +15,15 @@ Widget _itemBody(RegisterInfoController controller) {
                   hintText: "",
                   currentNode: controller.phoneNumberFocus,
                   nextMode: controller.emailFocus.value,
-                  errorValidator: LocaleKeys.login_passwordEmpty.tr,
-                  onValidator: (text) => validatePass(text),
+                  errorValidator: LocaleKeys
+                      .validate_confirm_input_errorValidatorPhoneNumber.tr,
+                  // onValidator: (text) => validatePass(text),
                   fillColor: AppColors.basicWhite.obs,
                   isLoading: false,
-                  // textInputType: TextInputType.number,
+                  isValidate: true,
+                  autoFocus: true,
+                  inputFormatters: InputFormatterEnum.phoneNumber,
+                  textInputType: TextInputType.number,
                   // inputFormatters: InputFormatterEnum.identity,
                   // isEnable: controller.enableTextInput,
                 ),
@@ -28,11 +32,15 @@ Widget _itemBody(RegisterInfoController controller) {
                   textEditingController: controller.emailConfirm,
                   hintText: "",
                   currentNode: controller.emailFocus,
-                  nextMode: controller.userNameFocus.value,
-                  errorValidator: LocaleKeys.login_passwordEmpty.tr,
-                  onValidator: (text) => validatePass(text),
+                  nextMode: controller.passwordFocus.value,
+                  errorValidator: "",
+                  onValidator: (text) => !text.isNullOrEmpty
+                      ? (!isEmail(text) ? LocaleKeys.login_errorEmail.tr : null)
+                      : null,
                   fillColor: AppColors.basicWhite.obs,
                   isLoading: false,
+                  inputFormatters: InputFormatterEnum.email,
+                  textInputType: TextInputType.emailAddress,
                   // inputFormatters: InputFormatterEnum.phoneNumber,
                   // textInputType: TextInputType.phone,
                   // isEnable: controller.enableTextInput,
@@ -48,6 +56,7 @@ Widget _itemBody(RegisterInfoController controller) {
                   // inputFormatters: InputFormatterEnum.email,
                   // textInputType: TextInputType.emailAddress,
                   iconNextTextInputAction: TextInputAction.done,
+                  nextMode: controller.passwordFocus.value,
                   // isEnable: controller.enableTextInput,
                   isPassword: false,
                   onEditingComplete: () {
@@ -62,6 +71,8 @@ Widget _itemBody(RegisterInfoController controller) {
                   hintText: "",
                   currentNode: controller.passwordFocus,
                   isLoading: false,
+                  nextMode: controller.passwordConfirmFocus.value,
+                  onValidator: (text) => validatePass(text),
                   // onValidator: (text) =>
                   //     validateRepass(text, controller.emailConfirm.text),
                   // inputFormatters: InputFormatterEnum.email,
@@ -69,27 +80,27 @@ Widget _itemBody(RegisterInfoController controller) {
                   iconNextTextInputAction: TextInputAction.done,
                   // isEnable: controller.enableTextInput,
                   isPassword: true,
-                  onEditingComplete: () {
-                    KeyBoard.hide();
-                  },
+                  isValidate: true,
                   errorValidator: '',
                   fillColor: AppColors.basicWhite.obs,
                 ),
                 BaseFormLogin.buildInputData(
-                  title: LocaleKeys.ChangePassword_passwordNewConfirm.tr,
+                  title: LocaleKeys.ChangePassword_passwordConfirm.tr,
                   textEditingController: controller.passwordConfirm,
                   hintText: "",
                   currentNode: controller.passwordConfirmFocus,
-                  isLoading: true,
-                  // onValidator: (text) =>
-                  //     validateRepass(text, controller.emailConfirm.text),
+                  isLoading: false,
+                  isValidate: true,
+                  onValidator: (text) =>
+                      validateRepass(text, controller.password.text),
                   // inputFormatters: InputFormatterEnum.email,
                   // textInputType: TextInputType.emailAddress,
                   iconNextTextInputAction: TextInputAction.done,
                   // isEnable: controller.enableTextInput,
                   isPassword: true,
-                  onEditingComplete: () {
+                  onEditingComplete: () async {
                     KeyBoard.hide();
+                    await controller.registerInfo();
                   },
                   errorValidator: '',
                   fillColor: AppColors.basicWhite.obs,
@@ -99,18 +110,18 @@ Widget _itemBody(RegisterInfoController controller) {
           ),
         ),
       ),
-      // Obx(
-      //   () => ButtonUtils.buildButton(LocaleKeys.nfc_buttonStart.tr, () async {
-      //     await controller.changePass();
-      //   },
-      //           isLoading: controller.isShowLoading.value,
-      //           backgroundColor: AppColors.primaryBlue1,
-      //           borderRadius: BorderRadius.circular(AppDimens.radius4),
-      //           colorText: AppColors.basicWhite)
-      //       .paddingSymmetric(
-      //     vertical: AppDimens.padding10,
-      //   ),
-      // )
+      Obx(
+        () => ButtonUtils.buildButton(LocaleKeys.ChangePassword_success.tr,
+                () async {
+          await controller.registerInfo();
+        },
+                isLoading: controller.isShowLoading.value,
+                backgroundColor: AppColors.primaryBlue1,
+                colorText: AppColors.basicWhite)
+            .paddingSymmetric(
+          vertical: AppDimens.padding10,
+        ),
+      )
     ],
   ).paddingAll(AppDimens.padding15);
 }

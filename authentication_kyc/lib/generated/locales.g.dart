@@ -395,6 +395,9 @@ class LocaleKeys {
   static const biometric_noteSettingBiometricFingerprint =
       'biometric_noteSettingBiometricFingerprint';
   static const ChangePassword_passwordOld = 'ChangePassword_passwordOld';
+  static const ChangePassword_success = 'ChangePassword_success';
+  static const ChangePassword_passwordConfirm =
+      'ChangePassword_passwordConfirm';
   static const ChangePassword_passwordNew = 'ChangePassword_passwordNew';
   static const ChangePassword_passwordNewConfirm =
       'ChangePassword_passwordNewConfirm';
@@ -745,6 +748,8 @@ class Locales {
     'biometric_noteSettingBiometricFingerprint':
         'Quý khách chưa cài đặt đăng nhập bằng vân tay. Vui lòng đăng nhập vào tài khoản bằng mật khẩu và cài đặt xác thực vân tay trong phần cài đặt',
     'ChangePassword_passwordOld': 'Mật khẩu cũ',
+    'ChangePassword_success': 'Hoàn tất',
+    'ChangePassword_passwordConfirm': 'Nhập lại mật khẩu',
     'ChangePassword_passwordNew': 'Mật khẩu mới',
     'ChangePassword_passwordNewConfirm': 'Nhập lại mật khẩu mới',
     'ChangePassword_passwordDifferent': 'Mật khẩu không trùng khớp',

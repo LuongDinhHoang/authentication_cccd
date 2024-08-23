@@ -65,7 +65,7 @@ class NfcInformationUserController extends BaseGetxController {
 
   Future<void> sendNfcData() async {
     if(appController.typeAuthentication == AppConst.typeRegister){
-
+      Get.toNamed(AppRoutes.routeRegisterInfo);
     }
     // if (convertStringToDate(
     //       sendNfcRequestModel.doe,
