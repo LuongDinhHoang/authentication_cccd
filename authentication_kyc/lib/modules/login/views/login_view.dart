@@ -109,7 +109,7 @@ Widget _body(LoginController controller) {
                   functionForgotPassword: () {
                     controller.appController.typeAuthentication =
                         AppConst.typeForgotPass;
-                    Get.toNamed(AppRoutes.routeProvision)?.then((value) {
+                    Get.toNamed(AppRoutes.routeQrKyc)?.then((value) {
                       controller.appController.clearData();
                     });
                   },

@@ -72,11 +72,11 @@ class BottomNavigation extends StatelessWidget {
                   _bottomNavigationBarItem(
                       icon: SvgPicture.asset(
                         currentTab != TabItem.homePage
-                            ? Assets.ASSETS_SVG_ICON_HOME_AUTHENTICATION_SVG
-                            : Assets.ASSETS_SVG_ICON_HOME_AUTHENTICATION_FOCUS_SVG,
+                            ? Assets.ASSETS_SVG_ICON_HOME_SVG
+                            : Assets.ASSETS_SVG_ICON_HOME_FOCUS_SVG,
                       ),
                       isSelect: currentTab == TabItem.homePage,
-                      label: "Xác thưc"),
+                      label: "Trang chủ"),
                   _bottomNavigationBarItem(
                       icon: SvgPicture.asset(
                         currentTab != TabItem.listUser

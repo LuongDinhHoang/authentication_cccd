@@ -7,13 +7,11 @@ import 'package:two_id_c06verify/modules/register_kyc_ca/forgot_password/forgot_
 import '../../../../shares/shares.src.dart';
 
 class ForgotPasswordController extends BaseGetxController {
-
   final TextEditingController textPassword = TextEditingController();
 
   final TextEditingController textPasswordConfirm = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
 
   final Rx<FocusNode> passwordFocus = FocusNode().obs;
 
@@ -21,7 +19,8 @@ class ForgotPasswordController extends BaseGetxController {
 
   bool enableTextInput = true;
 
-  late ForgotPasswordRepository forgotPasswordRepository = ForgotPasswordRepository(this);
+  late ForgotPasswordRepository forgotPasswordRepository =
+      ForgotPasswordRepository(this);
 
   AppController appController = Get.find<AppController>();
 
@@ -33,15 +32,19 @@ class ForgotPasswordController extends BaseGetxController {
     super.onInit();
   }
 
-  Future<void> changePass()async {
+  Future<void> changePass() async {
     KeyBoard.hide();
+    showLoading();
     if (formKey.currentState?.validate() ?? false) {
-      forgotPasswordRepository.forgotPassRepository(textPassword.text).then((value) async {
-        showLoading();
+      forgotPasswordRepository
+          .forgotPassRepository(textPassword.text)
+          .then((value) async {
+        hideLoading();
         if (value.status) {
           LoginController login = Get.find();
           login.passwordController.text = textPassword.text;
-          login.userNameController.text = appController.qrUserInformation.documentNumber ?? "";
+          login.userNameController.text =
+              appController.qrUserInformation.documentNumber ?? "";
           await login.confirmLogin();
           appController.clearData();
           ShowDialog.showDialogNotification(

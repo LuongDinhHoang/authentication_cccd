@@ -175,8 +175,10 @@ flutter:
     - assets/svg/icon_gender.svg
     - assets/svg/icon_globe.svg
     - assets/svg/icon_hidden_eye.svg
+    - assets/svg/icon_home.svg
     - assets/svg/icon_home_authentication.svg
     - assets/svg/icon_home_authentication_focus.svg
+    - assets/svg/icon_home_focus.svg
     - assets/svg/icon_home_list_user.svg
     - assets/svg/icon_home_list_user_focus.svg
     - assets/svg/icon_home_other.svg

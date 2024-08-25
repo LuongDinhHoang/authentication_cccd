@@ -60,12 +60,14 @@ class NfcInformationUserController extends BaseGetxController {
         );
         // nationality = sendNfcRequestModel.nationVNM;
         image = sendNfcRequestModel.file;
-        await nfcRepository
-            .sendNfcRepository(sendNfcRequestModel)
-            .then((value) {
-          authenticationSuccess = value.status;
-          authenticationVisible.value = true;
-        });
+        if (appController.typeAuthentication == AppConst.typeAuthentication) {
+          await nfcRepository
+              .sendNfcRepository(sendNfcRequestModel)
+              .then((value) {
+            authenticationSuccess = value.status;
+            authenticationVisible.value = true;
+          });
+        }
       }
     }
   }
