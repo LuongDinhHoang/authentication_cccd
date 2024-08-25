@@ -36,7 +36,7 @@ class NfcDialogController extends BaseGetxController {
   @override
   Future<void> onInit() async {
     // dataOcrModel = Get.arguments;
-    if(GetPlatform.isAndroid){
+    if (GetPlatform.isAndroid) {
       await scanNFC();
     }
     super.onInit();

@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage>
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(
-                        width: 1, color: AppColors.primaryBlue1),
+                        width: 1, color: AppColors.basicGrey40),
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: SvgPicture.asset(

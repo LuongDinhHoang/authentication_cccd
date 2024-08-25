@@ -130,6 +130,7 @@ class LocaleKeys {
   static const dialog_confirm = 'dialog_confirm';
   static const dialog_redo = 'dialog_redo';
   static const dialog_handmade = 'dialog_handmade';
+  static const dialog_registerSuccess = 'dialog_registerSuccess';
   static const dialog_titleSelectHandmade = 'dialog_titleSelectHandmade';
   static const dialog_errorConnectFailedStr = 'dialog_errorConnectFailedStr';
   static const dialog_errorConnectTimeOut = 'dialog_errorConnectTimeOut';
@@ -406,6 +407,9 @@ class LocaleKeys {
   static const userInfo_userName = 'userInfo_userName';
   static const userInfo_registerDate = 'userInfo_registerDate';
   static const userInfo_status = 'userInfo_status';
+  static const forgotPass_title = 'forgotPass_title';
+  static const forgotPass_password = 'forgotPass_password';
+  static const forgotPass_passwordConfirm = 'forgotPass_passwordConfirm';
 }
 
 class Locales {
@@ -517,6 +521,7 @@ class Locales {
     'dialog_confirm': 'Đồng ý',
     'dialog_redo': 'Làm lại',
     'dialog_handmade': 'Thủ công',
+    'dialog_registerSuccess': 'Đăng ký tài khoản thành công',
     'dialog_titleSelectHandmade':
         'Thời gian chờ của phiên làm việc đã hết .Vui lòng lựa chọn làm lại hoặc thư hiện luồng thủ công',
     'dialog_errorConnectFailedStr':
@@ -756,5 +761,8 @@ class Locales {
     'userInfo_userName': 'Tên đăng nhập',
     'userInfo_registerDate': 'Ngày đăng ký',
     'userInfo_status': 'Trạng thái',
+    'forgotPass_title': 'Reset mật khẩu',
+    'forgotPass_password': 'Mật khẩu',
+    'forgotPass_passwordConfirm': 'Nhập lại mật khẩu',
   };
 }

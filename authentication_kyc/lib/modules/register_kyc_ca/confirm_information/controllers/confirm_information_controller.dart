@@ -177,7 +177,7 @@ class ConfirmInformationController extends BaseGetxController
         Get.back();
       },
       titleButton: LocaleKeys.dialog_close.tr,
-      actionTitle: LocaleKeys.dialog_notify.tr,
+      // actionTitle: LocaleKeys.dialog_notify.tr,
     );
   }
 

@@ -36,6 +36,8 @@ class BottomNavigation extends StatelessWidget {
             width: 0.5,
           ),
         ),// Màu nền của Container
+        borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(AppDimens.sizeBorderNavi)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3), // Màu bóng và độ mờ

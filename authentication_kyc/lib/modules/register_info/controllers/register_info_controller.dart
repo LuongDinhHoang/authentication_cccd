@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
+import 'package:two_id_c06verify/modules/login/login.src.dart';
 import 'package:two_id_c06verify/modules/register_info/register_info.src.dart';
 import 'package:two_id_c06verify/shares/utils/time/date_utils.dart';
 
@@ -31,9 +32,12 @@ class RegisterInfoController extends BaseGetxController {
 
   final Rx<FocusNode> passwordConfirmFocus = FocusNode().obs;
 
+  late RegisterRepository registerRepository;
+
   @override
   Future<void> onInit() async {
     userNameConfirm.text = appController.qrUserInformation.documentNumber ?? "";
+    registerRepository = RegisterRepository(this);
     super.onInit();
   }
 
@@ -70,8 +74,32 @@ class RegisterInfoController extends BaseGetxController {
             patternDefault),
         identification: appController.sendNfcRequestGlobalModel.otherPaper,
         phone: phoneNumberConfirm.text,
-        // secretKey:
+        secretKey: GetPlatform.isAndroid
+            ? androidDeviceInfo?.id
+            : iosDeviceInfo?.identifierForVendor,
       );
+      showLoading();
+      await registerRepository
+          .registerRepository(registerRequestModel)
+          .then((value) async {
+        if (value.status) {
+          LoginController login = Get.find();
+          login.passwordController.text = password.text;
+          login.userNameController.text = userNameConfirm.text;
+          await login.confirmLogin();
+          appController.clearData();
+          ShowDialog.showDialogNotification(
+            LocaleKeys.dialog_registerSuccess.tr,
+            confirm: () {
+              Get.back();
+            },
+            titleButton: LocaleKeys.dialog_close.tr,
+          );
+        } else {
+          showSnackBar(value.errors?.first.message?.vn ?? "");
+        }
+        hideLoading();
+      });
     }
   }
 }

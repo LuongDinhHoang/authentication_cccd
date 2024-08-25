@@ -112,6 +112,7 @@
     "confirm": "Đồng ý",
     "redo": "Làm lại",
     "handmade": "Thủ công",
+    "registerSuccess": "Đăng ký tài khoản thành công",
     "titleSelectHandmade": "Thời gian chờ của phiên làm việc đã hết .Vui lòng lựa chọn làm lại hoặc thư hiện luồng thủ công",
     "errorConnectFailedStr": "Không thể kết nối tới máy chủ\nQuý khách vui lòng kiểm tra lại kết nối mạng.",
     "errorConnectTimeOut": "Không có phản hồi từ hệ thống, Quý khách vui lòng thử lại sau",
@@ -355,6 +356,10 @@
     "userName": "Tên đăng nhập",
     "registerDate": "Ngày đăng ký",
     "status": "Trạng thái"
-
+  },
+  "forgotPass": {
+    "title": "Reset mật khẩu",
+    "password": "Mật khẩu",
+    "passwordConfirm": "Nhập lại mật khẩu"
   }
 }

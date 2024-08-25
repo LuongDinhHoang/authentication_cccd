@@ -112,7 +112,7 @@ class ShowDialog {
   static void showDialogNotification(
     String content, {
     required Function confirm,
-    required String actionTitle,
+    // required String actionTitle,
     bool isActiveBack = true,
     String titleButton = "",
     String title = LocaleKeys.dialog_notify,
@@ -122,7 +122,7 @@ class ShowDialog {
       Dialog(
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppDimens.padding10),
+          borderRadius: BorderRadius.circular(AppDimens.padding15),
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -132,6 +132,10 @@ class ShowDialog {
                 Assets.ASSETS_SVG_ICON_CHECKMARK_SVG,
                 width: AppDimens.iconCheckmark,
                 height: AppDimens.iconCheckmark,
+                colorFilter: const ColorFilter.mode(
+                  AppColors.primaryBlue1,
+                  BlendMode.srcIn,
+                ),
               ).paddingOnly(
                 top: AppDimens.padding16,
                 bottom: AppDimens.padding5,
