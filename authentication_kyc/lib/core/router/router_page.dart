@@ -5,6 +5,7 @@ import 'package:two_id_c06verify/modules/register_info/register_info.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/await_ocr_data/await_ocr_data.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/change_password/change_password.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/confirm_information/views/confirm_information_page.dart';
+import 'package:two_id_c06verify/modules/register_kyc_ca/forgot_password/forgot_password.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_information_user/views/nfc_information_user_page.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/live_ness/live_ness_kyc.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/nfc_kyc/nfc_kyc.src.dart';
@@ -160,6 +161,11 @@ class RouteAppPage {
     GetPage(
       name: AppRoutes.routeRegisterInfo,
       page: () => const RegisterInfoPage(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.routeForgotPass,
+      page: () => const ForgotPasswordPage(),
       transition: Transition.rightToLeft,
     ),
   ];

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:two_id_c06verify/assets.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
-import 'package:two_id_c06verify/core/theme/colors.dart';
-import 'package:two_id_c06verify/core/values/dimens.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
 import 'package:two_id_c06verify/shares/widgets/text/font_style.dart';
 
@@ -28,6 +26,7 @@ class BaseFormLogin {
     Function()? functionLoginBiometric,
     Function()? functionLoginOther,
     Function()? functionRegister,
+    Function()? functionForgotPassword,
     final IconData? iconLeading,
     final Color? prefixIconColor,
     final String? displayName,
@@ -131,6 +130,7 @@ class BaseFormLogin {
           _buildOptional(
             isForgotPassword,
             functionRegister: functionRegister,
+            functionForgotPassword: functionForgotPassword,
           ),
           Row(
             children: [
@@ -238,8 +238,11 @@ class BaseFormLogin {
     ).paddingOnly(bottom: AppDimens.padding5);
   }
 
-  static Widget _buildOptional(bool isForgotPassword,
-      {Function()? functionRegister}) {
+  static Widget _buildOptional(
+    bool isForgotPassword, {
+    Function()? functionRegister,
+    Function()? functionForgotPassword,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -269,7 +272,7 @@ class BaseFormLogin {
         ),
         sdsSB5,
         TextButton(
-          onPressed: () {},
+          onPressed: functionForgotPassword,
           child: TextUtils(
             text: LocaleKeys.login_forgetPassword.tr,
             availableStyle: StyleEnum.bodyRegular,

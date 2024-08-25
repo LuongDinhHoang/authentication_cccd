@@ -28,5 +28,6 @@ class AppRoutes {
   static const String routeUserInfo = "/user_info";
   static const String routeProvision = "/provision";
   static const String routeRegisterInfo = "/register_info";
+  static const String routeForgotPass = "/forgot_pass";
 
 }

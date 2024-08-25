@@ -28,32 +28,33 @@ class NfcInformationUserPage extends BaseGetWidget {
         leading: true,
         backgroundColor: AppColors.colorTransparent,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              Assets.ASSETS_JPG_IMAGE_BANNER_PNG,
+      body: buildLoadingOverlay(
+            () => Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                Assets.ASSETS_JPG_IMAGE_BANNER_PNG,
+              ),
+              fit: BoxFit.cover,
             ),
-            fit: BoxFit.cover,
+          ),
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.white.withOpacity(0.9),
+              ),
+              _buildListGuild(controller)
+                  .paddingSymmetric(horizontal: AppDimens.paddingDefaultHeight),
+
+            ],
           ),
         ),
-        child: Stack(
-          children: [
-            Container(
-              color: Colors.white.withOpacity(0.9),
-            ),
-            _buildListGuild(controller)
-                .paddingSymmetric(horizontal: AppDimens.paddingDefaultHeight),
-
-          ],
-        ),
       ),
-
       bottomNavigationBar: Obx(
         () => ButtonUtils.buildButton(
           LocaleKeys.registerCa_continue.tr,
           () async {
-            await controller.sendNfcData();
+            await controller.goPage();
           },
           isLoading: controller.isShowLoading.value,
           backgroundColor: AppColors.primaryBlue1,

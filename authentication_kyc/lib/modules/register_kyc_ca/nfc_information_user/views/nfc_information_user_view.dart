@@ -4,18 +4,56 @@ Widget _buildListGuild(NfcInformationUserController controller) {
   return SingleChildScrollView(
     child: Column(
       children: [
-        Row(
-          children: [
-            SvgPicture.asset(
-              Assets.ASSETS_SVG_ICON_DONE_SVG,
-            ),
-            sdsSBWidth10,
-            const TextUtils(
-              text: "Dữ liệu xác thực với bộ công an hợp lệ !",
-              availableStyle: StyleEnum.bodyBold,
-              maxLine: 3,
-            ),
-          ],
+        Visibility(
+          visible: controller.authenticationVisible.value,
+          child: Row(
+            children: [
+              SvgPicture.asset(
+                controller.authenticationSuccess
+                    ? Assets.ASSETS_SVG_ICON_DONE_SVG
+                    : Assets.ASSETS_SVG_ICON_CANCEL_AUTHENTICATION_SVG,
+              ),
+              sdsSBWidth10,
+              Expanded(
+                child: RichText(
+                  textAlign: TextAlign.start,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: LocaleKeys.nfc_nfcAuthentication1.tr,
+                        style: const TextStyle(
+                          height: 1.3,
+                          color: AppColors.basicBlack,
+                          fontSize: AppDimens.sizeTextSmall,
+                        ),
+                      ),
+                      TextSpan(
+                        text: controller.authenticationSuccess
+                            ? LocaleKeys.nfc_nfcAuthenticationSuccess.tr
+                            : LocaleKeys.nfc_nfcAuthenticationErorr.tr,
+                        style: TextStyle(
+                          height: 1.3,
+                          color: controller.authenticationSuccess
+                              ? AppColors.statusGreen
+                              : AppColors.statusRed,
+                          fontWeight: FontWeight.bold,
+                          fontSize: AppDimens.sizeTextSmall,
+                        ),
+                      ),
+                      TextSpan(
+                        text: LocaleKeys.nfc_nfcAuthentication2.tr,
+                        style: const TextStyle(
+                          height: 1.3,
+                          color: AppColors.basicBlack,
+                          fontSize: AppDimens.sizeTextSmall,
+                        ),
+                      ),
+                    ],
+                  ),
+                ).paddingSymmetric(horizontal: AppDimens.padding15),
+              ),
+            ],
+          ).paddingSymmetric(horizontal: AppDimens.padding12),
         ),
         Image.memory(
           base64Decode(controller.image ?? ""),

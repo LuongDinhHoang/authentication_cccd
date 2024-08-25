@@ -80,6 +80,10 @@ class Assets {
   /// {@macro assets_generator.ASSETS_SVG_ICON_CANCEL_SVG.preview}
   static const String ASSETS_SVG_ICON_CANCEL_SVG = 'assets/svg/icon_cancel.svg';
 
+  /// {@macro assets_generator.ASSETS_SVG_ICON_CANCEL_AUTHENTICATION_SVG.preview}
+  static const String ASSETS_SVG_ICON_CANCEL_AUTHENTICATION_SVG =
+      'assets/svg/icon_cancel_authentication.svg';
+
   /// {@macro assets_generator.ASSETS_SVG_ICON_CANLENDAR_CARD_SVG.preview}
   static const String ASSETS_SVG_ICON_CANLENDAR_CARD_SVG =
       'assets/svg/icon_canlendar_card.svg';

@@ -6,12 +6,14 @@ class AppApi {
   static const String loginApp = "/v1/auth/customer/login";
   static const String sendLiveNessData = "/live-ness-data/sendLiveNessData";
   static const String getAuthProfile = "/certificate-orders/list-auth-request";
-  static const String sendNfcData = "/nfc-data/sendNFCData";
+  static const String sendNfcData = "/v1/c06-verify/read-card";
   static const String getDataORC = "/ocr-data/get-ocr";
   static const String sendFileOCR = "/files/send-file";
   static const String getUserInfo= "/v1/customers/me";
   static const String getPackagesDefault= "/customer-config/packages/default";
   static const String getRegister = "/v1/auth/customer/register";
+  static const String getProvision = "/v1/policy";
+  static const String forgotPassWord = "/v1/auth/customer/reset-pass";
 
   static const String acceptTerms = "/certificate-orders/sendPolicyAgreement";
   static const String registerAccount = "/account/register";

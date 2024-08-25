@@ -8,7 +8,7 @@ class BackgroundAppBar {
     String title, {
     Color? textColor,
     Color? actionsIconColor,
-    Color? backButtonColor,
+    Color backButtonColor = AppColors.colorBlack,
     Color? backgroundColor,
     bool centerTitle = false,
     StyleEnum? availableStyle,
@@ -86,7 +86,7 @@ class BackgroundAppBar {
       // )
       //     : null,
       actions: actions,
-      backgroundColor: AppColors.colorTransparent,
+      backgroundColor: backgroundColor,
       // isColorGradient ? null : backgroundColor ?? AppColors.colorWhite,
       titleSpacing: titleWidget == null ? null : 0,
     );

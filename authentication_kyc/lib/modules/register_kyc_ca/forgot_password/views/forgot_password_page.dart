@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:two_id_c06verify/assets.dart';
 import 'package:two_id_c06verify/base_app/base_app.src.dart';
 import 'package:two_id_c06verify/core/core.src.dart';
 import 'package:two_id_c06verify/generated/locales.g.dart';
-import 'package:two_id_c06verify/modules/register_kyc_ca/change_password/change_password.src.dart';
 import 'package:two_id_c06verify/modules/register_kyc_ca/forgot_password/forgot_password.src.dart';
 import 'package:two_id_c06verify/shares/widgets/form/base_form_login.dart';
 

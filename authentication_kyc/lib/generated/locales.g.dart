@@ -209,6 +209,11 @@ class LocaleKeys {
   static const nfc_introduceScanNfc8 = 'nfc_introduceScanNfc8';
   static const nfc_nfc_expired_message = 'nfc_nfc_expired_message';
   static const nfc_introduceScanNfcError = 'nfc_introduceScanNfcError';
+  static const nfc_nfcSuccess = 'nfc_nfcSuccess';
+  static const nfc_nfcAuthenticationSuccess = 'nfc_nfcAuthenticationSuccess';
+  static const nfc_nfcAuthenticationErorr = 'nfc_nfcAuthenticationErorr';
+  static const nfc_nfcAuthentication1 = 'nfc_nfcAuthentication1';
+  static const nfc_nfcAuthentication2 = 'nfc_nfcAuthentication2';
   static const live_ness_instructTitle = 'live_ness_instructTitle';
   static const live_ness_Step1 = 'live_ness_Step1';
   static const live_ness_Step2 = 'live_ness_Step2';
@@ -594,6 +599,12 @@ class Locales {
     'nfc_nfc_expired_message':
         'CCCD của quý khách đã hết hạn vui lòng sử dụng CCCD còn hạn sử dụng',
     'nfc_introduceScanNfcError': 'Lỗi quét NFC. Quý khách vui lòng thử lại',
+    'nfc_nfcSuccess': 'Hoàn thành',
+    'nfc_nfcAuthenticationSuccess': 'hợp lệ',
+    'nfc_nfcAuthenticationErorr': 'không hợp lệ',
+    'nfc_nfcAuthentication1': 'Xác thực ',
+    'nfc_nfcAuthentication2':
+        ' lệ bởi Cục Cảnh Sát quản lý hành chính về trật tự xã hội',
     'live_ness_instructTitle': 'Hướng dẫn sử dụng tính năng Liveness',
     'live_ness_Step1': 'Bấm vào nút BẮT ĐẦU để tiến hành quét',
     'live_ness_Step2':

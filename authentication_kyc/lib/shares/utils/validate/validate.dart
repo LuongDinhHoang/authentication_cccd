@@ -83,17 +83,17 @@ bool isIpAddress(String? value) {
   return true;
 }
 
-String? validatePass(String? text) {
+String? validatePass(String? text, {String? textValidate}) {
   if (text == null || text.isEmpty) {
-    return LocaleKeys.login_passwordEmpty.tr;
+    return textValidate ?? LocaleKeys.login_passwordEmpty.tr;
   }
   // if (text.length < 6) return AppStr.errorRegisterReInputPassword.tr;
   return null;
 }
 
-String? validateRepass(String? text, String pass) {
+String? validateRepass(String? text, String pass, {String? textValidate}) {
   if (text == null || text.isEmpty) {
-    return LocaleKeys.login_passwordEmpty.tr;
+    return textValidate ?? LocaleKeys.login_passwordEmpty.tr;
   } else if (text != pass) {
     return LocaleKeys.ChangePassword_passwordDifferent.tr;
   }

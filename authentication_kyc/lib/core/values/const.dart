@@ -52,6 +52,7 @@ class AppConst {
 
   ///type authentication
   static const String typeRegister = "Register";
+  static const String typeForgotPass = "ForgotPas";
   static const String typeAuthentication = "Authentication";
 
 

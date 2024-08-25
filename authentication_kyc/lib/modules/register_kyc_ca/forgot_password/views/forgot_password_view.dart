@@ -9,6 +9,13 @@ Widget _itemBody(ForgotPasswordController controller) {
             key: controller.formKey,
             child: Column(
               children: [
+                Image.asset(
+                  Assets.ASSETS_JPG_ICON_BANNER_LOGIN_PNG,
+                  fit: BoxFit.fill,
+                  width: Get.width - 50,
+                  height: Get.height / 3.5,
+                  // color: AppColors.primaryCam1,
+                ).paddingSymmetric(vertical: AppDimens.padding30),
                 BaseFormLogin.buildInputData(
                   title: LocaleKeys.forgotPass_password.tr,
                   textEditingController: controller.textPassword,
@@ -30,16 +37,17 @@ Widget _itemBody(ForgotPasswordController controller) {
                   hintText: LocaleKeys.forgotPass_passwordConfirm.tr,
                   currentNode: controller.passwordConfirmFocus,
                   isLoading: false,
-                  onValidator: (text) =>
-                      validateRepass(text, controller.textPassword.text),
+                  onValidator: (text) => validateRepass(
+                      text, controller.textPassword.text,
+                      textValidate: "Nhập lại mật khẩu không được để trống"),
                   // inputFormatters: InputFormatterEnum.email,
                   // textInputType: TextInputType.emailAddress,
                   iconNextTextInputAction: TextInputAction.done,
                   // isEnable: controller.enableTextInput,
                   isPassword: true,
                   isValidate: true,
-                  onEditingComplete: () {
-                    KeyBoard.hide();
+                  onEditingComplete: () async {
+                    await controller.changePass();
                   },
                   errorValidator: '',
                   fillColor: AppColors.basicWhite.obs,

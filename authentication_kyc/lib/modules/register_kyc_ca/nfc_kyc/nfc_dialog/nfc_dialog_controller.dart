@@ -223,6 +223,13 @@ class NfcDialogController extends BaseGetxController {
         mrtdDataTemp.dg15 = await passport.readEfDG15();
         mrtdDataTemp.aaSig = await passport.activeAuthenticate(Uint8List(8));
       }
+      sendNfcRequestModel.sodData = mrtdDataTemp.sod?.toBytes().base64();
+      sendNfcRequestModel.dg1DataB64 = mrtdDataTemp.dg1?.toBytes().base64();
+      sendNfcRequestModel.dg2DataB64 = mrtdDataTemp.dg2?.toBytes().base64();
+      sendNfcRequestModel.dg13DataB64 = mrtdDataTemp.dg13?.toBytes().base64();
+      sendNfcRequestModel.dg14DataB64 = mrtdDataTemp.dg14?.toBytes().base64();
+      sendNfcRequestModel.fileId = "";
+
 
       formatProgressMsg(LocaleKeys.nfc_introduceScanNfc7.tr, 60);
       processQuantity.value = 6;

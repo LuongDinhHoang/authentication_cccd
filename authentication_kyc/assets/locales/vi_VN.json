@@ -181,7 +181,13 @@
     "introduceScanNfc7": "Đang thực hiện AA ...",
     "introduceScanNfc8": "Đang đọc EF.SOD ...",
     "nfc_expired_message": "CCCD của quý khách đã hết hạn vui lòng sử dụng CCCD còn hạn sử dụng",
-    "introduceScanNfcError": "Lỗi quét NFC. Quý khách vui lòng thử lại"
+    "introduceScanNfcError": "Lỗi quét NFC. Quý khách vui lòng thử lại",
+    "nfcSuccess": "Hoàn thành",
+    "nfcAuthenticationSuccess": "hợp lệ",
+    "nfcAuthenticationErorr": "không hợp lệ",
+    "nfcAuthentication1": "Xác thực ",
+    "nfcAuthentication2": " lệ bởi Cục Cảnh Sát quản lý hành chính về trật tự xã hội"
+
   },
   "live_ness": {
     "instructTitle": "Hướng dẫn sử dụng tính năng Liveness",

@@ -1,4 +1,3 @@
-
 class SendNfcRequestModel {
   SendNfcRequestModel({
     this.sessionId,
@@ -33,6 +32,14 @@ class SendNfcRequestModel {
   String? aaSignature;
   String? aaPublicKey;
   String? keyAlg;
+
+  ///base64
+  String? sodData;
+  String? dg1DataB64;
+  String? dg2DataB64;
+  String? dg13DataB64;
+  String? dg14DataB64;
+  String? fileId;
 
   ///data dg13VNM
   String? numberVMN;
@@ -71,6 +78,15 @@ class SendNfcRequestModel {
     );
   }
 
+  Map<String, dynamic> toJsonBase64() => {
+    "sodData": sodData,
+    "dg1DataB64": dg1DataB64,
+    "dg2DataB64": dg2DataB64,
+    "dg13DataB64": dg13DataB64,
+    "dg14DataB64": dg14DataB64,
+    "fileId": fileId,
+  };
+
   Map<String, dynamic> toJson() => {
         "sessionId": sessionId,
         "type": type,
@@ -96,7 +112,5 @@ class SendNfcRequestModel {
         "identity": otherPaper,
         "raw": raw,
         "couple": nameCouple,
-
-
-  };
+      };
 }

@@ -106,6 +106,13 @@ Widget _body(LoginController controller) {
                       controller.appController.clearData();
                     });
                   },
+                  functionForgotPassword: () {
+                    controller.appController.typeAuthentication =
+                        AppConst.typeForgotPass;
+                    Get.toNamed(AppRoutes.routeProvision)?.then((value) {
+                      controller.appController.clearData();
+                    });
+                  },
                   isFaceID:
                       controller.biometricTypes.contains(BiometricType.face),
                 ),

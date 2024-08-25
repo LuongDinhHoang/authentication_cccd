@@ -283,7 +283,7 @@ class LiveNessKycController extends BaseGetxController {
     if (Get.isRegistered<NfcInformationUserController>()) {
       NfcInformationUserController controller =
           Get.find<NfcInformationUserController>();
-      controller.sendLiveNessData(inspectReportModel);
+      // controller.sendLiveNessData(inspectReportModel);
     }
   }
 

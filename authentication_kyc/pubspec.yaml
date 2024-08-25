@@ -90,6 +90,7 @@ dependencies:
   youtube_player_flutter: 8.1.2
   local_auth: ^2.2.0
   image_picker: ^1.0.5
+  flutter_widget_from_html: ^0.15.2
 
 #  gallery_saver: ^2.1.1
 dev_dependencies:
@@ -146,6 +147,7 @@ flutter:
     - assets/svg/icon_border_top_left.svg
     - assets/svg/icon_border_top_left_cap.svg
     - assets/svg/icon_cancel.svg
+    - assets/svg/icon_cancel_authentication.svg
     - assets/svg/icon_canlendar_card.svg
     - assets/svg/icon_card_cccd.svg
     - assets/svg/icon_card_info.svg
